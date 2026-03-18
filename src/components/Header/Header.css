@@ -1,0 +1,109 @@
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.9);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(0, 255, 255, 0.2);
+    z-index: 1000;
+}
+
+.header-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.brand {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--neon-cyan);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px var(--neon-cyan);
+    transition: all 0.3s ease;
+}
+
+.brand:hover {
+    text-shadow: 0 0 20px var(--neon-cyan), 0 0 40px var(--neon-cyan);
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+}
+
+.nav a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--neon-cyan);
+    transition: width 0.3s ease;
+}
+
+.nav a:hover {
+    color: var(--neon-cyan);
+}
+
+.nav a:hover::after {
+    width: 100%;
+}
+
+.nav-cta {
+    background: rgba(0, 255, 255, 0.1);
+    border: 1px solid var(--neon-cyan);
+    color: var(--neon-cyan) !important;
+    padding: 10px 24px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.nav-cta:hover {
+    background: var(--neon-cyan);
+    color: var(--bg-primary) !important;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+}
+
+.nav-cta::after {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .header-container {
+        padding: 15px 20px;
+    }
+
+    .nav {
+        gap: 20px;
+    }
+
+    .nav a:not(.nav-cta) {
+        display: none;
+    }
+
+    .nav-cta {
+        padding: 8px 20px;
+        font-size: 0.85rem;
+    }
+}
