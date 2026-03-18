@@ -114,8 +114,6 @@ function Home() {
     setMousePos({ x: e.clientX, y: e.clientY })
   }
 
-  const isGoogleScriptConfigured = false
-
   const terminalText = "> Initializing connection protocol...> Establishing secure channel...> Ready to receive transmission."
   
   useEffect(() => {
