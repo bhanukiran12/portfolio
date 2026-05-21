@@ -1,0 +1,125 @@
+.contact-channels {
+  margin-bottom: 28px;
+}
+
+.contact-channels-lead {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.65;
+  margin-bottom: 18px;
+}
+
+.contact-channels-lead strong {
+  color: var(--neon-cyan);
+  font-weight: 600;
+}
+
+.contact-channels-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.contact-channel-btn {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 18px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(0, 255, 255, 0.2);
+  border-radius: var(--radius-md);
+  transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+}
+
+.contact-channel-btn:hover {
+  border-color: var(--neon-cyan);
+  background: rgba(0, 255, 255, 0.06);
+  transform: translateY(-2px);
+  color: inherit;
+}
+
+.contact-channel-btn--primary {
+  border-color: rgba(0, 255, 255, 0.45);
+  background: rgba(0, 255, 255, 0.08);
+}
+
+.contact-channel-btn--primary:hover {
+  background: rgba(0, 255, 255, 0.14);
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.15);
+}
+
+.contact-channel-icon {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.channel-logo {
+  width: 40px;
+  height: 40px;
+  display: block;
+  flex-shrink: 0;
+}
+
+.contact-channels--compact .channel-logo {
+  width: 32px;
+  height: 32px;
+}
+
+.contact-channel-btn:hover .channel-logo {
+  filter: brightness(1.1);
+}
+
+.contact-channel-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.contact-channel-label {
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.contact-channel-desc {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.contact-channels--compact .contact-channels-grid {
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.contact-channels--compact .contact-channel-btn {
+  flex-direction: column;
+  text-align: center;
+  padding: 12px 8px;
+  gap: 8px;
+}
+
+.contact-channels--compact .contact-channel-desc {
+  display: none;
+}
+
+.contact-channels--compact .contact-channel-label {
+  font-size: 0.72rem;
+}
+
+@media (max-width: 768px) {
+  .contact-channels-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-channels--compact .contact-channels-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

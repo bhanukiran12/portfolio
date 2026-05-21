@@ -8,13 +8,18 @@
 :root {
   --bg-primary: #000000;
   --bg-secondary: #0a0a0f;
-  --bg-card: rgba(20, 20, 30, 0.8);
-  --neon-cyan: #00FFFF;
-  --neon-violet: #8A2BE2;
+  --bg-card: rgba(20, 20, 30, 0.85);
+  --neon-cyan: #00ffff;
+  --neon-violet: #8a2be2;
   --neon-pink: #ff00ff;
   --text-primary: #ffffff;
-  --text-secondary: #a0a0a0;
+  --text-secondary: #b8b8c8;
+  --text-muted: #7a7a8c;
   --border-glow: rgba(0, 255, 255, 0.3);
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --space-section: 100px;
+  --focus-ring: 0 0 0 3px rgba(0, 255, 255, 0.45);
 }
 
 html {
@@ -56,4 +61,45 @@ a {
 ::selection {
   background: var(--neon-cyan);
   color: var(--bg-primary);
+}
+
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 16px;
+  z-index: 10000;
+  padding: 12px 20px;
+  background: var(--neon-cyan);
+  color: var(--bg-primary);
+  font-weight: 700;
+  border-radius: var(--radius-sm);
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+  top: 16px;
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

@@ -1,6 +1,13 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, type FormEvent } from 'react'
 import Header from "../Header/Header"
-import { useForm } from '@formspree/react'
+import { submitForm } from '../../utils/formHandler'
+import { contactConfig } from '../../config/contact'
+import ContactChannels from '../ContactChannels/ContactChannels'
+import conversionPlatformDemo from '../../assets/projects/conversion-platform-demo.webm'
+import parentMessageDemo from '../../assets/projects/parent-message-demo.webm'
+import holiRunDemo from '../../assets/projects/holi-run-demo.webm'
+import schedoraDemo from '../../assets/projects/schedora-demo.webm'
+import vyraDemo from '../../assets/projects/vyra-demo.webm'
 import './Home.css'
 
 interface Particle {
@@ -149,44 +156,70 @@ function Home() {
       title: "Conversion Platform",
       description: "Developed a lead-generation web platform aligned with business requirements to support user acquisition and sales workflows. Built dynamic, high-conversion forms to capture user data and streamline lead collection.",
       tech: ["React.js", "TypeScript", "JavaScript", "HTML5", "CSS3"],
-      link: "https://ccbp.in/intensive"
-    },
-    {
-      title: "Mentor Performance Dashboard",
-      description: "Developed a real-time analytics dashboard to track mentor performance, engagement, and key metrics. Designed reusable and scalable UI components for efficient data visualization.",
-      tech: ["React.js", "Redux", "REST APIs", "MongoDB"],
-      link: "#"
+      link: "https://ccbp.in/intensive",
+      demoVideo: conversionPlatformDemo,
     },
     {
       title: "AI-Powered Communication System",
-      description: "Built a system to generate personalized parent messages based on selected user events and inputs. Integrated Gemini LLM to enhance and refine generated messages for improved clarity and personalization.",
-      tech: ["Node.js", "Express.js", "Gemini LLM", "REST APIs"],
-      link: "#"
+      description: "WhatsApp Message Generator that creates personalized parent messages from category and subcategory templates. Supports university, coach, and student name personalization with templates loaded via Google Sheets API.",
+      tech: ["React.js", "JavaScript", "REST APIs", "Google Sheets API"],
+      link: "https://parent-message.vercel.app/",
+      demoVideo: parentMessageDemo,
     },
     {
-      title: "Phishing URL Detection",
-      description: "Advanced ML-based system to identify and prevent malicious phishing URLs, enhancing cybersecurity.",
-      tech: ["Python", "Machine Learning", "Scikit-learn"],
-      link: "#"
+      title: "Holi Run Game",
+      description: "Interactive browser game built for Holi-themed gameplay with responsive controls and engaging level design.",
+      tech: ["JavaScript", "HTML5", "CSS3"],
+      link: "https://nxtholi-run.netlify.app/",
+      demoVideo: holiRunDemo,
     },
     {
-      title: "Women Safety System",
-      description: "Portable Arduino-based safety system sending emergency messages with GPS coordinates.",
-      tech: ["Arduino", "GPS", "IoT"],
-      link: "#"
+      title: "Schedora",
+      description: "Task and scheduling application for planning, organizing, and tracking daily work with a clean, user-friendly interface.",
+      tech: ["React.js", "Node.js", "REST APIs"],
+      link: "https://sechdora-2f2g.onrender.com",
+      demoVideo: schedoraDemo,
     },
     {
-      title: "Jobby App",
-      description: "Advanced job search platform with filtering, authentication, and JWT token security.",
-      tech: ["React.js", "JWT", "REST APIs"],
-      link: "#"
+      title: "Vyra",
+      description: "Goat and tiger strategy game with real-time gameplay, character movement, and competitive mechanics in the browser.",
+      tech: ["JavaScript", "HTML5", "CSS3"],
+      link: "https://vyra-ues5.onrender.com",
+      demoVideo: vyraDemo,
+    },
+  ]
+
+  const services = [
+    {
+      title: 'Custom Websites',
+      description:
+        'Fast, responsive marketing sites and landing pages built with React — optimized for conversions, SEO, and global audiences.',
+      tags: ['React', 'SEO', 'Responsive UI'],
     },
     {
-      title: "Library Management",
-      description: "Complete system with student authentication for issuing/returning books.",
-      tech: ["PHP", "SQL", "Database"],
-      link: "#"
-    }
+      title: 'Full Stack Applications',
+      description:
+        'End-to-end MERN products with secure APIs, databases, and scalable architecture for startups and growing teams.',
+      tags: ['Node.js', 'MongoDB', 'REST APIs'],
+    },
+    {
+      title: 'AI-Powered Products',
+      description:
+        'Intelligent tools like message generators, automation workflows, and LLM-integrated features that solve real business problems.',
+      tags: ['AI Integration', 'Gemini', 'Automation'],
+    },
+    {
+      title: 'UI/UX Implementation',
+      description:
+        'Pixel-perfect interfaces from your designs — clean layouts, accessible components, and polished user flows that feel premium.',
+      tags: ['Figma to Code', 'WCAG', 'Design Systems'],
+    },
+    {
+      title: 'Freelance & Contract',
+      description:
+        'Remote collaboration with clients in India, USA, UK, Europe, and worldwide. Clear updates, async-friendly, delivery-focused.',
+      tags: ['IST preferred', 'Your timezone', 'Bank / UPI / Wise'],
+    },
   ]
 
   const experience = [
@@ -214,12 +247,16 @@ function Home() {
   ]
 
   return (
-    <div>
+    <>
+      <a href="#main-content" className="skip-link">
+        Skip to main content
+      </a>
       <Header />
-      
-      <canvas ref={canvasRef} className="particle-canvas" onMouseMove={handleMouseMove} />
 
-      <section id="hero" className="hero-section">
+      <canvas ref={canvasRef} className="particle-canvas" onMouseMove={handleMouseMove} aria-hidden="true" />
+
+      <main id="main-content">
+      <section id="hero" className="hero-section" aria-labelledby="hero-heading">
         <div className="hud-overlay">
           <div className="hud-corner hud-top-left"></div>
           <div className="hud-corner hud-top-right"></div>
@@ -230,21 +267,33 @@ function Home() {
         
         <div className="hero-content">
           <div className="hero-text">
+            <p className="hero-availability">
+              <span className="availability-dot" aria-hidden="true" />
+              Available for freelance — India &amp; worldwide
+            </p>
             <div className="glitch-wrapper">
-              <h1 className="glitch" data-text="BHANU KIRAN">BHANU KIRAN</h1>
+              <h1 id="hero-heading" className="glitch" data-text="BHANU KIRAN">BHANU KIRAN</h1>
             </div>
+            <p className="hero-role">Full Stack &amp; AI Developer for Hire</p>
             <h2 className="hero-subtitle">VEMULA</h2>
             <div className="hero-title">
-              <span className="neon-text">Team Lead Manager</span>
+              <span className="neon-text">Websites</span>
               <span className="divider">|</span>
-              <span className="neon-text-violet">Full Stack Developer</span>
+              <span className="neon-text-violet">AI Products</span>
               <span className="divider">|</span>
-              <span className="neon-text">React Specialist</span>
+              <span className="neon-text">MERN Stack</span>
             </div>
             <p className="hero-bio">
-              Driven tech professional with hands-on leadership experience, passionate about 
-              mentoring, collaborative problem-solving, and building robust web technologies.
+              I help international clients and Indian businesses ship production-ready web apps —
+              from landing pages and dashboards to AI-powered tools. Remote-friendly, clear
+              communication, and design-aware engineering you can trust.
             </p>
+            <div className="hero-trust">
+              <span>IST preferred</span>
+              <span>Client time zones</span>
+              <span>English</span>
+              <span>Bank / UPI / Wise</span>
+            </div>
             <div className="hero-stats">
               <div className="stat">
                 <span className="stat-value">2+</span>
@@ -252,29 +301,42 @@ function Home() {
               </div>
               <div className="stat">
                 <span className="stat-value">20+</span>
-                <span className="stat-label">Projects</span>
+                <span className="stat-label">Projects Delivered</span>
               </div>
               <div className="stat">
                 <span className="stat-value">100+</span>
-                <span className="stat-label">Mentored</span>
+                <span className="stat-label">Developers Mentored</span>
               </div>
             </div>
             <div className="hero-cta">
-              <a href="#projects" className="btn-cyber btn-primary-cyber">
-                <span className="btn-text">View Projects</span>
+              <a
+                href={contactConfig.calendlyUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-cyber btn-primary-cyber"
+              >
+                <span className="btn-text">Book a Call</span>
               </a>
               <a href="#contact" className="btn-cyber btn-secondary-cyber">
-                <span className="btn-text">Contact Me</span>
+                <span className="btn-text">Start a Project</span>
+              </a>
+              <a href="#projects" className="btn-cyber btn-secondary-cyber">
+                <span className="btn-text">View My Work</span>
               </a>
             </div>
+            <ContactChannels compact />
           </div>
           <div className="hero-image">
             <div className="profile-frame">
               <div className="profile-glow"></div>
               <img 
                 src="https://res.cloudinary.com/df7wnybwg/image/upload/v1770293271/mypics/12e_2026-02-05_at_5.16.19_PM_tr6pvu.jpg" 
-                alt="Bhanu Kiran Vemula"
+                alt="Bhanu Kiran Vemula — freelance full stack and AI developer"
                 className="profile-photo-cyber"
+                width={400}
+                height={400}
+                loading="eager"
+                fetchPriority="high"
               />
               <div className="scan-line"></div>
             </div>
@@ -287,10 +349,15 @@ function Home() {
         </div>
       </section>
 
-      <section id="about" className="section about-section">
+      <section id="about" className="section about-section" aria-labelledby="about-heading">
         <div className="section-header">
           <span className="section-number">01</span>
-          <h2 className="section-title">About Me</h2>
+          <div>
+            <h2 id="about-heading" className="section-title">About Me</h2>
+            <p className="section-subtitle">
+              Full stack developer partnering with teams in India and abroad
+            </p>
+          </div>
         </div>
         
         <div className="about-grid">
@@ -302,26 +369,26 @@ function Home() {
               <div className="frame-corner frame-bottom-right"></div>
               
               <p className="about-text">
-                Currently leading a team at <span className="highlight-cyan">NxtWave</span>, I thrive on delivering 
-                results while supporting others to excel in dynamic, fast-paced environments. My journey has taken me 
-                from intensive academic mentoring to delivering as a <span className="highlight-violet">Team Lead Manager</span> 
-                at NxtWave, where I oversee and guide high-impact teams in Hyderabad.
+                I&apos;m <span className="highlight-cyan">Bhanu Kiran Vemula</span> — Team Lead Manager at{' '}
+                <span className="highlight-cyan">NxtWave</span> and a freelance developer for clients who need
+                reliable websites, full stack apps, and AI features. I work with startups, agencies, and founders
+                across time zones with a product-minded approach: understand the goal, ship clean code, iterate fast.
               </p>
               <p className="about-text">
-                With a strong academic background in <span className="highlight-cyan">Computer Science (BTech, VIT)</span>, 
-                complemented by real-world experience as both a mentor and a MERN stack trainee, I blend technical 
-                acumen with a talent for coaching others.
+                <span className="highlight-violet">BTech Computer Science (VIT)</span> plus hands-on MERN and React
+                delivery. I&apos;ve built games, scheduling tools, AI message systems, and conversion platforms — see
+                live demos in my portfolio below.
               </p>
               <p className="about-text">
-                Whether collaborating across functions or mentoring aspiring developers, my focus is always on 
-                cultivating growth, fostering innovation, and achieving excellence.
+                Whether you need a one-page site, a long-term contract, or an AI integration, I focus on clarity,
+                performance, and UX that converts visitors into customers.
               </p>
               
               <div className="about-badges">
-                <span className="badge">Proactive</span>
-                <span className="badge">Goal-Oriented</span>
-                <span className="badge">Problem Solver</span>
-                <span className="badge">Adaptable</span>
+                <span className="badge">Remote-First</span>
+                <span className="badge">Client-Focused</span>
+                <span className="badge">AI &amp; Web</span>
+                <span className="badge">On-Time Delivery</span>
               </div>
             </div>
           </div>
@@ -349,10 +416,47 @@ function Home() {
         </div>
       </section>
 
-      <section id="experience" className="section experience-section">
+      <section id="services" className="section services-section" aria-labelledby="services-heading">
         <div className="section-header">
           <span className="section-number">02</span>
-          <h2 className="section-title">Experience</h2>
+          <div>
+            <h2 id="services-heading" className="section-title">Freelance Services</h2>
+            <p className="section-subtitle">
+              Websites, AI apps, and full stack development for global clients
+            </p>
+          </div>
+        </div>
+
+        <div className="services-grid">
+          {services.map((service, index) => (
+            <article key={index} className="service-card">
+              <span className="service-index">0{index + 1}</span>
+              <h3 className="service-title">{service.title}</h3>
+              <p className="service-description">{service.description}</p>
+              <div className="service-tags">
+                {service.tags.map((tag) => (
+                  <span key={tag} className="service-tag">{tag}</span>
+                ))}
+              </div>
+            </article>
+          ))}
+        </div>
+
+        <div className="services-cta-bar">
+          <p>Have a project in mind? Let&apos;s discuss scope, timeline, and budget.</p>
+          <a href="#contact" className="btn-cyber btn-primary-cyber">
+            <span className="btn-text">Get a Free Consultation</span>
+          </a>
+        </div>
+      </section>
+
+      <section id="experience" className="section experience-section" aria-labelledby="experience-heading">
+        <div className="section-header">
+          <span className="section-number">03</span>
+          <div>
+            <h2 id="experience-heading" className="section-title">Experience</h2>
+            <p className="section-subtitle">Leadership and engineering at scale</p>
+          </div>
         </div>
         
         <div className="timeline-cyber">
@@ -375,10 +479,104 @@ function Home() {
         </div>
       </section>
 
-      <section id="projects" className="section projects-section">
+      <section id="journey" className="section journey-section" aria-labelledby="journey-heading">
         <div className="section-header">
-          <span className="section-number">03</span>
-          <h2 className="section-title">Projects</h2>
+          <span className="section-number">04</span>
+          <div>
+            <h2 id="journey-heading" className="section-title">A Journey Worth Sharing</h2>
+            <p className="section-subtitle">Training 100+ NIAT mentors at NxtWave</p>
+          </div>
+        </div>
+
+        <div className="journey-grid">
+          <div className="journey-visual">
+            <div className="journey-image-frame">
+              <div className="frame-corner frame-top-left"></div>
+              <div className="frame-corner frame-top-right"></div>
+              <div className="frame-corner frame-bottom-left"></div>
+              <div className="frame-corner frame-bottom-right"></div>
+              <img
+                src="/images/niat-journey.png"
+                alt="NIAT mentor training at NxtWave Institute of Advanced Technologies"
+                className="journey-image"
+              />
+            </div>
+          </div>
+
+          <div className="journey-content">
+            <p className="journey-lead">
+              From May 2025, I had the privilege of training over{' '}
+              <span className="highlight-cyan">100 NIAT mentors and instructors</span>. Each of them
+              now carries the responsibility of teaching, guiding, and inspiring thousands — and
+              eventually lakhs — of students across India.
+            </p>
+
+            <p className="journey-text">
+              For me, this has never been just about training sessions. It has been about
+              conversations with brilliant minds — mentors and instructors from{' '}
+              <span className="highlight-violet">IITs, IIMs</span>, and many other institutions. I
+              listened to their stories, exchanged ideas, and witnessed their passion for shaping
+              the future.
+            </p>
+
+            <div className="journey-highlight-box">
+              <h3 className="journey-subtitle">The True Impact</h3>
+              <p className="journey-text">
+                When one mentor inspires 100 students, and those students step into the world with
+                confidence and skills, the ripple effect becomes unstoppable. One spark can ignite
+                hundreds of flames, and together, these young minds can light up the path for an
+                entire generation. This is how education multiplies impact — not by addition, but
+                by exponential growth.
+              </p>
+              <p className="journey-text">
+                To every student reading this — you are not just learning skills, you are building
+                the foundation of <span className="highlight-cyan">India&apos;s tomorrow</span>.
+              </p>
+            </div>
+
+            <p className="journey-text">
+              I&apos;m deeply grateful to <span className="highlight-cyan">NxtWave</span> for giving
+              me this opportunity. Training these mentors has felt like a noble task, one that
+              reminds me every day: when we empower teachers, we transform generations.
+            </p>
+
+            <ul className="journey-impact-list">
+              <li>These tech mentors will uplift students.</li>
+              <li>Those students will drive innovation.</li>
+              <li>That innovation will make India great again.</li>
+            </ul>
+
+            <p className="journey-text">
+              As someone who believes in being a Jack of all and a master of a few, I take pride in
+              contributing wherever impact matters most. And this, without doubt, is one of the
+              proudest chapters of my journey.
+            </p>
+
+            <p className="journey-closing">
+              To my mentors, instructors, and students — this is just the beginning. We are not only
+              building a movement, but we are going to play a major role in shaping a{' '}
+              <span className="highlight-violet">Developed India</span>.
+            </p>
+
+            <div className="journey-tags">
+              <span className="journey-tag">#Education</span>
+              <span className="journey-tag">#nxtwaveacedamicmentors</span>
+              <span className="journey-tag">#NIAT</span>
+              <span className="journey-tag">#NxtWave</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects" className="section projects-section" aria-labelledby="projects-heading">
+        <div className="section-header">
+          <span className="section-number">05</span>
+          <div>
+            <h2 id="projects-heading" className="section-title">Selected Work</h2>
+            <p className="section-subtitle">
+              Live demos — websites, games, AI tools, and full stack apps
+            </p>
+          </div>
         </div>
         
         <div className="projects-masonry">
@@ -400,10 +598,29 @@ function Home() {
                       <span key={i} className="tech-tag">{tech}</span>
                     ))}
                   </div>
-                  <a href={project.link} className="project-link-cyber">
-                    <span className="link-text">Access Project</span>
-                    <span className="link-arrow">➜</span>
-                  </a>
+                  {'demoVideo' in project && project.demoVideo && (
+                    <div className="project-demo">
+                      <span className="project-demo-label">
+                        <span>Project Demo</span>
+                        <span className="project-demo-hint">Autoplay · unmute for sound</span>
+                      </span>
+                      <ProjectVideo
+                        src={project.demoVideo}
+                        title={project.title}
+                      />
+                    </div>
+                  )}
+                  {project.link !== '#' && (
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="project-link-cyber"
+                    >
+                      <span className="link-text">Visit Live Site</span>
+                      <span className="link-arrow">➜</span>
+                    </a>
+                  )}
                 </div>
               </div>
             </div>
@@ -411,10 +628,15 @@ function Home() {
         </div>
       </section>
 
-      <section id="contact" className="section contact-section">
+      <section id="contact" className="section contact-section" aria-labelledby="contact-heading">
         <div className="section-header">
-          <span className="section-number">04</span>
-          <h2 className="section-title">Contact</h2>
+          <span className="section-number">06</span>
+          <div>
+            <h2 id="contact-heading" className="section-title">Let&apos;s Work Together</h2>
+            <p className="section-subtitle">
+              Based in IST (preferred) · I align with your time zone · Bank, UPI, or Wise — reply within 24–48 hours
+            </p>
+          </div>
         </div>
         
         <div className="terminal-container">
@@ -430,47 +652,118 @@ function Home() {
             <div className="terminal-output">
               <p className="terminal-line">{typedText}</p>
             </div>
+            <ContactChannels />
             <ContactForm />
             <div className="contact-info">
               <div className="contact-item">
-                <span className="contact-icon">EMAIL</span>
-                <a href="mailto:bhanukiran750@gmail.com">bhanukiran750@gmail.com</a>
-              </div>
-              <div className="contact-item">
                 <span className="contact-icon">LINK</span>
-                <a href="https://linkedin.com/in/bhanu-kiranvemula" target="_blank" rel="noopener noreferrer">LinkedIn Profile</a>
+                <a href={contactConfig.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn Profile</a>
               </div>
               <div className="contact-item">
                 <span className="contact-icon">WEB</span>
-                <a href="https://bhanulinks.ccbp.tech/" target="_blank" rel="noopener noreferrer">Portfolio</a>
+                <a href={contactConfig.portfolio} target="_blank" rel="noopener noreferrer">Portfolio</a>
               </div>
             </div>
           </div>
         </div>
       </section>
 
+      </main>
+
       <footer className="footer-cyber">
         <div className="footer-content">
-          <p className="footer-text">
-            2025 <span className="neon-text">Bhanu Kiran Vemula</span> | All Systems Operational
-          </p>
+          <div className="footer-brand-block">
+            <p className="footer-text">
+              © 2026 <span className="neon-text">Bhanu Kiran Vemula</span>
+            </p>
+            <p className="footer-seo-line">
+              Freelance Full Stack &amp; AI Developer · Websites · MERN · Remote Worldwide
+            </p>
+          </div>
           <div className="footer-links">
+            <a href="#services">Services</a>
+            <a href="#projects">Work</a>
             <a href="https://linkedin.com/in/bhanu-kiranvemula" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub</a>
-            <a href="mailto:bhanukiran750@gmail.com">Email</a>
+            <a href={`mailto:${contactConfig.email}`}>{contactConfig.email}</a>
           </div>
         </div>
       </footer>
-    </div>
+
+      <a href="#contact" className="floating-hire-cta" aria-label="Hire me for your project">
+        Hire Me
+      </a>
+    </>
   )
 }
 
-function ContactForm() {
-  // Replace with your Formspree form ID
-  // Get your form ID from https://formspree.io/ after creating a form
-  const [state, handleSubmit] = useForm('mgonrwjz');
+function ProjectVideo({ src, title }: { src: string; title: string }) {
+  const videoRef = useRef<HTMLVideoElement>(null);
 
-  if (state.succeeded) {
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          video.play().catch(() => {});
+        } else {
+          video.pause();
+        }
+      },
+      { threshold: 0.35 }
+    );
+
+    observer.observe(video);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <video
+      ref={videoRef}
+      className="project-demo-video"
+      src={src}
+      autoPlay
+      controls
+      muted
+      loop
+      playsInline
+      preload="auto"
+      aria-label={`${title} website demo`}
+    />
+  );
+}
+
+function ContactForm() {
+  const [submitting, setSubmitting] = useState(false);
+  const [succeeded, setSucceeded] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setError(null);
+    setSubmitting(true);
+
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+    const result = await submitForm({
+      name: String(formData.get('name') ?? ''),
+      email: String(formData.get('email') ?? ''),
+      message: String(formData.get('message') ?? ''),
+    });
+
+    setSubmitting(false);
+
+    if (result.success) {
+      setSucceeded(true);
+      form.reset();
+      return;
+    }
+
+    setError(result.message);
+  };
+
+  if (succeeded) {
     return (
       <div className="form-success">
         <div className="success-icon">✓</div>
@@ -521,13 +814,15 @@ function ContactForm() {
         />
       </div>
       
+      {error && <p className="form-error">{error}</p>}
+
       <button 
         type="submit" 
-        disabled={state.submitting}
+        disabled={submitting}
         className="cyber-submit-btn"
       >
         <span className="btn-content">
-          {state.submitting ? (
+          {submitting ? (
             <><span className="loading-dots">...</span> Transmitting</>
           ) : (
             <><span className="btn-icon">▹</span> Send Message</>
