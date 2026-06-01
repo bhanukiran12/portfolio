@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react'
 import Header from '../Header/Header'
+import WorkWithMe from '../WorkWithMe/WorkWithMe'
 import conversionPlatformDemo from '../../assets/projects/conversion-platform-demo.webm'
 import parentMessageDemo from '../../assets/projects/parent-message-demo.webm'
 import holiRunDemo from '../../assets/projects/holi-run-demo.webm'
@@ -330,6 +331,8 @@ function Home() {
             ))}
           </div>
         </section>
+
+        <WorkWithMe />
       </main>
 
       <footer className="footer">
@@ -340,6 +343,7 @@ function Home() {
           </div>
           <nav className="footer-nav" aria-label="Footer">
             <a href="#projects">Work</a>
+            <a href="#work-with-me">Work with me</a>
             <a href="https://linkedin.com/in/bhanu-kiranvemula" target="_blank" rel="noopener noreferrer">
               LinkedIn
             </a>

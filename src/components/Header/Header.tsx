@@ -22,7 +22,7 @@ function Header() {
         <button
           type="button"
           className="nav-toggle"
-          aria-expanded={menuOpen}
+          aria-expanded={menuOpen ? 'true' : 'false'}
           aria-controls="site-nav"
           aria-label={menuOpen ? 'Close menu' : 'Open menu'}
           onClick={() => setMenuOpen((open) => !open)}
@@ -38,6 +38,13 @@ function Header() {
               {link.label}
             </a>
           ))}
+          <a
+            href="#work-with-me"
+            className="nav-cta"
+            onClick={() => setMenuOpen(false)}
+          >
+            Work with me
+          </a>
         </nav>
       </div>
     </header>

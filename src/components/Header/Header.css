@@ -62,6 +62,20 @@
   border-bottom-color: var(--nb-ink);
 }
 
+.nav-cta {
+  padding: 10px 18px !important;
+  background: var(--nb-surface);
+  border: 3px solid var(--nb-ink) !important;
+  box-shadow: var(--nb-shadow);
+  border-bottom: 3px solid var(--nb-ink) !important;
+}
+
+.nav-cta:hover,
+.nav-cta:focus-visible {
+  transform: translate(2px, 2px);
+  box-shadow: var(--nb-shadow-hover);
+}
+
 .nav-toggle {
   display: none;
   flex-direction: column;

@@ -1,50 +1,43 @@
 .contact-channels {
-  margin-bottom: 28px;
+  margin-bottom: 0;
 }
 
 .contact-channels-lead {
-  color: var(--text-secondary);
   font-size: 0.95rem;
+  font-weight: 500;
   line-height: 1.65;
-  margin-bottom: 18px;
+  margin-bottom: 16px;
 }
 
 .contact-channels-lead strong {
-  color: var(--neon-cyan);
-  font-weight: 600;
+  font-weight: 800;
 }
 
 .contact-channels-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
+  grid-template-columns: 1fr;
+  gap: 10px;
 }
 
 .contact-channel-btn {
   display: flex;
   align-items: center;
-  gap: 14px;
-  padding: 16px 18px;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(0, 255, 255, 0.2);
-  border-radius: var(--radius-md);
-  transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+  gap: 12px;
+  padding: 14px 16px;
+  background: var(--nb-bg);
+  border: 3px solid var(--nb-ink);
+  box-shadow: 3px 3px 0 var(--nb-ink);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 .contact-channel-btn:hover {
-  border-color: var(--neon-cyan);
-  background: rgba(0, 255, 255, 0.06);
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 var(--nb-ink);
   color: inherit;
 }
 
 .contact-channel-btn--primary {
-  border-color: rgba(0, 255, 255, 0.45);
-  background: rgba(0, 255, 255, 0.08);
-}
-
-.contact-channel-btn--primary:hover {
-  background: rgba(0, 255, 255, 0.14);
-  box-shadow: 0 0 20px rgba(0, 255, 255, 0.15);
+  background: var(--nb-accent);
 }
 
 .contact-channel-icon {
@@ -55,19 +48,10 @@
 }
 
 .channel-logo {
-  width: 40px;
-  height: 40px;
+  width: 36px;
+  height: 36px;
   display: block;
   flex-shrink: 0;
-}
-
-.contact-channels--compact .channel-logo {
-  width: 32px;
-  height: 32px;
-}
-
-.contact-channel-btn:hover .channel-logo {
-  filter: brightness(1.1);
 }
 
 .contact-channel-text {
@@ -78,24 +62,22 @@
 }
 
 .contact-channel-label {
-  font-weight: 700;
-  font-size: 0.9rem;
-  color: var(--text-primary);
+  font-weight: 800;
+  font-size: 0.8rem;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.06em;
 }
 
 .contact-channel-desc {
   font-size: 0.78rem;
-  color: var(--text-muted);
+  font-weight: 500;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
 .contact-channels--compact .contact-channels-grid {
-  grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
+  grid-template-columns: repeat(2, 1fr);
 }
 
 .contact-channels--compact .contact-channel-btn {
@@ -110,15 +92,11 @@
 }
 
 .contact-channels--compact .contact-channel-label {
-  font-size: 0.72rem;
+  font-size: 0.7rem;
 }
 
-@media (max-width: 768px) {
-  .contact-channels-grid {
-    grid-template-columns: 1fr;
-  }
-
+@media (max-width: 480px) {
   .contact-channels--compact .contact-channels-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr 1fr;
   }
 }

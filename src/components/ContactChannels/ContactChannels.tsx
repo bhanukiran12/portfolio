@@ -43,12 +43,6 @@ type ContactChannelsProps = {
 function ContactChannels({ compact = false }: ContactChannelsProps) {
   return (
     <div className={`contact-channels ${compact ? 'contact-channels--compact' : ''}`}>
-      {!compact && (
-        <p className="contact-channels-lead">
-          Prefer a quick chat? Book a slot or message me — I work in{' '}
-          <strong>IST (preferred)</strong> and can align with your time zone.
-        </p>
-      )}
       <div className="contact-channels-grid">
         {channels.map((channel) => (
           <a

@@ -11,7 +11,7 @@ export const contactConfig = {
 export function getWhatsAppUrl(): string {
   const digits = contactConfig.whatsappNumber.replace(/\D/g, '');
   const text = encodeURIComponent(
-    "Hi Bhanu, I'd like to discuss a freelance web or AI project."
+    "Hi Bhanu, I'd like to discuss a project — product, startup, or onsite collaboration."
   );
   return `https://wa.me/${digits}?text=${text}`;
 }
