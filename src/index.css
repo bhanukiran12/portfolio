@@ -1,25 +1,25 @@
-/* Cyberpunk-Noir Global Styles */
+/* Neo-brutalism design system */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500;600&display=swap');
+
+:root {
+  --nb-bg: #f4f0e6;
+  --nb-surface: #ffffff;
+  --nb-ink: #0a0a0a;
+  --nb-border: #0a0a0a;
+  --nb-accent: #b8ff3c;
+  --nb-accent-2: #7dd3fc;
+  --nb-warm: #ff6b6b;
+  --nb-shadow: 6px 6px 0 var(--nb-ink);
+  --nb-shadow-lg: 10px 10px 0 var(--nb-ink);
+  --nb-shadow-hover: 4px 4px 0 var(--nb-ink);
+  --font-sans: 'Space Grotesk', system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-
-:root {
-  --bg-primary: #000000;
-  --bg-secondary: #0a0a0f;
-  --bg-card: rgba(20, 20, 30, 0.85);
-  --neon-cyan: #00ffff;
-  --neon-violet: #8a2be2;
-  --neon-pink: #ff00ff;
-  --text-primary: #ffffff;
-  --text-secondary: #b8b8c8;
-  --text-muted: #7a7a8c;
-  --border-glow: rgba(0, 255, 255, 0.3);
-  --radius-sm: 6px;
-  --radius-md: 10px;
-  --space-section: 100px;
-  --focus-ring: 0 0 0 3px rgba(0, 255, 255, 0.45);
 }
 
 html {
@@ -27,40 +27,28 @@ html {
 }
 
 body {
-  background: var(--bg-primary);
-  color: var(--text-primary);
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  overflow-x: hidden;
+  background: var(--nb-bg);
+  color: var(--nb-ink);
+  font-family: var(--font-sans);
   line-height: 1.6;
+  overflow-x: hidden;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Inter', sans-serif;
-  font-weight: 700;
-  letter-spacing: -0.5px;
+h1, h2, h3, h4 {
+  font-family: var(--font-sans);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
 }
 
 a {
-  text-decoration: none;
   color: inherit;
-}
-
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--bg-secondary);
-}
-
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, var(--neon-cyan), var(--neon-violet));
-  border-radius: 4px;
+  text-decoration: none;
 }
 
 ::selection {
-  background: var(--neon-cyan);
-  color: var(--bg-primary);
+  background: var(--nb-accent);
+  color: var(--nb-ink);
 }
 
 .skip-link {
@@ -68,26 +56,99 @@ a {
   top: -100px;
   left: 16px;
   z-index: 10000;
-  padding: 12px 20px;
-  background: var(--neon-cyan);
-  color: var(--bg-primary);
+  padding: 12px 18px;
+  background: var(--nb-accent);
+  border: 3px solid var(--nb-ink);
   font-weight: 700;
-  border-radius: var(--radius-sm);
-  transition: top 0.2s ease;
+  box-shadow: var(--nb-shadow);
 }
 
 .skip-link:focus {
   top: 16px;
-  outline: none;
-  box-shadow: var(--focus-ring);
 }
 
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,
 textarea:focus-visible {
-  outline: none;
-  box-shadow: var(--focus-ring);
+  outline: 3px solid var(--nb-ink);
+  outline-offset: 2px;
+}
+
+.nb-card {
+  background: var(--nb-surface);
+  border: 3px solid var(--nb-ink);
+  box-shadow: var(--nb-shadow);
+}
+
+.nb-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 24px;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border: 3px solid var(--nb-ink);
+  box-shadow: var(--nb-shadow);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  cursor: pointer;
+}
+
+.nb-btn:hover {
+  transform: translate(3px, 3px);
+  box-shadow: var(--nb-shadow-hover);
+}
+
+.nb-btn--primary {
+  background: var(--nb-accent);
+}
+
+.nb-btn--secondary {
+  background: var(--nb-accent-2);
+}
+
+.nb-btn--ghost {
+  background: var(--nb-surface);
+}
+
+.nb-tag {
+  display: inline-block;
+  padding: 6px 12px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  border: 2px solid var(--nb-ink);
+  background: var(--nb-surface);
+  box-shadow: 3px 3px 0 var(--nb-ink);
+}
+
+.section-label {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--nb-ink);
+  opacity: 0.7;
+}
+
+.section-title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+}
+
+.section-subtitle {
+  margin-top: 12px;
+  font-size: 1.05rem;
+  font-weight: 500;
+  max-width: 52ch;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -95,11 +156,9 @@ textarea:focus-visible {
     scroll-behavior: auto;
   }
 
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
+  .nb-btn,
+  .project-card,
+  .timeline-card {
+    transition: none;
   }
 }

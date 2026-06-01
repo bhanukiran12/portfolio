@@ -3,7 +3,6 @@ import './Header.css'
 
 const navLinks = [
   { href: '#about', label: 'About' },
-  { href: '#services', label: 'Services' },
   { href: '#experience', label: 'Experience' },
   { href: '#journey', label: 'Impact' },
   { href: '#projects', label: 'Work' },
@@ -12,13 +11,12 @@ const navLinks = [
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
 
-  const closeMenu = () => setMenuOpen(false)
-
   return (
     <header className="header">
-      <div className="header-container">
-        <a href="#hero" className="brand" onClick={closeMenu}>
-          Bhanu Kiran
+      <div className="header-inner">
+        <a href="#hero" className="brand" onClick={() => setMenuOpen(false)}>
+          <span className="brand-mark">BK</span>
+          <span className="brand-name">Bhanu Kiran</span>
         </a>
 
         <button
@@ -29,24 +27,17 @@ function Header() {
           aria-label={menuOpen ? 'Close menu' : 'Open menu'}
           onClick={() => setMenuOpen((open) => !open)}
         >
-          <span className="nav-toggle-bar" />
-          <span className="nav-toggle-bar" />
-          <span className="nav-toggle-bar" />
+          <span />
+          <span />
+          <span />
         </button>
 
-        <nav
-          id="site-nav"
-          className={`nav ${menuOpen ? 'nav-open' : ''}`}
-          aria-label="Main navigation"
-        >
+        <nav id="site-nav" className={`nav ${menuOpen ? 'nav-open' : ''}`} aria-label="Main">
           {navLinks.map((link) => (
-            <a key={link.href} href={link.href} onClick={closeMenu}>
+            <a key={link.href} href={link.href} onClick={() => setMenuOpen(false)}>
               {link.label}
             </a>
           ))}
-          <a href="#contact" className="nav-cta" onClick={closeMenu}>
-            Hire Me
-          </a>
         </nav>
       </div>
     </header>
