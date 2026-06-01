@@ -358,57 +358,41 @@
   font-size: 0.85rem;
 }
 
-/* Footer */
-.footer {
-  background: var(--nb-ink);
-  color: var(--nb-bg);
-  border-top: 3px solid var(--nb-ink);
-  padding: 32px 24px;
+/* Contact */
+.contact-section {
+  scroll-margin-top: 88px;
 }
 
-.footer-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  gap: 20px;
-}
-
-.footer-name {
+.contact-inline-link {
   font-weight: 800;
-  font-size: 1.1rem;
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
 }
 
-.footer-tagline {
-  margin-top: 4px;
-  opacity: 0.85;
-  font-size: 0.95rem;
-}
-
-.footer-nav {
-  display: flex;
-  flex-wrap: wrap;
+.contact-layout {
+  display: grid;
+  grid-template-columns: minmax(260px, 340px) 1fr;
   gap: 24px;
+  align-items: start;
 }
 
-.footer-nav a {
-  font-weight: 700;
+.contact-aside,
+.contact-form-wrap {
+  padding: 28px;
+}
+
+.contact-aside-title {
+  font-size: 0.95rem;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  font-size: 0.9rem;
-  border-bottom: 2px solid var(--nb-accent);
-}
-
-.footer-nav a:hover {
-  color: var(--nb-accent);
+  margin-bottom: 16px;
 }
 
 @media (max-width: 900px) {
   .hero-grid,
   .about-layout,
-  .journey-layout {
+  .journey-layout,
+  .contact-layout {
     grid-template-columns: 1fr;
   }
 

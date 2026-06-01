@@ -1,6 +1,9 @@
 import { useEffect, useRef } from 'react'
-import Header from '../Header/Header'
-import WorkWithMe from '../WorkWithMe/WorkWithMe'
+import { Link } from 'react-router-dom'
+import { useScrollToSection } from '../../hooks/useScrollToSection'
+import ContactChannels from '../ContactChannels/ContactChannels'
+import ContactForm from '../ContactForm/ContactForm'
+import Footer from '../Footer/Footer'
 import conversionPlatformDemo from '../../assets/projects/conversion-platform-demo.webm'
 import parentMessageDemo from '../../assets/projects/parent-message-demo.webm'
 import holiRunDemo from '../../assets/projects/holi-run-demo.webm'
@@ -100,13 +103,10 @@ const experience = [
 ]
 
 function Home() {
+  useScrollToSection()
+
   return (
     <div className="portfolio">
-      <a href="#main-content" className="skip-link">
-        Skip to main content
-      </a>
-      <Header />
-
       <main id="main-content">
         <section id="hero" className="hero" aria-labelledby="hero-heading">
           <div className="hero-grid">
@@ -332,25 +332,34 @@ function Home() {
           </div>
         </section>
 
-        <WorkWithMe />
+        <section id="contact" className="section contact-section" aria-labelledby="contact-heading">
+          <header className="section-head">
+            <span className="section-label">05 — Contact</span>
+            <h2 id="contact-heading" className="section-title">
+              Get in touch
+            </h2>
+            <p className="section-subtitle">
+              Book a call or send a message. Read{' '}
+              <Link to="/work-with-me" className="contact-inline-link">
+                how to work with me
+              </Link>{' '}
+              first if you are exploring a project.
+            </p>
+          </header>
+
+          <div className="contact-layout">
+            <aside className="contact-aside nb-card">
+              <h3 className="contact-aside-title">Quick connect</h3>
+              <ContactChannels />
+            </aside>
+            <div className="contact-form-wrap nb-card">
+              <ContactForm />
+            </div>
+          </div>
+        </section>
       </main>
 
-      <footer className="footer">
-        <div className="footer-inner">
-          <div>
-            <p className="footer-name">© 2026 Bhanu Kiran Vemula</p>
-            <p className="footer-tagline">Full Stack Engineer · AI &amp; Web Products</p>
-          </div>
-          <nav className="footer-nav" aria-label="Footer">
-            <a href="#projects">Work</a>
-            <a href="#work-with-me">Work with me</a>
-            <a href="https://linkedin.com/in/bhanu-kiranvemula" target="_blank" rel="noopener noreferrer">
-              LinkedIn
-            </a>
-            <a href="mailto:bhanukiran750@gmail.com">Email</a>
-          </nav>
-        </div>
-      </footer>
+      <Footer />
     </div>
   )
 }

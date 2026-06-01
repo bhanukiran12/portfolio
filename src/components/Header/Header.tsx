@@ -1,23 +1,33 @@
 import { useState } from 'react'
+import { Link, useLocation } from 'react-router-dom'
 import './Header.css'
 
 const navLinks = [
-  { href: '#about', label: 'About' },
-  { href: '#experience', label: 'Experience' },
-  { href: '#journey', label: 'Impact' },
-  { href: '#projects', label: 'Work' },
+  { hash: '#about', label: 'About' },
+  { hash: '#experience', label: 'Experience' },
+  { hash: '#journey', label: 'Impact' },
+  { hash: '#projects', label: 'Work' },
 ]
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
+  const location = useLocation()
+  const closeMenu = () => setMenuOpen(false)
+
+  const sectionLink = (hash: string) => {
+    if (location.pathname === '/') {
+      return hash
+    }
+    return `/${hash}`
+  }
 
   return (
     <header className="header">
       <div className="header-inner">
-        <a href="#hero" className="brand" onClick={() => setMenuOpen(false)}>
+        <Link to="/" className="brand" onClick={closeMenu}>
           <span className="brand-mark">BK</span>
           <span className="brand-name">Bhanu Kiran</span>
-        </a>
+        </Link>
 
         <button
           type="button"
@@ -34,17 +44,13 @@ function Header() {
 
         <nav id="site-nav" className={`nav ${menuOpen ? 'nav-open' : ''}`} aria-label="Main">
           {navLinks.map((link) => (
-            <a key={link.href} href={link.href} onClick={() => setMenuOpen(false)}>
+            <a key={link.hash} href={sectionLink(link.hash)} onClick={closeMenu}>
               {link.label}
             </a>
           ))}
-          <a
-            href="#work-with-me"
-            className="nav-cta"
-            onClick={() => setMenuOpen(false)}
-          >
+          <Link to="/work-with-me" className="nav-cta" onClick={closeMenu}>
             Work with me
-          </a>
+          </Link>
         </nav>
       </div>
     </header>
