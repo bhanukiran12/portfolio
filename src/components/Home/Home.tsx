@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { useScrollToSection } from '../../hooks/useScrollToSection'
+import { useParallax } from '../../hooks/useParallax'
 import ContactChannels from '../ContactChannels/ContactChannels'
 import ContactForm from '../ContactForm/ContactForm'
 import Footer from '../Footer/Footer'
@@ -17,6 +18,7 @@ interface Project {
   tech: string[]
   link: string
   demoVideo?: string
+  bento: 'featured' | 'wide' | 'standard'
 }
 
 const skills = [
@@ -35,6 +37,7 @@ const projects: Project[] = [
       'Voice-agent creation, training, prompting, and workflow design for production-grade conversational experiences.',
     tech: ['Voice Agents', 'Prompt Engineering', 'Workflow Design', 'AI'],
     link: 'https://hoomanlabs.com/platform/agents/create',
+    bento: 'featured',
   },
   {
     title: 'Conversion Platform',
@@ -43,6 +46,7 @@ const projects: Project[] = [
     tech: ['React.js', 'TypeScript', 'JavaScript', 'HTML5', 'CSS3'],
     link: 'https://ccbp.in/intensive',
     demoVideo: conversionPlatformDemo,
+    bento: 'wide',
   },
   {
     title: 'AI-Powered Communication System',
@@ -51,6 +55,7 @@ const projects: Project[] = [
     tech: ['React.js', 'JavaScript', 'REST APIs', 'Google Sheets API'],
     link: 'https://parent-message.vercel.app/',
     demoVideo: parentMessageDemo,
+    bento: 'wide',
   },
   {
     title: 'Holi Run Game',
@@ -58,6 +63,7 @@ const projects: Project[] = [
     tech: ['JavaScript', 'HTML5', 'CSS3'],
     link: 'https://nxtholi-run.netlify.app/',
     demoVideo: holiRunDemo,
+    bento: 'standard',
   },
   {
     title: 'Schedora',
@@ -65,6 +71,7 @@ const projects: Project[] = [
     tech: ['React.js', 'Node.js', 'REST APIs'],
     link: 'https://sechdora-2f2g.onrender.com',
     demoVideo: schedoraDemo,
+    bento: 'standard',
   },
   {
     title: 'Vyra',
@@ -72,6 +79,7 @@ const projects: Project[] = [
     tech: ['JavaScript', 'HTML5', 'CSS3'],
     link: 'https://vyra-ues5.onrender.com',
     demoVideo: vyraDemo,
+    bento: 'wide',
   },
 ]
 
@@ -104,55 +112,61 @@ const experience = [
 
 function Home() {
   useScrollToSection()
+  const heroParallax = useParallax<HTMLDivElement>(0.06)
+  const photoParallax = useParallax<HTMLDivElement>(-0.04)
 
   return (
     <div className="portfolio">
       <main id="main-content">
         <section id="hero" className="hero" aria-labelledby="hero-heading">
           <div className="hero-grid">
-            <div className="hero-copy">
-              <p className="hero-label">Portfolio · 2026</p>
+            <div className="hero-copy" ref={heroParallax}>
+              <p className="hero-label">
+                <span className="hero-label-dot" aria-hidden="true" />
+                Full Stack · AI Products
+              </p>
               <h1 id="hero-heading" className="hero-name">
                 Bhanu Kiran
-                <span className="hero-surname">Vemula</span>
+                <span className="hero-surname text-gradient">Vemula</span>
               </h1>
-              <p className="hero-role">Full Stack Engineer &amp; Team Lead</p>
+              <p className="hero-role">Engineer &amp; Team Lead</p>
               <p className="hero-intro">
                 I build production-ready web applications, AI-powered tools, and scalable
                 frontends at NxtWave — from conversion platforms and games to voice-agent
                 workflows and mentor training at scale.
               </p>
               <div className="hero-stats">
-                <div className="stat-box">
+                <div className="stat-box glass">
                   <span className="stat-value">2+</span>
                   <span className="stat-label">Years</span>
                 </div>
-                <div className="stat-box">
+                <div className="stat-box glass">
                   <span className="stat-value">20+</span>
                   <span className="stat-label">Projects</span>
                 </div>
-                <div className="stat-box">
+                <div className="stat-box glass">
                   <span className="stat-value">100+</span>
-                  <span className="stat-label">Mentors trained</span>
+                  <span className="stat-label">Mentors</span>
                 </div>
               </div>
               <div className="hero-actions">
-                <a href="#projects" className="nb-btn nb-btn--primary">
+                <a href="#projects" className="glass-btn glass-btn--primary">
                   View work
                 </a>
                 <a
                   href="https://linkedin.com/in/bhanu-kiranvemula"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="nb-btn nb-btn--secondary"
+                  className="glass-btn glass-btn--ghost"
                 >
                   LinkedIn
                 </a>
               </div>
             </div>
 
-            <div className="hero-photo-wrap">
-              <div className="hero-photo-frame nb-card">
+            <div className="hero-photo-wrap" ref={photoParallax}>
+              <div className="hero-photo-frame glass">
+                <div className="hero-photo-glow" aria-hidden="true" />
                 <img
                   src="https://res.cloudinary.com/df7wnybwg/image/upload/v1770293271/mypics/12e_2026-02-05_at_5.16.19_PM_tr6pvu.jpg"
                   alt="Bhanu Kiran Vemula — full stack engineer"
@@ -178,8 +192,8 @@ function Home() {
             </p>
           </header>
 
-          <div className="about-layout">
-            <div className="about-card nb-card">
+          <div className="about-bento">
+            <div className="about-card glass about-bento-main">
               <p>
                 I&apos;m <strong>Bhanu Kiran Vemula</strong> — Team Lead Manager at{' '}
                 <strong>NxtWave</strong>, where I lead frontend systems, mentor engineers, and
@@ -191,18 +205,18 @@ function Home() {
                 games, and scheduling apps — with live demos in the work section below.
               </p>
               <div className="about-badges">
-                <span className="nb-tag">Team leadership</span>
-                <span className="nb-tag">Full stack</span>
-                <span className="nb-tag">AI products</span>
-                <span className="nb-tag">Mentorship</span>
+                <span className="glass-tag">Team leadership</span>
+                <span className="glass-tag">Full stack</span>
+                <span className="glass-tag">AI products</span>
+                <span className="glass-tag">Mentorship</span>
               </div>
             </div>
 
-            <aside className="skills-panel nb-card">
+            <aside className="skills-panel glass about-bento-side">
               <h3 className="panel-title">Tech stack</h3>
               <div className="skills-grid">
                 {skills.map((skill) => (
-                  <span key={skill} className="nb-tag">
+                  <span key={skill} className="glass-tag">
                     {skill}
                   </span>
                 ))}
@@ -216,7 +230,7 @@ function Home() {
           </div>
         </section>
 
-        <section id="experience" className="section section--alt" aria-labelledby="experience-heading">
+        <section id="experience" className="section" aria-labelledby="experience-heading">
           <header className="section-head">
             <span className="section-label">02 — Experience</span>
             <h2 id="experience-heading" className="section-title">
@@ -227,7 +241,7 @@ function Home() {
 
           <div className="timeline">
             {experience.map((exp) => (
-              <article key={exp.title} className="timeline-card nb-card">
+              <article key={exp.title} className="timeline-card glass">
                 <div className="timeline-icon">{exp.icon}</div>
                 <div className="timeline-body">
                   <div className="timeline-top">
@@ -251,15 +265,15 @@ function Home() {
             <p className="section-subtitle">Training 100+ NIAT mentors at NxtWave.</p>
           </header>
 
-          <div className="journey-layout">
-            <div className="journey-image nb-card">
+          <div className="journey-bento">
+            <div className="journey-image glass journey-bento-visual">
               <img
                 src="/images/niat-journey.png"
                 alt="NIAT mentor training at NxtWave Institute of Advanced Technologies"
                 loading="lazy"
               />
             </div>
-            <div className="journey-text nb-card">
+            <div className="journey-text glass journey-bento-copy">
               <p>
                 From May 2025, I had the privilege of training over{' '}
                 <strong>100 NIAT mentors and instructors</strong>. Each now guides thousands of
@@ -267,8 +281,7 @@ function Home() {
               </p>
               <p>
                 This was never just about sessions. It was conversations with brilliant minds from{' '}
-                <strong>IITs, IIMs</strong>, and institutions nationwide — exchanging ideas and
-                passion for shaping the future.
+                <strong>IITs, IIMs</strong>, and institutions nationwide.
               </p>
               <blockquote className="journey-quote">
                 When we empower teachers, we transform generations.
@@ -279,41 +292,44 @@ function Home() {
                 <li>That innovation builds a developed India.</li>
               </ul>
               <div className="journey-tags">
-                <span className="nb-tag">#Education</span>
-                <span className="nb-tag">#NIAT</span>
-                <span className="nb-tag">#NxtWave</span>
+                <span className="glass-tag">#Education</span>
+                <span className="glass-tag">#NIAT</span>
+                <span className="glass-tag">#NxtWave</span>
               </div>
             </div>
           </div>
         </section>
 
-        <section id="projects" className="section section--alt" aria-labelledby="projects-heading">
+        <section id="projects" className="section" aria-labelledby="projects-heading">
           <header className="section-head">
             <span className="section-label">04 — Work</span>
             <h2 id="projects-heading" className="section-title">
               Selected projects
             </h2>
             <p className="section-subtitle">
-              Live demos — websites, games, AI tools, and full stack applications.
+              Bento showcase — websites, games, AI tools, and full stack applications.
             </p>
           </header>
 
-          <div className="projects-grid">
+          <div className="bento-grid">
             {projects.map((project, index) => (
-              <article key={project.title} className="project-card nb-card">
-                <span className="project-index">0{index + 1}</span>
-                <h3 className="project-title">{project.title}</h3>
-                <p className="project-desc">{project.description}</p>
-                <div className="project-tech">
+              <article
+                key={project.title}
+                className={`bento-card glass bento-${project.bento} ${project.demoVideo ? 'bento-has-video' : ''}`}
+              >
+                <span className="bento-index">0{index + 1}</span>
+                <h3 className="bento-title">{project.title}</h3>
+                <p className="bento-desc">{project.description}</p>
+                <div className="bento-tech">
                   {project.tech.map((tech) => (
-                    <span key={tech} className="nb-tag">
+                    <span key={tech} className="glass-tag">
                       {tech}
                     </span>
                   ))}
                 </div>
                 {project.demoVideo && (
-                  <div className="project-demo">
-                    <span className="demo-label">Demo · autoplay · unmute for sound</span>
+                  <div className="bento-demo">
+                    <span className="demo-label">Live demo</span>
                     <ProjectVideo src={project.demoVideo} title={project.title} />
                   </div>
                 )}
@@ -322,9 +338,9 @@ function Home() {
                     href={project.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="project-link nb-btn nb-btn--ghost"
+                    className="bento-link glass-btn glass-btn--ghost"
                   >
-                    Visit live site →
+                    Visit site →
                   </a>
                 )}
               </article>
@@ -347,12 +363,12 @@ function Home() {
             </p>
           </header>
 
-          <div className="contact-layout">
-            <aside className="contact-aside nb-card">
+          <div className="contact-bento">
+            <aside className="contact-aside glass">
               <h3 className="contact-aside-title">Quick connect</h3>
               <ContactChannels />
             </aside>
-            <div className="contact-form-wrap nb-card">
+            <div className="contact-form-wrap glass">
               <ContactForm />
             </div>
           </div>
@@ -389,7 +405,7 @@ function ProjectVideo({ src, title }: { src: string; title: string }) {
   return (
     <video
       ref={videoRef}
-      className="project-video"
+      className="bento-video"
       src={src}
       autoPlay
       controls

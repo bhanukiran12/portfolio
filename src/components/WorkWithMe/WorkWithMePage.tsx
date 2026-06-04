@@ -6,9 +6,9 @@ function WorkWithMePage() {
   return (
     <div className="wwm-page">
       <main id="main-content" className="wwm-main">
-        <header className="wwm-hero nb-card">
+        <header className="wwm-hero glass">
           <p className="section-label">Collaborate</p>
-          <h1 className="wwm-title">How to work with me</h1>
+          <h1 className="wwm-title section-title">How to work with me</h1>
           <p className="wwm-lead">
             I partner with founders, startups, and teams on product builds — from websites and full
             stack apps to AI tools and onsite delivery. Read how I work below; if it fits, reach out
@@ -16,7 +16,7 @@ function WorkWithMePage() {
           </p>
         </header>
 
-        <section className="wwm-block nb-card" aria-labelledby="wwm-what-heading">
+        <section className="wwm-block glass" aria-labelledby="wwm-what-heading">
           <h2 id="wwm-what-heading" className="wwm-heading">
             What I work on
           </h2>
@@ -42,32 +42,32 @@ function WorkWithMePage() {
           </ul>
         </section>
 
-        <section className="wwm-block nb-card" aria-labelledby="wwm-how-heading">
+        <section className="wwm-block glass" aria-labelledby="wwm-how-heading">
           <h2 id="wwm-how-heading" className="wwm-heading">
             How I collaborate
           </h2>
-          <p>
+          <p className="wwm-text">
             I work best when product, engineering, and business goals are aligned. You do not need a
             perfect spec — but the more context you share (users, sales motion, team structure), the
             faster we can move.
           </p>
           <div className="wwm-grid">
-            <div className="wwm-card-inner">
+            <div className="wwm-card-inner glass">
               <h3>Product</h3>
               <p>What you are building, who it is for, stage (idea, MVP, live), and success metrics.</p>
             </div>
-            <div className="wwm-card-inner">
+            <div className="wwm-card-inner glass">
               <h3>Management</h3>
               <p>Who owns decisions, existing team, and how you run delivery today.</p>
             </div>
-            <div className="wwm-card-inner">
+            <div className="wwm-card-inner glass">
               <h3>Sales &amp; GTM</h3>
               <p>How you acquire customers, pricing, and go-to-market — so tech supports revenue.</p>
             </div>
           </div>
         </section>
 
-        <section className="wwm-block nb-card" aria-labelledby="wwm-process-heading">
+        <section className="wwm-block glass" aria-labelledby="wwm-process-heading">
           <h2 id="wwm-process-heading" className="wwm-heading">
             Typical process
           </h2>
@@ -91,7 +91,7 @@ function WorkWithMePage() {
           </p>
         </section>
 
-        <section className="wwm-cta nb-card" aria-labelledby="wwm-cta-heading">
+        <section className="wwm-cta glass" aria-labelledby="wwm-cta-heading">
           <h2 id="wwm-cta-heading" className="wwm-heading">
             Ready to talk?
           </h2>
@@ -99,7 +99,7 @@ function WorkWithMePage() {
             If this sounds like a fit, send a short message from the home page — name, email, and
             what you are building. I reply within 24–48 hours.
           </p>
-          <Link to="/" state={{ scrollTo: 'contact' }} className="nb-btn nb-btn--primary">
+          <Link to="/" state={{ scrollTo: 'contact' }} className="glass-btn glass-btn--primary">
             Go to contact form
           </Link>
         </section>

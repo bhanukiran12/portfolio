@@ -2,15 +2,16 @@
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: var(--nb-accent);
-  border-bottom: 3px solid var(--nb-ink);
-  box-shadow: var(--nb-shadow);
+  background: rgba(3, 5, 8, 0.65);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--glass-border);
 }
 
 .header-inner {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 14px 24px;
+  padding: 16px 24px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -20,10 +21,9 @@
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
+  gap: 12px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
 }
 
 .brand-mark {
@@ -32,48 +32,51 @@
   justify-content: center;
   width: 40px;
   height: 40px;
-  background: var(--nb-surface);
-  border: 3px solid var(--nb-ink);
-  box-shadow: 3px 3px 0 var(--nb-ink);
-  font-size: 0.85rem;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border-bright);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--accent-cyan);
+  box-shadow: 0 0 20px rgba(34, 211, 238, 0.15);
 }
 
 .brand-name {
-  font-size: 1.1rem;
+  font-size: 1rem;
+  color: var(--text-primary);
 }
 
 .nav {
   display: flex;
   align-items: center;
-  gap: 28px;
+  gap: 32px;
 }
 
 .nav a {
-  font-weight: 600;
-  font-size: 0.9rem;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  padding: 4px 0;
-  border-bottom: 3px solid transparent;
+  font-weight: 500;
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  transition: color 0.2s ease;
 }
 
 .nav a:hover,
 .nav a:focus-visible {
-  border-bottom-color: var(--nb-ink);
+  color: var(--text-primary);
 }
 
 .nav-cta {
-  padding: 10px 18px !important;
-  background: var(--nb-surface);
-  border: 3px solid var(--nb-ink) !important;
-  box-shadow: var(--nb-shadow);
-  border-bottom: 3px solid var(--nb-ink) !important;
+  padding: 10px 20px !important;
+  background: linear-gradient(135deg, rgba(34, 211, 238, 0.2), rgba(167, 139, 250, 0.15)) !important;
+  border: 1px solid rgba(34, 211, 238, 0.35) !important;
+  border-radius: 100px !important;
+  color: var(--text-primary) !important;
+  backdrop-filter: blur(12px);
 }
 
-.nav-cta:hover,
-.nav-cta:focus-visible {
-  transform: translate(2px, 2px);
-  box-shadow: var(--nb-shadow-hover);
+.nav-cta:hover {
+  box-shadow: 0 0 24px var(--accent-glow);
+  color: var(--text-primary) !important;
 }
 
 .nav-toggle {
@@ -84,17 +87,18 @@
   width: 44px;
   height: 44px;
   padding: 10px;
-  background: var(--nb-surface);
-  border: 3px solid var(--nb-ink);
-  box-shadow: var(--nb-shadow);
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-sm);
   cursor: pointer;
 }
 
 .nav-toggle span {
   display: block;
   width: 100%;
-  height: 3px;
-  background: var(--nb-ink);
+  height: 2px;
+  background: var(--text-primary);
+  border-radius: 1px;
 }
 
 @media (max-width: 900px) {
@@ -104,20 +108,22 @@
 
   .nav {
     position: fixed;
-    top: 68px;
-    left: 0;
-    right: 0;
+    top: 72px;
+    left: 12px;
+    right: 12px;
     flex-direction: column;
     align-items: stretch;
     gap: 0;
     padding: 12px;
-    background: var(--nb-surface);
-    border-bottom: 3px solid var(--nb-ink);
-    box-shadow: var(--nb-shadow-lg);
+    background: rgba(10, 14, 26, 0.92);
+    backdrop-filter: blur(24px);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--glass-shadow);
     transform: translateY(-120%);
     opacity: 0;
     visibility: hidden;
-    transition: transform 0.25s ease, opacity 0.25s ease, visibility 0.25s;
+    transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s;
   }
 
   .nav-open {
@@ -127,11 +133,16 @@
   }
 
   .nav a {
-    padding: 14px 20px;
-    border-bottom: 2px solid var(--nb-ink);
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--glass-border);
   }
 
   .nav a:last-child {
     border-bottom: none;
+  }
+
+  .nav-cta {
+    margin-top: 8px;
+    text-align: center;
   }
 }

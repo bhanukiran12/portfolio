@@ -33,12 +33,12 @@ function ContactForm() {
 
   if (succeeded) {
     return (
-      <div className="contact-form-success nb-card" role="status">
+      <div className="contact-form-success glass" role="status">
         <p className="contact-form-success-title">Message sent</p>
         <p>Thanks for reaching out. I&apos;ll reply within 24–48 hours.</p>
         <button
           type="button"
-          className="nb-btn nb-btn--secondary"
+          className="glass-btn glass-btn--secondary"
           onClick={() => setSucceeded(false)}
         >
           Send another message
@@ -78,7 +78,7 @@ function ContactForm() {
           {error}
         </p>
       )}
-      <button type="submit" className="nb-btn nb-btn--primary" disabled={submitting}>
+      <button type="submit" className="glass-btn glass-btn--primary" disabled={submitting}>
         {submitting ? 'Sending…' : 'Send message'}
       </button>
     </form>
