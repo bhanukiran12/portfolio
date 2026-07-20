@@ -32,6 +32,14 @@ const skills = [
 
 const projects: Project[] = [
   {
+    title: 'Pulse AI',
+    description:
+      'Enterprise WhatsApp AI platform combining RAG, prompt engineering, and a live conversation dashboard to automate customer interactions at scale.',
+    tech: ['React', 'Node.js', 'MongoDB', 'Python', 'OpenAI GPT-4o', 'RAG', 'WhatsApp API'],
+    link: '#',
+    bento: 'featured',
+  },
+  {
     title: 'HoomanLabs Voice Agents',
     description:
       'Voice-agent creation, training, prompting, and workflow design for production-grade conversational experiences.',
