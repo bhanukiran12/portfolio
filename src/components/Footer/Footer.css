@@ -1,8 +1,7 @@
 .footer {
-  border-top: 1px solid var(--glass-border);
+  border-top: 1px solid var(--border);
   padding: 40px 24px;
-  background: rgba(3, 5, 8, 0.5);
-  backdrop-filter: blur(12px);
+  background: var(--bg-alt);
 }
 
 .footer-inner {
@@ -41,5 +40,5 @@
 }
 
 .footer-nav a:hover {
-  color: var(--accent-cyan);
+  color: var(--accent);
 }

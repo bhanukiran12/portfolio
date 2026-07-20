@@ -25,7 +25,7 @@
   font-size: 0.8rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--accent-cyan);
+  color: var(--accent);
   margin-bottom: 20px;
 }
 
@@ -33,16 +33,14 @@
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: var(--accent-cyan);
-  box-shadow: 0 0 12px var(--accent-cyan);
-  animation: pulse-glow 2s ease-in-out infinite;
+  background: var(--accent);
 }
 
 .hero-name {
   font-size: clamp(2.5rem, 6vw, 4rem);
   font-weight: 600;
   line-height: 1.05;
-  letter-spacing: -0.04em;
+  letter-spacing: -0.03em;
 }
 
 .hero-surname {
@@ -83,10 +81,7 @@
   font-size: 1.6rem;
   font-weight: 600;
   line-height: 1;
-  background: var(--gradient-ai);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: var(--text-primary);
 }
 
 .stat-label {
@@ -114,16 +109,11 @@
 
 .hero-photo-frame {
   padding: 8px;
-  animation: float 8s ease-in-out infinite;
   border-radius: var(--radius-lg);
 }
 
 .hero-photo-glow {
-  position: absolute;
-  inset: -20%;
-  background: radial-gradient(circle, var(--accent-glow) 0%, transparent 65%);
-  z-index: -1;
-  pointer-events: none;
+  display: none;
 }
 
 .hero-photo {
@@ -146,21 +136,6 @@
 
 .section-head {
   margin-bottom: 48px;
-}
-
-.section {
-  animation: section-fade 0.8s ease-out both;
-}
-
-@keyframes section-fade {
-  from {
-    opacity: 0;
-    transform: translateY(24px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 /* About bento */
@@ -214,7 +189,7 @@
 .education-block {
   margin-top: 28px;
   padding-top: 24px;
-  border-top: 1px solid var(--glass-border);
+  border-top: 1px solid var(--border);
 }
 
 .edu-degree {
@@ -240,11 +215,6 @@
   grid-template-columns: auto 1fr;
   gap: 24px;
   padding: 28px;
-  transition: transform 0.3s ease;
-}
-
-.timeline-card:hover {
-  transform: translateY(-4px);
 }
 
 .timeline-icon {
@@ -254,12 +224,12 @@
   align-items: center;
   justify-content: center;
   border-radius: var(--radius-sm);
-  background: linear-gradient(135deg, rgba(34, 211, 238, 0.2), rgba(167, 139, 250, 0.15));
-  border: 1px solid var(--glass-border-bright);
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
   font-family: var(--font-mono);
   font-weight: 600;
   font-size: 0.75rem;
-  color: var(--accent-cyan);
+  color: var(--accent);
 }
 
 .timeline-top {
@@ -283,7 +253,7 @@
 
 .timeline-company {
   margin-top: 4px;
-  color: var(--accent-cyan);
+  color: var(--accent);
   font-weight: 500;
   font-size: 0.95rem;
 }
@@ -335,8 +305,8 @@
 .journey-quote {
   margin: 24px 0;
   padding: 20px 24px;
-  border-left: 3px solid var(--accent-cyan);
-  background: rgba(34, 211, 238, 0.06);
+  border-left: 3px solid var(--accent);
+  background: var(--bg-alt);
   border-radius: 0 var(--radius-md) var(--radius-md) 0;
   font-size: 1.05rem;
   font-weight: 500;
@@ -371,12 +341,6 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
-}
-
-.bento-card:hover {
-  transform: translateY(-6px) scale(1.01);
-  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5), 0 0 40px rgba(34, 211, 238, 0.08);
 }
 
 .bento-featured {
@@ -443,8 +407,8 @@
 .bento-video {
   width: 100%;
   border-radius: var(--radius-sm);
-  border: 1px solid var(--glass-border);
-  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid var(--border);
+  background: var(--bg-alt);
 }
 
 .bento-link {
@@ -456,14 +420,9 @@
 
 /* Contact */
 .contact-inline-link {
-  color: var(--accent-cyan);
+  color: var(--accent);
   font-weight: 500;
-  border-bottom: 1px solid rgba(34, 211, 238, 0.4);
-  transition: border-color 0.2s ease;
-}
-
-.contact-inline-link:hover {
-  border-bottom-color: var(--accent-cyan);
+  border-bottom: 1px solid var(--accent);
 }
 
 .contact-bento {
@@ -516,10 +475,6 @@
 
   .hero {
     padding-top: 48px;
-  }
-
-  .hero-photo-frame {
-    animation: none;
   }
 }
 

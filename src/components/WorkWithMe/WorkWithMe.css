@@ -38,7 +38,7 @@
   font-weight: 600;
   margin-bottom: 20px;
   padding-bottom: 14px;
-  border-bottom: 1px solid var(--glass-border);
+  border-bottom: 1px solid var(--border);
   color: var(--text-primary);
 }
 
@@ -56,7 +56,7 @@
 
 .wwm-list li {
   padding-left: 16px;
-  border-left: 2px solid var(--accent-cyan);
+  border-left: 2px solid var(--accent);
   color: var(--text-secondary);
   line-height: 1.6;
 }
@@ -80,7 +80,7 @@
 .wwm-card-inner h3 {
   font-size: 0.9rem;
   font-weight: 600;
-  color: var(--accent-cyan);
+  color: var(--accent);
   margin-bottom: 8px;
 }
 
@@ -107,8 +107,8 @@
 .wwm-note {
   margin-top: 24px;
   padding: 16px 20px;
-  background: rgba(34, 211, 238, 0.08);
-  border: 1px solid rgba(34, 211, 238, 0.2);
+  background: var(--accent-soft);
+  border: 1px solid var(--accent-soft);
   border-radius: var(--radius-md);
   color: var(--text-secondary);
   font-size: 0.95rem;
