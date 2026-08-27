@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { useScrollToSection } from '../../hooks/useScrollToSection'
 import { useParallax } from '../../hooks/useParallax'
+import { useReveal } from '../../hooks/useReveal'
 import { contactConfig, getWhatsAppUrl } from '../../config/contact'
 import ContactChannels from '../ContactChannels/ContactChannels'
 import ContactForm from '../ContactForm/ContactForm'
@@ -155,6 +156,7 @@ const experience = [
 
 function Home() {
   useScrollToSection()
+  useReveal()
   const heroParallax = useParallax<HTMLDivElement>(0.06)
   const photoParallax = useParallax<HTMLDivElement>(-0.04)
 
@@ -249,7 +251,7 @@ function Home() {
 
             <div className="avail-services">
               {services.map((service) => (
-                <div key={service.title} className="avail-service">
+                <div key={service.title} className="avail-service lift">
                   <h3 className="avail-service-title">{service.title}</h3>
                   <p className="avail-service-desc">{service.description}</p>
                 </div>
@@ -284,7 +286,7 @@ function Home() {
         </section>
 
         <section id="about" className="section" aria-labelledby="about-heading">
-          <header className="section-head">
+          <header className="section-head" data-reveal>
             <span className="section-label">01 — About</span>
             <h2 id="about-heading" className="section-title">
               Building with clarity
@@ -335,7 +337,7 @@ function Home() {
         </section>
 
         <section id="experience" className="section" aria-labelledby="experience-heading">
-          <header className="section-head">
+          <header className="section-head" data-reveal>
             <span className="section-label">02 — Experience</span>
             <h2 id="experience-heading" className="section-title">
               Career timeline
@@ -345,7 +347,7 @@ function Home() {
 
           <div className="timeline">
             {experience.map((exp) => (
-              <article key={exp.title} className="timeline-card glass">
+              <article key={exp.title} className="timeline-card glass lift" data-reveal>
                 <div className="timeline-icon">{exp.icon}</div>
                 <div className="timeline-body">
                   <div className="timeline-top">
@@ -361,7 +363,7 @@ function Home() {
         </section>
 
         <section id="journey" className="section" aria-labelledby="journey-heading">
-          <header className="section-head">
+          <header className="section-head" data-reveal>
             <span className="section-label">03 — Impact</span>
             <h2 id="journey-heading" className="section-title">
               A journey worth sharing
@@ -405,7 +407,7 @@ function Home() {
         </section>
 
         <section id="projects" className="section" aria-labelledby="projects-heading">
-          <header className="section-head">
+          <header className="section-head" data-reveal>
             <span className="section-label">04 — Work</span>
             <h2 id="projects-heading" className="section-title">
               Selected work
@@ -419,7 +421,8 @@ function Home() {
             {projects.map((project, index) => (
               <article
                 key={project.title}
-                className={`bento-card glass bento-${project.bento} ${project.demoVideo ? 'bento-has-video' : ''}`}
+                data-reveal
+                className={`bento-card glass lift bento-${project.bento} ${project.demoVideo ? 'bento-has-video' : ''}`}
               >
                 <span className="bento-index">0{index + 1}</span>
                 <h3 className="bento-title">{project.title}</h3>
@@ -462,7 +465,7 @@ function Home() {
             <h3 className="next-title">Building next</h3>
             <div className="next-grid">
               {comingSoon.map((project) => (
-                <article key={project.title} className="bento-card glass next-card">
+                <article key={project.title} className="bento-card glass lift next-card">
                   <span className="next-tag glass-tag">Coming soon</span>
                   <h4 className="bento-title">{project.title}</h4>
                   <p className="bento-desc">{project.description}</p>
@@ -504,7 +507,7 @@ function Home() {
         </section>
 
         <section id="contact" className="section contact-section" aria-labelledby="contact-heading">
-          <header className="section-head">
+          <header className="section-head" data-reveal>
             <span className="section-label">05 — Contact</span>
             <h2 id="contact-heading" className="section-title">
               Get in touch

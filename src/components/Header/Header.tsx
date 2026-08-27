@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import './Header.css'
 
@@ -11,8 +11,16 @@ const navLinks = [
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
   const location = useLocation()
   const closeMenu = () => setMenuOpen(false)
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8)
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
 
   const sectionLink = (hash: string) => {
     if (location.pathname === '/') {
@@ -22,7 +30,7 @@ function Header() {
   }
 
   return (
-    <header className="header">
+    <header className={`header ${scrolled ? 'header--scrolled' : ''}`}>
       <div className="header-inner">
         <Link to="/" className="brand" onClick={closeMenu}>
           <span className="brand-mark">BK</span>

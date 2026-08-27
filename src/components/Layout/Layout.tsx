@@ -1,5 +1,6 @@
 import { Outlet } from 'react-router-dom'
 import Header from '../Header/Header'
+import AIChat from '../AIChat/AIChat'
 
 function Layout() {
   return (
@@ -9,6 +10,7 @@ function Layout() {
       </a>
       <Header />
       <Outlet />
+      <AIChat />
     </>
   )
 }
