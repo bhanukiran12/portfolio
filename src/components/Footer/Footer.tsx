@@ -15,7 +15,7 @@ function Footer() {
           <Link to="/" state={{ scrollTo: 'contact' }}>
             Contact
           </Link>
-          <a href="https://linkedin.com/in/bhanu-kiranvemula" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.linkedin.com/in/bhanu-kiran-vemula/" target="_blank" rel="noopener noreferrer">
             LinkedIn
           </a>
           <a href="mailto:bhanukiran750@gmail.com">Email</a>

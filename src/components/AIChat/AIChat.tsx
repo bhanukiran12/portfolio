@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState, type FormEvent, type KeyboardEvent as ReactKeyboardEvent } from 'react'
 import { contactConfig } from '../../config/contact'
 import { streamChat, type ChatMessage } from './streamChat'
+import Mascot from './Mascot'
 import './AIChat.css'
 
 const STORAGE_KEY = 'ai-chat-thread'
@@ -227,15 +228,7 @@ function AIChat() {
         </section>
       )}
 
-      <button
-        type="button"
-        className="ai-launcher"
-        onClick={() => setOpen((v) => !v)}
-        aria-expanded={open}
-        aria-label={open ? 'Close AI assistant' : 'Open AI assistant'}
-      >
-        {open ? '✕' : <><span className="ai-launcher-dot" aria-hidden="true" />Ask AI</>}
-      </button>
+      <Mascot open={open} onClick={() => setOpen((v) => !v)} />
     </div>
   )
 }

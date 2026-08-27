@@ -2,7 +2,7 @@ const env = import.meta.env;
 
 export const contactConfig = {
   email: 'bhanukiran750@gmail.com',
-  linkedin: 'https://linkedin.com/in/bhanu-kiranvemula',
+  linkedin: 'https://www.linkedin.com/in/bhanu-kiran-vemula/',
   portfolio: 'https://bhanulinks.ccbp.tech/',
   calendlyUrl: env.VITE_CALENDLY_URL ?? 'https://calendly.com/bhanukiran750/book-a-call',
   whatsappNumber: env.VITE_WHATSAPP_NUMBER ?? '916309499278',
