@@ -224,6 +224,7 @@ function AIChat() {
 
           <p className="ai-disclaimer">
             AI answers can be imperfect — anything binding is confirmed with Bhanu directly.
+            Messages may be stored so Bhanu can follow up.
           </p>
         </section>
       )}
