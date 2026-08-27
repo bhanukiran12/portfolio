@@ -9,8 +9,11 @@
  *
  * Every conversation is also written to the Vercel Runtime Logs via console.log.
  *
- * Request:  POST /api/chat   { "messages": [{ "role": "user" | "assistant", "content": "..." }] }
+ * Request:  POST /api/chat   { "messages": [{ "role", "content" }], "conversationId": "..." }
  * Response: text/event-stream — OpenAI-style `data: {...}` chunks, terminated by `data: [DONE]`.
+ *
+ * The webhook receives one POST per turn with { at, id, ip, location, ua, messages, reply };
+ * `id` is stable for the whole conversation so the sink can upsert a single row.
  */
 
 export const config = { runtime: 'edge' }
@@ -85,6 +88,7 @@ function clientInfo(req: Request): { ip: string; location: string; ua: string } 
 }
 
 async function logConversation(record: {
+  id: string
   ip: string
   location: string
   ua: string
@@ -117,7 +121,8 @@ async function logConversation(record: {
  */
 function loggingPassThrough(
   info: { ip: string; location: string; ua: string },
-  messages: Message[]
+  messages: Message[],
+  id: string
 ): TransformStream<Uint8Array, Uint8Array> {
   const decoder = new TextDecoder()
   let buffer = ''
@@ -144,7 +149,7 @@ function loggingPassThrough(
       }
     },
     async flush() {
-      await logConversation({ ...info, messages, reply })
+      await logConversation({ id, ...info, messages, reply })
     },
   })
 }
@@ -159,12 +164,15 @@ export default async function handler(req: Request): Promise<Response> {
     return jsonResponse({ error: 'The chat service is not configured yet.' }, 500)
   }
 
-  let payload: { messages?: unknown }
+  let payload: { messages?: unknown; conversationId?: unknown }
   try {
-    payload = (await req.json()) as { messages?: unknown }
+    payload = (await req.json()) as { messages?: unknown; conversationId?: unknown }
   } catch {
     return jsonResponse({ error: 'Invalid request body.' }, 400)
   }
+
+  const conversationId =
+    typeof payload.conversationId === 'string' ? payload.conversationId.slice(0, 64) : ''
 
   const raw = Array.isArray(payload.messages) ? (payload.messages as Message[]) : []
   const messages = raw
@@ -211,7 +219,9 @@ export default async function handler(req: Request): Promise<Response> {
     )
   }
 
-  const stream = upstream.body.pipeThrough(loggingPassThrough(clientInfo(req), messages))
+  const stream = upstream.body.pipeThrough(
+    loggingPassThrough(clientInfo(req), messages, conversationId)
+  )
 
   return new Response(stream, {
     headers: {

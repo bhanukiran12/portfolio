@@ -10,13 +10,14 @@ export interface ChatMessage {
  */
 export async function streamChat(
   messages: ChatMessage[],
+  conversationId: string,
   onDelta: (text: string) => void,
   signal: AbortSignal
 ): Promise<void> {
   const res = await fetch('/api/chat', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ messages }),
+    body: JSON.stringify({ messages, conversationId }),
     signal,
   })
 

@@ -5,6 +5,28 @@ import Mascot from './Mascot'
 import './AIChat.css'
 
 const STORAGE_KEY = 'ai-chat-thread'
+const CONV_KEY = 'ai-chat-id'
+
+function newId(): string {
+  try {
+    if (typeof crypto !== 'undefined' && crypto.randomUUID) return crypto.randomUUID()
+  } catch {
+    /* fall through */
+  }
+  return `c_${Date.now().toString(36)}${Math.random().toString(36).slice(2, 8)}`
+}
+
+function loadConvId(): string {
+  try {
+    const existing = sessionStorage.getItem(CONV_KEY)
+    if (existing) return existing
+    const fresh = newId()
+    sessionStorage.setItem(CONV_KEY, fresh)
+    return fresh
+  } catch {
+    return newId()
+  }
+}
 
 const SUGGESTIONS = [
   'What can you build for me?',
@@ -41,6 +63,7 @@ function AIChat() {
   const [draft, setDraft] = useState('')
   const [streaming, setStreaming] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const [convId, setConvId] = useState(loadConvId)
 
   const abortRef = useRef<AbortController | null>(null)
   const inputRef = useRef<HTMLTextAreaElement>(null)
@@ -87,6 +110,7 @@ function AIChat() {
     try {
       await streamChat(
         next,
+        convId,
         (delta) => {
           setMessages((current) => {
             const copy = current.slice()
@@ -126,6 +150,13 @@ function AIChat() {
     setMessages([])
     setError(null)
     setStreaming(false)
+    const fresh = newId()
+    try {
+      sessionStorage.setItem(CONV_KEY, fresh)
+    } catch {
+      /* non-fatal */
+    }
+    setConvId(fresh)
   }
 
   return (
