@@ -8,7 +8,8 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "record-demos": "node scripts/record-demos.mjs"
+    "record-demos": "node scripts/record-demos.mjs",
+    "make-og": "node scripts/make-og.mjs"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",

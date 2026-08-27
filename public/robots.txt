@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://bhanulinks.ccbp.tech/sitemap.xml
+Sitemap: https://bhanukiran.vercel.app/sitemap.xml

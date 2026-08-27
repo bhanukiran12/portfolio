@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#ffffff" />
+  <rect x="0" y="0" width="1200" height="8" fill="#2f5dff" />
+  <g font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif">
+    <text x="80" y="150" font-size="22" font-weight="600" letter-spacing="3" fill="#2f5dff">
+      AI SYSTEMS · AUTOMATION · FULL STACK
+    </text>
+    <text x="80" y="250" font-size="76" font-weight="700" letter-spacing="-2" fill="#14140f">
+      Bhanu Kiran Vemula
+    </text>
+    <text x="80" y="330" font-size="40" font-weight="500" fill="#55554e">
+      I build AI systems that do real work.
+    </text>
+    <text x="80" y="410" font-size="27" font-weight="400" fill="#55554e">
+      RAG support systems · Conversational AI · Workflow automation
+    </text>
+    <g transform="translate(80, 470)">
+      <rect x="0" y="0" width="290" height="58" rx="29" fill="#f7f7f5" stroke="#e6e6e3" />
+      <circle cx="34" cy="29" r="6" fill="#1fa971" />
+      <text x="54" y="37" font-size="20" font-weight="500" fill="#14140f">Available for freelance</text>
+    </g>
+    <text x="80" y="580" font-size="20" font-weight="400" fill="#8a8a80">
+      Team Lead @ NxtWave · Replies within 24–48 hours
+    </text>
+  </g>
+  <g transform="translate(980, 210)">
+    <rect x="0" y="0" width="140" height="140" rx="32" fill="#2f5dff" />
+    <text x="70" y="70" text-anchor="middle" dominant-baseline="central"
+      font-family="Inter, system-ui, sans-serif" font-size="64" font-weight="700"
+      letter-spacing="-3" fill="#ffffff">BK</text>
+  </g>
+</svg>

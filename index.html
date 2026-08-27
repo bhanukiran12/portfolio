@@ -2,40 +2,63 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" sizes="any" />
-    <link rel="apple-touch-icon" href="/vite.svg" />
+    <!--
+      ┌───────────────────────────────────────────────────────────────────────┐
+      │  TODO: PRODUCTION DOMAIN                                                │
+      │  Placeholder in use: https://bhanukiran.vercel.app                     │
+      │  Replace it in ALL of these places when the real domain is live:       │
+      │    1. index.html      — <link rel="canonical">                         │
+      │    2. index.html      — og:url                                         │
+      │    3. index.html      — og:image / twitter:image (absolute URLs)       │
+      │    4. index.html      — JSON-LD: url, @id, sameAs                      │
+      │    5. public/sitemap.xml  — <loc> entries                              │
+      │    6. public/robots.txt   — Sitemap:                                   │
+      └───────────────────────────────────────────────────────────────────────┘
+    -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" sizes="any" />
+    <link rel="apple-touch-icon" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#030508" />
+    <meta name="theme-color" content="#ffffff" />
 
-    <title>Bhanu Kiran Vemula | Full Stack Engineer Portfolio</title>
+    <title>Bhanu Kiran Vemula — RAG Systems, Conversational AI &amp; Automation Engineer</title>
     <meta
       name="description"
-      content="Portfolio of Bhanu Kiran Vemula — full stack engineer and team lead at NxtWave. React, Node.js, AI products, and selected project demos."
+      content="Freelance AI engineer building RAG-based support systems, conversational AI chatbots, and workflow automation — with the full-stack engineering to ship them to production. Available for new projects."
     />
     <meta
       name="keywords"
-      content="Bhanu Kiran Vemula, full stack developer, React engineer, MERN stack, AI web applications, NxtWave, portfolio"
+      content="RAG developer, RAG systems freelance, conversational AI developer, AI chatbot developer, workflow automation, LLM engineer, OpenAI GPT-4o, retrieval augmented generation, n8n automation, full stack engineer, Bhanu Kiran Vemula"
     />
     <meta name="author" content="Bhanu Kiran Vemula" />
     <meta name="robots" content="index, follow, max-image-preview:large" />
-    <link rel="canonical" href="https://bhanulinks.ccbp.tech/" />
+    <link rel="canonical" href="https://bhanukiran.vercel.app/" />
 
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://bhanulinks.ccbp.tech/" />
-    <meta property="og:title" content="Bhanu Kiran Vemula | Full Stack Engineer Portfolio" />
+    <meta property="og:url" content="https://bhanukiran.vercel.app/" />
+    <meta
+      property="og:title"
+      content="Bhanu Kiran Vemula — RAG Systems, Conversational AI &amp; Automation Engineer"
+    />
     <meta
       property="og:description"
-      content="Full stack engineer building web applications, AI tools, and scalable frontends. Project demos and career highlights."
+      content="Freelance AI engineer building RAG support systems, conversational AI, and workflow automation — production-ready, full stack. Available for new projects."
     />
+    <meta property="og:image" content="https://bhanukiran.vercel.app/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <meta property="og:locale" content="en_US" />
-    <meta property="og:site_name" content="Bhanu Kiran Vemula Portfolio" />
+    <meta property="og:site_name" content="Bhanu Kiran Vemula" />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Bhanu Kiran Vemula | Full Stack Engineer Portfolio" />
+    <meta
+      name="twitter:title"
+      content="Bhanu Kiran Vemula — RAG Systems, Conversational AI &amp; Automation Engineer"
+    />
     <meta
       name="twitter:description"
-      content="Portfolio showcasing full stack engineering, AI products, and selected project demos."
+      content="Freelance AI engineer building RAG support systems, conversational AI, and workflow automation — production-ready, full stack."
     />
+    <meta name="twitter:image" content="https://bhanukiran.vercel.app/og-image.png" />
 
     <script type="application/ld+json">
       {
@@ -43,34 +66,65 @@
         "@graph": [
           {
             "@type": "WebSite",
-            "name": "Bhanu Kiran Vemula Portfolio",
-            "url": "https://bhanulinks.ccbp.tech/",
-            "description": "Professional portfolio of a full stack engineer and team lead.",
+            "name": "Bhanu Kiran Vemula",
+            "url": "https://bhanukiran.vercel.app/",
+            "description": "Freelance AI engineer building RAG systems, conversational AI, and workflow automation.",
             "inLanguage": "en"
           },
           {
             "@type": "Person",
-            "@id": "https://bhanulinks.ccbp.tech/#person",
+            "@id": "https://bhanukiran.vercel.app/#person",
             "name": "Bhanu Kiran Vemula",
-            "jobTitle": "Full Stack Engineer & Team Lead Manager",
-            "url": "https://bhanulinks.ccbp.tech/",
+            "jobTitle": "AI Systems & Full Stack Engineer",
+            "url": "https://bhanukiran.vercel.app/",
             "email": "mailto:bhanukiran750@gmail.com",
             "sameAs": [
               "https://linkedin.com/in/bhanu-kiranvemula",
-              "https://bhanulinks.ccbp.tech/"
+              "https://bhanukiran.vercel.app/"
             ],
             "knowsAbout": [
+              "Retrieval-Augmented Generation (RAG)",
+              "Conversational AI",
+              "Large Language Models",
+              "OpenAI GPT-4o",
+              "Prompt Engineering",
+              "Vector Databases",
+              "Workflow Automation",
               "React",
               "Node.js",
               "TypeScript",
-              "MERN Stack",
-              "AI Applications",
-              "Web Development"
+              "Python"
             ],
             "worksFor": {
               "@type": "Organization",
               "name": "NxtWave"
-            }
+            },
+            "makesOffer": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "RAG & Document Q&A systems",
+                  "description": "Retrieval-augmented chat over private documents and knowledge bases, with citations and hallucination guardrails."
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Conversational AI & chatbots",
+                  "description": "Support and onboarding chatbots for WhatsApp, web, and Slack, with a human-in-the-loop dashboard."
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Workflow automation",
+                  "description": "Automating repetitive business workflows with n8n, Zapier, APIs, and custom integrations."
+                }
+              }
+            ]
           }
         ]
       }

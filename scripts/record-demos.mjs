@@ -9,7 +9,6 @@ const outDir = path.join(__dirname, '..', 'src', 'assets', 'projects');
 const demos = [
   { name: 'conversion-platform-demo.webm', url: 'https://ccbp.in/intensive', wait: 8000 },
   { name: 'parent-message-demo.webm', url: 'https://parent-message.vercel.app/', wait: 10000 },
-  { name: 'holi-run-demo.webm', url: 'https://nxtholi-run.netlify.app/', wait: 10000 },
   { name: 'schedora-demo.webm', url: 'https://sechdora-2f2g.onrender.com', wait: 15000 },
   { name: 'vyra-demo.webm', url: 'https://vyra-ues5.onrender.com', wait: 15000 },
 ];
