@@ -35,7 +35,7 @@ function ContactForm() {
     return (
       <div className="contact-form-success glass" role="status">
         <p className="contact-form-success-title">Message sent</p>
-        <p>Thanks for reaching out. I&apos;ll reply within 24–48 hours.</p>
+        <p>Thanks for reaching out. BhanuBeyond will reply within 1–2 business days.</p>
         <button
           type="button"
           className="glass-btn glass-btn--secondary"

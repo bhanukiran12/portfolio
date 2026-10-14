@@ -1,9 +1,9 @@
 const env = import.meta.env;
 
 export const contactConfig = {
-  email: 'bhanukiran750@gmail.com',
+  email: 'hello@bhanubeyond.com',
   linkedin: 'https://www.linkedin.com/in/bhanu-kiran-vemula/',
-  portfolio: 'https://bhanulinks.ccbp.tech/',
+  portfolio: 'https://bhanubeyond.com/',
   calendlyUrl: env.VITE_CALENDLY_URL ?? 'https://calendly.com/bhanukiran750/book-a-call',
   whatsappNumber: env.VITE_WHATSAPP_NUMBER ?? '916309499278',
   signalUrl:
@@ -11,14 +11,14 @@ export const contactConfig = {
     'https://signal.me/#eu/vtBrPsC8x0eFwO_QZcu1kUFr7yeaWsyHtCtp81SOI3bjqFE_KUtJQb5jCikMNHni',
   /** Flip to false when fully booked — hides the availability band CTA copy. */
   availableForFreelance: true,
-  freelanceCapacity: 'Taking 1–2 new projects',
-  responseTime: 'Replies within 24–48 hours',
+  freelanceCapacity: 'Taking on new projects',
+  responseTime: 'Replies within 1–2 business days',
 } as const;
 
 export function getWhatsAppUrl(): string {
   const digits = contactConfig.whatsappNumber.replace(/\D/g, '');
   const text = encodeURIComponent(
-    "Hi Bhanu, I'd like to discuss an AI / automation project — RAG, a chatbot, or a workflow build."
+    "Hi BhanuBeyond, I'd like to discuss a website, software, or AI automation project."
   );
   return `https://wa.me/${digits}?text=${text}`;
 }

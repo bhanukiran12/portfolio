@@ -88,7 +88,7 @@ function Mascot({ open, onClick }: MascotProps) {
       onMouseLeave={() => setHovered(false)}
       onFocus={() => setHovered(true)}
       onBlur={() => setHovered(false)}
-      aria-label="Chat with Bhanu's AI assistant"
+      aria-label="Chat with BhanuBeyond's AI assistant"
     >
       <span
         className={`mascot-bubble ${bubble || hovered ? 'mascot-bubble--show' : ''}`}

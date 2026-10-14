@@ -21,14 +21,14 @@ export const submitContactForm = async (
         email: formData.email,
         message: formData.message,
         _replyto: formData.email,
-        _subject: `Portfolio message from ${formData.name}`,
+        _subject: `BhanuBeyond enquiry from ${formData.name}`,
       }),
     });
 
     if (response.ok) {
       return {
         success: true,
-        message: 'Message sent. I will get back to you within 24–48 hours.',
+        message: 'Message sent. BhanuBeyond will get back to you within 1–2 business days.',
       };
     }
 

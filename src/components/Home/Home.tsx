@@ -1,4 +1,3 @@
-import { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { useScrollToSection } from '../../hooks/useScrollToSection'
 import { useParallax } from '../../hooks/useParallax'
@@ -7,151 +6,39 @@ import { contactConfig, getWhatsAppUrl } from '../../config/contact'
 import ContactChannels from '../ContactChannels/ContactChannels'
 import ContactForm from '../ContactForm/ContactForm'
 import Footer from '../Footer/Footer'
-import conversionPlatformDemo from '../../assets/projects/conversion-platform-demo.webm'
-import parentMessageDemo from '../../assets/projects/parent-message-demo.webm'
 import './Home.css'
 
-interface Project {
+type Service = {
   title: string
   description: string
   tech: string[]
-  link: string
-  demoVideo?: string
-  bento: 'featured' | 'wide' | 'standard'
   highlights?: string[]
+  bento: 'featured' | 'wide' | 'standard'
 }
 
-const skills = [
-  'Python', 'OpenAI GPT-4o', 'RAG', 'Vector DBs', 'Embeddings', 'Prompt Engineering',
-  'n8n', 'Zapier', 'WhatsApp Business API',
-  'React.js', 'Next.js', 'TypeScript', 'JavaScript', 'Tailwind', 'Redux',
-  'Node.js', 'Express.js', 'REST APIs', 'GraphQL',
-  'MongoDB', 'MySQL',
-  'Git', 'CI/CD', 'Vite',
-  'SEO', 'WCAG', 'Responsive Design',
-]
-
 const services = [
-  {
-    title: 'RAG & Document Q&A',
-    description:
-      'Chat over your own docs, tickets, and knowledge base — grounded answers with citations and hallucination guardrails.',
-  },
-  {
-    title: 'Conversational AI',
-    description:
-      'Support and onboarding chatbots on WhatsApp, web, or Slack — prompt-engineered, with a human-in-the-loop dashboard.',
-  },
-  {
-    title: 'Workflow Automation',
-    description:
-      'Connect the tools you already use — n8n, Zapier, Sheets, APIs — so repetitive work runs itself.',
-  },
+  { title: 'Portfolio Websites', description: 'Personal websites for students and professionals who want their work to be easy to find, understand, and trust.' },
+  { title: 'Business Websites', description: 'Fast, mobile-ready websites for local businesses that make services clear and turn visitors into enquiries.' },
+  { title: 'Custom Software', description: 'Dashboards, portals, internal tools, and full-stack products shaped around the way your team works.' },
+  { title: 'AI & Automation', description: 'Website chatbots, RAG systems, custom AI workflows, and automations that remove repetitive work.' },
 ]
 
-const projects: Project[] = [
+const capabilities: Service[] = [
   {
-    title: 'Pulse AI',
-    description:
-      'Enterprise WhatsApp AI platform that automates customer conversations at scale, built end to end.',
-    highlights: [
-      'Problem — support teams buried under repetitive WhatsApp queries.',
-      'Approach — RAG over the company knowledge base + GPT-4o, with prompt guardrails and a live human-in-the-loop dashboard.',
-      'Result — automated first-response across thousands of customer conversations.',
-    ],
-    tech: ['React', 'Node.js', 'MongoDB', 'Python', 'OpenAI GPT-4o', 'RAG', 'Vector DB', 'WhatsApp API'],
-    link: '#',
-    bento: 'featured',
+    title: 'Websites that earn attention',
+    description: 'Portfolio sites, business websites, landing pages, and service pages designed to be clear, fast, and useful on every device.',
+    highlights: ['Clear positioning and calls to action', 'Responsive design and basic SEO foundations', 'Simple handover so your team can keep moving'],
+    tech: ['React', 'TypeScript', 'SEO', 'Responsive design'], bento: 'featured',
   },
-  {
-    title: 'HoomanLabs Voice Agents',
-    description:
-      'Voice-agent creation, training, prompting, and workflow design for production-grade conversational experiences.',
-    tech: ['Voice Agents', 'Prompt Engineering', 'Conversation Design', 'LLMs'],
-    link: 'https://hoomanlabs.com/platform/agents/create',
-    bento: 'wide',
-  },
-  {
-    title: 'Parent Comms Automation',
-    description:
-      'Workflow automation that turns a Google Sheet of student data into personalized parent WhatsApp messages — consistent tone at scale, zero manual copy-paste.',
-    tech: ['React.js', 'JavaScript', 'REST APIs', 'Google Sheets API', 'Workflow Automation'],
-    link: 'https://parent-message.vercel.app/',
-    demoVideo: parentMessageDemo,
-    bento: 'wide',
-  },
-  {
-    title: 'Conversion Platform',
-    description:
-      'Lead-generation web platform with dynamic, high-conversion forms for user acquisition and sales workflows.',
-    tech: ['React.js', 'TypeScript', 'JavaScript', 'HTML5', 'CSS3'],
-    link: 'https://ccbp.in/intensive',
-    demoVideo: conversionPlatformDemo,
-    bento: 'wide',
-  },
+  { title: 'Software built around your workflow', description: 'Custom dashboards, client portals, internal tools, and MVPs that bring your process into one dependable place.', tech: ['React', 'Node.js', 'APIs', 'Databases'], bento: 'wide' },
+  { title: 'AI assistants that do useful work', description: 'Knowledge-grounded chatbots, document Q&A, lead qualification, and AI workflows with the right human handoffs.', tech: ['RAG', 'LLMs', 'Vector databases', 'Function calling'], bento: 'wide' },
+  { title: 'Automation that keeps work moving', description: 'Connect your existing tools, remove copy-paste work, and make routine follow-up, routing, and reporting more reliable.', tech: ['n8n', 'Zapier', 'Webhooks', 'Integrations'], bento: 'wide' },
 ]
 
-const comingSoon = [
-  {
-    title: 'RAG Document Q&A Bot',
-    description:
-      'Upload a set of documents, ask questions, get cited answers — with retrieval tuning and hallucination guardrails.',
-    tech: ['Python', 'OpenAI', 'RAG', 'Vector DBs'],
-  },
-  {
-    title: 'Workflow Automation Builder',
-    description:
-      'Visual trigger → action flows that wire together the tools a small team already runs on.',
-    tech: ['n8n', 'APIs', 'Webhooks'],
-  },
-  {
-    title: 'Tool-Calling AI Agent',
-    description:
-      'An agent that actually executes — calling real APIs and tools to complete multi-step tasks, not just chat.',
-    tech: ['LLMs', 'Function Calling', 'Node.js'],
-  },
-]
-
-const learningProjects = [
-  {
-    title: 'Schedora',
-    description: 'Task and scheduling app for planning, organizing, and tracking daily work.',
-    tech: ['React.js', 'Node.js', 'REST APIs'],
-    link: 'https://sechdora-2f2g.onrender.com',
-  },
-  {
-    title: 'Vyra',
-    description: 'Goat-and-tiger strategy game with real-time gameplay and competitive mechanics.',
-    tech: ['JavaScript', 'HTML5', 'CSS3'],
-    link: 'https://vyra-ues5.onrender.com',
-  },
-]
-
-const experience = [
-  {
-    title: 'Team Lead Manager',
-    company: 'NxtWave',
-    period: 'April 2025 — Present',
-    description:
-      'Lead development of AI-powered support and onboarding systems alongside scalable web applications. Drive architecture, code quality, and engineering best practices while mentoring developers.',
-    icon: 'TL',
-  },
-  {
-    title: 'Associate Mentor',
-    company: 'NIAT (NxtWave)',
-    period: 'December 2024 — July 2025',
-    description:
-      'Mentored developers in MERN stack and frontend architecture. Conducted code reviews and enforced best practices.',
-    icon: 'AM',
-  },
-  {
-    title: 'MERN Stack Trainee',
-    company: 'NxtWave',
-    period: 'January 2024 — December 2024',
-    description:
-      'Built full-stack applications with React, Node.js, and MongoDB. Developed reusable UI components and integrated REST APIs.',
-    icon: 'TR',
-  },
+const process = [
+  { icon: '01', title: 'Tell us the goal', description: 'Share the problem, your users, your current tools, and what a useful outcome looks like.' },
+  { icon: '02', title: 'Get a clear plan', description: 'We define the right scope, deliverables, timeline, and communication rhythm before work begins.' },
+  { icon: '03', title: 'Build, review, launch', description: 'You see working progress in stages, give feedback early, and receive a clear handover at launch.' },
 ]
 
 function Home() {
@@ -166,413 +53,58 @@ function Home() {
         <section id="hero" className="hero" aria-labelledby="hero-heading">
           <div className="hero-grid">
             <div className="hero-copy" ref={heroParallax}>
-              <p className="hero-label">
-                <span className="hero-label-dot" aria-hidden="true" />
-                AI Systems · Automation · Full Stack
-              </p>
-              <h1 id="hero-heading" className="hero-name">
-                Bhanu Kiran
-                <span className="hero-surname text-gradient">Vemula</span>
-              </h1>
-              <p className="hero-role">I build AI systems that do real work.</p>
-              <p className="hero-intro">
-                I design and ship <strong>RAG-based support systems, conversational AI, and
-                workflow automation</strong> — then engineer the full stack around them so they
-                hold up in production. Team Lead at NxtWave, where my AI systems handle customer
-                conversations and onboarding at scale.
-              </p>
+              <p className="hero-label"><span className="hero-label-dot" aria-hidden="true" />Websites · Custom Software · AI Automation</p>
+              <h1 id="hero-heading" className="hero-name">Bhanu<span className="hero-surname text-gradient">Beyond</span></h1>
+              <p className="hero-role">Build beyond the expected.</p>
+              <p className="hero-intro">We build <strong>websites, custom software, and practical AI automation</strong> for students, local businesses, startups, and growing teams. Start simple, scale when it matters.</p>
               <div className="hero-stats">
-                <div className="stat-box glass">
-                  <span className="stat-value">RAG</span>
-                  <span className="stat-label">LLM systems in production</span>
-                </div>
-                <div className="stat-box glass">
-                  <span className="stat-value">2+</span>
-                  <span className="stat-label">Years full stack</span>
-                </div>
-                <div className="stat-box glass">
-                  <span className="stat-value">24–48h</span>
-                  <span className="stat-label">Reply time</span>
-                </div>
+                <div className="stat-box glass"><span className="stat-value">Web</span><span className="stat-label">portfolio &amp; business sites</span></div>
+                <div className="stat-box glass"><span className="stat-value">Build</span><span className="stat-label">custom software &amp; MVPs</span></div>
+                <div className="stat-box glass"><span className="stat-value">AI</span><span className="stat-label">chatbots, RAG &amp; automation</span></div>
               </div>
-              <div className="hero-actions">
-                <a
-                  href={contactConfig.calendlyUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="glass-btn glass-btn--primary"
-                >
-                  Book a call
-                </a>
-                <a href="#projects" className="glass-btn glass-btn--ghost">
-                  See the work
-                </a>
-              </div>
+              <div className="hero-actions"><a href="#contact" className="glass-btn glass-btn--primary">Start a project</a><a href="#services" className="glass-btn glass-btn--ghost">Explore services</a></div>
             </div>
-
             <div className="hero-photo-wrap" ref={photoParallax}>
-              <div className="hero-photo-frame glass">
-                <div className="hero-photo-glow" aria-hidden="true" />
-                <img
-                  src="https://res.cloudinary.com/df7wnybwg/image/upload/f_auto,q_auto,w_840/v1787814093/7f69e113-bea0-4879-b63d-3869e1c88818_x6biez.png"
-                  alt="Bhanu Kiran Vemula — AI systems and full stack engineer"
-                  className="hero-photo"
-                  width={420}
-                  height={525}
-                  loading="eager"
-                  fetchPriority="high"
-                />
+              <div className="hero-photo-frame glass"><div className="hero-photo-glow" aria-hidden="true" />
+                <img src="https://res.cloudinary.com/df7wnybwg/image/upload/v1791969841/BhanuBeyond/5881509d-2e2a-4a64-b5ef-fb39ff2d2592.png" alt="Bhanu Kiran, founder of BhanuBeyond Technologies" className="hero-photo" width={420} height={525} loading="eager" fetchPriority="high" />
               </div>
             </div>
           </div>
         </section>
 
-        <section id="available" className="section" aria-labelledby="available-heading">
+        <section id="services" className="section" aria-labelledby="services-heading">
           <div className="avail-card glass">
-            <div className="avail-head">
-              <p className="avail-status">
-                <span
-                  className={`avail-dot ${contactConfig.availableForFreelance ? 'avail-dot--on' : ''}`}
-                  aria-hidden="true"
-                />
-                {contactConfig.availableForFreelance
-                  ? `Currently available for freelance — ${contactConfig.freelanceCapacity.toLowerCase()}`
-                  : 'Freelance schedule is currently full — reach out to join the waitlist'}
-              </p>
-              <h2 id="available-heading" className="avail-title">
-                AI &amp; automation projects, built to ship
-              </h2>
-              <p className="avail-lead">
-                I take on focused engagements in RAG systems, conversational AI, and workflow
-                automation — with the full-stack engineering to put them in production.{' '}
-                {contactConfig.responseTime} · Remote, IST-aligned.
-              </p>
-            </div>
-
-            <div className="avail-services">
-              {services.map((service) => (
-                <div key={service.title} className="avail-service lift">
-                  <h3 className="avail-service-title">{service.title}</h3>
-                  <p className="avail-service-desc">{service.description}</p>
-                </div>
-              ))}
-            </div>
-
-            <div className="avail-actions">
-              <a
-                href={contactConfig.calendlyUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="glass-btn glass-btn--primary"
-              >
-                Book a call
-              </a>
-              <a
-                href={getWhatsAppUrl()}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="glass-btn glass-btn--ghost"
-              >
-                WhatsApp
-              </a>
-              <a href={`mailto:${contactConfig.email}`} className="glass-btn glass-btn--ghost">
-                Email
-              </a>
-              <Link to="/work-with-me" className="avail-link">
-                How I work →
-              </Link>
-            </div>
+            <div className="avail-head"><p className="avail-status"><span className="avail-dot avail-dot--on" aria-hidden="true" />Currently taking on new projects</p><h2 id="services-heading" className="avail-title">The right build for where you are now</h2><p className="avail-lead">From a first portfolio to a connected AI workflow, BhanuBeyond matches the scope to the problem — then builds something you can actually use. {contactConfig.responseTime} · Remote, India.</p></div>
+            <div className="avail-services">{services.map((service) => <div key={service.title} className="avail-service lift"><h3 className="avail-service-title">{service.title}</h3><p className="avail-service-desc">{service.description}</p></div>)}</div>
+            <div className="avail-actions"><a href="#contact" className="glass-btn glass-btn--primary">Tell us what you need</a><a href={getWhatsAppUrl()} target="_blank" rel="noopener noreferrer" className="glass-btn glass-btn--ghost">WhatsApp</a><a href={`mailto:${contactConfig.email}`} className="glass-btn glass-btn--ghost">Email us</a><Link to="/work-with-me" className="avail-link">How we work →</Link></div>
           </div>
         </section>
 
         <section id="about" className="section" aria-labelledby="about-heading">
-          <header className="section-head" data-reveal>
-            <span className="section-label">01 — About</span>
-            <h2 id="about-heading" className="section-title">
-              Building with clarity
-            </h2>
-            <p className="section-subtitle">
-              Engineer focused on AI systems that solve real problems — and hold up in production.
-            </p>
-          </header>
-
+          <header className="section-head" data-reveal><span className="section-label">01 — About</span><h2 id="about-heading" className="section-title">A practical technology partner</h2><p className="section-subtitle">Clear communication, useful technology, and a delivery approach that fits the project.</p></header>
           <div className="about-bento">
-            <div className="about-card glass about-bento-main">
-              <p>
-                I&apos;m <strong>Bhanu Kiran Vemula</strong> — Team Lead at <strong>NxtWave</strong>,
-                where I build <strong>AI chatbots, RAG-based support systems, and onboarding
-                automation</strong> that reach thousands of learners, and lead the engineers who
-                ship them.
-              </p>
-              <p>
-                <strong>BTech Computer Science (VIT)</strong> with hands-on full-stack delivery
-                across React, Node.js, and Python. I pair LLM and retrieval work with the
-                engineering to deploy, monitor, and scale it — live demos in the work section
-                below.
-              </p>
-              <div className="about-badges">
-                <span className="glass-tag">RAG systems</span>
-                <span className="glass-tag">Conversational AI</span>
-                <span className="glass-tag">Workflow automation</span>
-                <span className="glass-tag">Full stack</span>
-              </div>
-            </div>
-
-            <aside className="skills-panel glass about-bento-side">
-              <h3 className="panel-title">Tech stack</h3>
-              <div className="skills-grid">
-                {skills.map((skill) => (
-                  <span key={skill} className="glass-tag">
-                    {skill}
-                  </span>
-                ))}
-              </div>
-              <div className="education-block">
-                <h4 className="panel-title">Education</h4>
-                <p className="edu-degree">BTech Computer Science</p>
-                <p className="edu-meta">VIT Amaravathi · GPA 8.09 · 2019–2024</p>
-              </div>
-            </aside>
+            <div className="about-card glass about-bento-main"><p><strong>BhanuBeyond Technologies</strong> is led by Bhanu Kiran Vemula, a full-stack engineer working across websites, product builds, AI systems, and automation.</p><p>We help people get online with confidence, help businesses improve the tools they depend on, and help teams use AI where it creates real value — not just more noise.</p><div className="about-badges"><span className="glass-tag">Websites</span><span className="glass-tag">Full stack</span><span className="glass-tag">AI systems</span><span className="glass-tag">Automation</span></div></div>
+            <aside className="skills-panel glass about-bento-side"><h3 className="panel-title">Built with</h3><div className="skills-grid">{['React', 'TypeScript', 'Node.js', 'Python', 'APIs', 'RAG', 'LLMs', 'n8n', 'Databases', 'SEO'].map((skill) => <span key={skill} className="glass-tag">{skill}</span>)}</div><div className="education-block"><h4 className="panel-title">Founder-led</h4><p className="edu-degree">Technical clarity from the first conversation</p><p className="edu-meta">Right-sized delivery for every project</p></div></aside>
           </div>
         </section>
 
-        <section id="experience" className="section" aria-labelledby="experience-heading">
-          <header className="section-head" data-reveal>
-            <span className="section-label">02 — Experience</span>
-            <h2 id="experience-heading" className="section-title">
-              Career timeline
-            </h2>
-            <p className="section-subtitle">Leadership and engineering at scale.</p>
-          </header>
-
-          <div className="timeline">
-            {experience.map((exp) => (
-              <article key={exp.title} className="timeline-card glass lift" data-reveal>
-                <div className="timeline-icon">{exp.icon}</div>
-                <div className="timeline-body">
-                  <div className="timeline-top">
-                    <h3>{exp.title}</h3>
-                    <time className="timeline-period">{exp.period}</time>
-                  </div>
-                  <p className="timeline-company">{exp.company}</p>
-                  <p className="timeline-desc">{exp.description}</p>
-                </div>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <section id="journey" className="section" aria-labelledby="journey-heading">
-          <header className="section-head" data-reveal>
-            <span className="section-label">03 — Impact</span>
-            <h2 id="journey-heading" className="section-title">
-              A journey worth sharing
-            </h2>
-            <p className="section-subtitle">Training 100+ NIAT mentors at NxtWave.</p>
-          </header>
-
-          <div className="journey-bento">
-            <div className="journey-image glass journey-bento-visual">
-              <img
-                src="/images/niat-journey.png"
-                alt="NIAT mentor training at NxtWave Institute of Advanced Technologies"
-                loading="lazy"
-              />
-            </div>
-            <div className="journey-text glass journey-bento-copy">
-              <p>
-                From May 2025, I had the privilege of training over{' '}
-                <strong>100 NIAT mentors and instructors</strong>. Each now guides thousands of
-                students across India — a ripple effect that multiplies impact exponentially.
-              </p>
-              <p>
-                This was never just about sessions. It was conversations with brilliant minds from{' '}
-                <strong>IITs, IIMs</strong>, and institutions nationwide.
-              </p>
-              <blockquote className="journey-quote">
-                When we empower teachers, we transform generations.
-              </blockquote>
-              <ul className="journey-list">
-                <li>Tech mentors uplift students.</li>
-                <li>Students drive innovation.</li>
-                <li>That innovation builds a developed India.</li>
-              </ul>
-              <div className="journey-tags">
-                <span className="glass-tag">#Education</span>
-                <span className="glass-tag">#NIAT</span>
-                <span className="glass-tag">#NxtWave</span>
-              </div>
-            </div>
-          </div>
+        <section id="process" className="section" aria-labelledby="process-heading">
+          <header className="section-head" data-reveal><span className="section-label">02 — Process</span><h2 id="process-heading" className="section-title">Simple from first message to launch</h2><p className="section-subtitle">No technical vocabulary required. We make the next step clear.</p></header>
+          <div className="timeline">{process.map((step) => <article key={step.icon} className="timeline-card glass lift" data-reveal><div className="timeline-icon">{step.icon}</div><div className="timeline-body"><div className="timeline-top"><h3>{step.title}</h3></div><p className="timeline-desc">{step.description}</p></div></article>)}</div>
         </section>
 
         <section id="projects" className="section" aria-labelledby="projects-heading">
-          <header className="section-head" data-reveal>
-            <span className="section-label">04 — Work</span>
-            <h2 id="projects-heading" className="section-title">
-              Selected work
-            </h2>
-            <p className="section-subtitle">
-              AI platforms, conversational systems, automation, and the full-stack apps around them.
-            </p>
-          </header>
-
-          <div className="bento-grid">
-            {projects.map((project, index) => (
-              <article
-                key={project.title}
-                data-reveal
-                className={`bento-card glass lift bento-${project.bento} ${project.demoVideo ? 'bento-has-video' : ''}`}
-              >
-                <span className="bento-index">0{index + 1}</span>
-                <h3 className="bento-title">{project.title}</h3>
-                <p className="bento-desc">{project.description}</p>
-                {project.highlights && (
-                  <ul className="bento-highlights">
-                    {project.highlights.map((point) => (
-                      <li key={point}>{point}</li>
-                    ))}
-                  </ul>
-                )}
-                <div className="bento-tech">
-                  {project.tech.map((tech) => (
-                    <span key={tech} className="glass-tag">
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-                {project.demoVideo && (
-                  <div className="bento-demo">
-                    <span className="demo-label">Live demo</span>
-                    <ProjectVideo src={project.demoVideo} title={project.title} />
-                  </div>
-                )}
-                {project.link !== '#' && (
-                  <a
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="bento-link glass-btn glass-btn--ghost"
-                  >
-                    Visit site →
-                  </a>
-                )}
-              </article>
-            ))}
-          </div>
-
-          <div className="next-block">
-            <h3 className="next-title">Building next</h3>
-            <div className="next-grid">
-              {comingSoon.map((project) => (
-                <article key={project.title} className="bento-card glass lift next-card">
-                  <span className="next-tag glass-tag">Coming soon</span>
-                  <h4 className="bento-title">{project.title}</h4>
-                  <p className="bento-desc">{project.description}</p>
-                  <div className="bento-tech">
-                    {project.tech.map((tech) => (
-                      <span key={tech} className="glass-tag">
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                </article>
-              ))}
-            </div>
-          </div>
-
-          <details className="learning-block">
-            <summary className="learning-summary">
-              Earlier &amp; learning projects
-            </summary>
-            <ul className="learning-list">
-              {learningProjects.map((project) => (
-                <li key={project.title} className="learning-item">
-                  <div className="learning-item-head">
-                    <a
-                      href={project.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="learning-item-title"
-                    >
-                      {project.title} →
-                    </a>
-                    <span className="learning-item-tech">{project.tech.join(' · ')}</span>
-                  </div>
-                  <p className="learning-item-desc">{project.description}</p>
-                </li>
-              ))}
-            </ul>
-          </details>
+          <header className="section-head" data-reveal><span className="section-label">03 — Capabilities</span><h2 id="projects-heading" className="section-title">What BhanuBeyond can help you build</h2><p className="section-subtitle">A focused service catalogue, from your first website to the systems that run behind it.</p></header>
+          <div className="bento-grid">{capabilities.map((capability, index) => <article key={capability.title} data-reveal className={`bento-card glass lift bento-${capability.bento}`}><span className="bento-index">0{index + 1}</span><h3 className="bento-title">{capability.title}</h3><p className="bento-desc">{capability.description}</p>{capability.highlights && <ul className="bento-highlights">{capability.highlights.map((point) => <li key={point}>{point}</li>)}</ul>}<div className="bento-tech">{capability.tech.map((tech) => <span key={tech} className="glass-tag">{tech}</span>)}</div></article>)}</div>
         </section>
 
         <section id="contact" className="section contact-section" aria-labelledby="contact-heading">
-          <header className="section-head" data-reveal>
-            <span className="section-label">05 — Contact</span>
-            <h2 id="contact-heading" className="section-title">
-              Get in touch
-            </h2>
-            <p className="section-subtitle">
-              Book a call or send a message. Read{' '}
-              <Link to="/work-with-me" className="contact-inline-link">
-                how to work with me
-              </Link>{' '}
-              first if you are exploring a project.
-            </p>
-          </header>
-
-          <div className="contact-bento">
-            <aside className="contact-aside glass">
-              <h3 className="contact-aside-title">Quick connect</h3>
-              <ContactChannels />
-            </aside>
-            <div className="contact-form-wrap glass">
-              <ContactForm />
-            </div>
-          </div>
+          <header className="section-head" data-reveal><span className="section-label">04 — Contact</span><h2 id="contact-heading" className="section-title">Tell us what you want to build</h2><p className="section-subtitle">Share a little context and BhanuBeyond will help you identify the right next step.</p></header>
+          <div className="contact-bento"><aside className="contact-aside glass"><h3 className="contact-aside-title">Quick connect</h3><ContactChannels /></aside><div className="contact-form-wrap glass"><ContactForm /></div></div>
         </section>
       </main>
-
       <Footer />
     </div>
-  )
-}
-
-function ProjectVideo({ src, title }: { src: string; title: string }) {
-  const videoRef = useRef<HTMLVideoElement>(null)
-
-  useEffect(() => {
-    const video = videoRef.current
-    if (!video) return
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          video.play().catch(() => {})
-        } else {
-          video.pause()
-        }
-      },
-      { threshold: 0.35 }
-    )
-
-    observer.observe(video)
-    return () => observer.disconnect()
-  }, [])
-
-  return (
-    <video
-      ref={videoRef}
-      className="bento-video"
-      src={src}
-      autoPlay
-      controls
-      muted
-      loop
-      playsInline
-      preload="auto"
-      aria-label={`${title} demo`}
-    />
   )
 }
 

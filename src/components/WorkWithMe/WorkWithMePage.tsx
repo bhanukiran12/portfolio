@@ -8,61 +8,59 @@ function WorkWithMePage() {
       <main id="main-content" className="wwm-main">
         <header className="wwm-hero glass">
           <p className="section-label">Collaborate</p>
-          <h1 className="wwm-title section-title">How to work with me</h1>
+          <h1 className="wwm-title section-title">Start a project with BhanuBeyond</h1>
           <p className="wwm-lead">
-            I partner with founders, startups, and teams on product builds — from websites and full
-            stack apps to AI tools and onsite delivery. Read how I work below; if it fits, reach out
-            on the home page contact form.
+            We help individuals, local businesses, and growing teams turn ideas into useful digital
+            products — from portfolio websites to full-stack software and practical AI automation.
           </p>
         </header>
 
         <section className="wwm-block glass" aria-labelledby="wwm-what-heading">
           <h2 id="wwm-what-heading" className="wwm-heading">
-            What I work on
+            What we build
           </h2>
           <ul className="wwm-list">
             <li>
-              <strong>Websites &amp; landing pages</strong> — fast, responsive, conversion-focused.
+              <strong>Portfolio websites</strong> — polished personal sites for students and professionals.
             </li>
             <li>
-              <strong>Full stack applications</strong> — React, Node.js, APIs, databases, deployment.
+              <strong>Business websites</strong> — fast, clear, mobile-ready sites built to generate enquiries.
             </li>
             <li>
-              <strong>AI-powered products</strong> — integrations, automation, voice agents, LLM workflows.
+              <strong>Custom software</strong> — React, Node.js, APIs, dashboards, portals, and deployments.
             </li>
             <li>
-              <strong>Startups &amp; MVPs</strong> — ship a first version, iterate with clear milestones.
+              <strong>AI chatbots &amp; RAG</strong> — assistants grounded in your knowledge and workflows.
             </li>
             <li>
-              <strong>Product ideas</strong> — early-stage concepts where you need engineering + product clarity.
+              <strong>Workflow automation</strong> — connect the tools your team already uses and remove repeat work.
             </li>
             <li>
-              <strong>Onsite &amp; hybrid</strong> — when scope and location make in-person collaboration valuable.
+              <strong>Startups &amp; MVPs</strong> — focused first versions built with clear milestones.
             </li>
           </ul>
         </section>
 
         <section className="wwm-block glass" aria-labelledby="wwm-how-heading">
           <h2 id="wwm-how-heading" className="wwm-heading">
-            How I collaborate
+            How we work
           </h2>
           <p className="wwm-text">
-            I work best when product, engineering, and business goals are aligned. You do not need a
-            perfect spec — but the more context you share (users, sales motion, team structure), the
-            faster we can move.
+            You do not need a perfect specification. Tell us the problem, the people it affects,
+            and what a useful result looks like. We turn that into a practical scope and delivery plan.
           </p>
           <div className="wwm-grid">
             <div className="wwm-card-inner glass">
-              <h3>Product</h3>
-              <p>What you are building, who it is for, stage (idea, MVP, live), and success metrics.</p>
+              <h3>Understand</h3>
+              <p>We learn your goals, users, existing tools, timeline, and budget range.</p>
             </div>
             <div className="wwm-card-inner glass">
-              <h3>Management</h3>
-              <p>Who owns decisions, existing team, and how you run delivery today.</p>
+              <h3>Plan</h3>
+              <p>You get a clear proposal with deliverables, milestones, and a communication rhythm.</p>
             </div>
             <div className="wwm-card-inner glass">
-              <h3>Sales &amp; GTM</h3>
-              <p>How you acquire customers, pricing, and go-to-market — so tech supports revenue.</p>
+              <h3>Build &amp; launch</h3>
+              <p>We deliver in reviewable stages, then help you launch with confidence.</p>
             </div>
           </div>
         </section>
@@ -73,21 +71,20 @@ function WorkWithMePage() {
           </h2>
           <ol className="wwm-steps">
             <li>
-              <strong>Intro</strong> — Calendly, WhatsApp, Signal, or email (links on home contact).
+              <strong>Intro</strong> — share your idea by call, WhatsApp, or email.
             </li>
             <li>
-              <strong>Scope</strong> — goals, timeline, remote vs onsite, and rough budget range.
+              <strong>Scope</strong> — agree goals, timeline, priorities, and budget range.
             </li>
             <li>
-              <strong>Proposal</strong> — clear deliverables, milestones, and communication rhythm.
+              <strong>Proposal</strong> — receive clear deliverables, milestones, and communication rhythm.
             </li>
             <li>
-              <strong>Build &amp; ship</strong> — iterative delivery with demos and honest updates.
+              <strong>Build &amp; ship</strong> — review working progress, launch, and hand over with clarity.
             </li>
           </ol>
           <p className="wwm-note">
-            IST preferred; I align with your time zone. Payment via bank, UPI, or Wise for international
-            clients.
+            We work remotely from India and can align with your time zone. Payment options are agreed in the proposal.
           </p>
         </section>
 
@@ -97,7 +94,7 @@ function WorkWithMePage() {
           </h2>
           <p>
             If this sounds like a fit, send a short message from the home page — name, email, and
-            what you are building. I reply within 24–48 hours.
+            what you are building. BhanuBeyond replies within 1–2 business days.
           </p>
           <Link to="/" state={{ scrollTo: 'contact' }} className="glass-btn glass-btn--primary">
             Go to contact form

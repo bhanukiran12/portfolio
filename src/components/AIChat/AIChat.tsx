@@ -36,7 +36,7 @@ const SUGGESTIONS = [
 ]
 
 const GREETING =
-  "Hi — I'm Bhanu's assistant. Ask me about RAG systems, chatbots, automation, or how a project would work. I can also point you to a call."
+  "Hi — I'm the BhanuBeyond assistant. Ask about websites, custom software, AI chatbots, RAG, automation, or how a project would work."
 
 function loadThread(): ChatMessage[] {
   try {
@@ -162,12 +162,12 @@ function AIChat() {
   return (
     <div className={`ai-chat ${open ? 'ai-chat--open' : ''}`}>
       {open && (
-        <section className="ai-panel glass" role="dialog" aria-label="Chat with Bhanu's AI assistant">
+        <section className="ai-panel glass" role="dialog" aria-label="Chat with BhanuBeyond's AI assistant">
           <header className="ai-panel-head">
             <div className="ai-panel-id">
               <span className="ai-panel-dot" aria-hidden="true" />
               <div>
-                <p className="ai-panel-title">Bhanu&apos;s AI assistant</p>
+                <p className="ai-panel-title">BhanuBeyond AI assistant</p>
                 <p className="ai-panel-sub">Services · fit · next steps</p>
               </div>
             </div>
@@ -254,8 +254,8 @@ function AIChat() {
           </form>
 
           <p className="ai-disclaimer">
-            AI answers can be imperfect — anything binding is confirmed with Bhanu directly.
-            Messages may be stored so Bhanu can follow up.
+            AI answers can be imperfect — anything binding is confirmed with BhanuBeyond directly.
+            Messages may be stored so our team can follow up.
           </p>
         </section>
       )}

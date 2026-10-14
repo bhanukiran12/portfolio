@@ -6,19 +6,19 @@ function Footer() {
     <footer className="footer">
       <div className="footer-inner">
         <div>
-          <p className="footer-name">© 2026 Bhanu Kiran Vemula</p>
-          <p className="footer-tagline">Full Stack Engineer · AI &amp; Web Products</p>
+          <p className="footer-name">© 2026 BhanuBeyond Technologies</p>
+          <p className="footer-tagline">Websites · Custom Software · AI Automation</p>
         </div>
         <nav className="footer-nav" aria-label="Footer">
-          <Link to="/#projects">Work</Link>
-          <Link to="/work-with-me">Work with me</Link>
+          <Link to="/#projects">Capabilities</Link>
+          <Link to="/work-with-me">Start a project</Link>
           <Link to="/" state={{ scrollTo: 'contact' }}>
             Contact
           </Link>
           <a href="https://www.linkedin.com/in/bhanu-kiran-vemula/" target="_blank" rel="noopener noreferrer">
             LinkedIn
           </a>
-          <a href="mailto:bhanukiran750@gmail.com">Email</a>
+          <a href="mailto:hello@bhanubeyond.com">Email</a>
         </nav>
       </div>
     </footer>

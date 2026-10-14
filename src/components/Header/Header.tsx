@@ -3,10 +3,10 @@ import { Link, useLocation } from 'react-router-dom'
 import './Header.css'
 
 const navLinks = [
+  { hash: '#services', label: 'Services' },
   { hash: '#about', label: 'About' },
-  { hash: '#experience', label: 'Experience' },
-  { hash: '#journey', label: 'Impact' },
-  { hash: '#projects', label: 'Work' },
+  { hash: '#process', label: 'Process' },
+  { hash: '#projects', label: 'Capabilities' },
 ]
 
 function Header() {
@@ -33,8 +33,8 @@ function Header() {
     <header className={`header ${scrolled ? 'header--scrolled' : ''}`}>
       <div className="header-inner">
         <Link to="/" className="brand" onClick={closeMenu}>
-          <span className="brand-mark">BK</span>
-          <span className="brand-name">Bhanu Kiran</span>
+          <span className="brand-mark">BB</span>
+          <span className="brand-name">BhanuBeyond</span>
         </Link>
 
         <button
@@ -57,7 +57,7 @@ function Header() {
             </a>
           ))}
           <Link to="/work-with-me" className="nav-cta" onClick={closeMenu}>
-            Work with me
+            Start a project
           </Link>
         </nav>
       </div>
