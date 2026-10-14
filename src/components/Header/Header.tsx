@@ -33,8 +33,13 @@ function Header() {
     <header className={`header ${scrolled ? 'header--scrolled' : ''}`}>
       <div className="header-inner">
         <Link to="/" className="brand" onClick={closeMenu}>
-          <span className="brand-mark">BB</span>
-          <span className="brand-name">BhanuBeyond</span>
+          <img
+            src="/images/bhanubeyond-logo.png"
+            alt="BhanuBeyond Technologies"
+            className="brand-logo"
+            width={2172}
+            height={724}
+          />
         </Link>
 
         <button
