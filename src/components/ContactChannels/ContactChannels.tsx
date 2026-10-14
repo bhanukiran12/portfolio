@@ -10,23 +10,11 @@ const channels: {
   primary?: boolean
 }[] = [
   {
-    id: 'calendly',
-    label: 'Book a call',
-    description: 'Calendly — pick a time',
-    href: contactConfig.calendlyUrl,
-    primary: true,
-  },
-  {
     id: 'whatsapp',
     label: 'WhatsApp',
     description: 'Message us directly on WhatsApp',
     href: getWhatsAppUrl(),
-  },
-  {
-    id: 'signal',
-    label: 'Signal',
-    description: 'Message on Signal',
-    href: contactConfig.signalUrl,
+    primary: true,
   },
   {
     id: 'email',

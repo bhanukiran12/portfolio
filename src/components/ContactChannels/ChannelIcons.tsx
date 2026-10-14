@@ -1,17 +1,15 @@
-import { SiCalendly, SiGmail, SiSignal, SiWhatsapp } from 'react-icons/si';
+import { SiGmail, SiWhatsapp } from 'react-icons/si';
 import type { IconType } from 'react-icons';
 
 const brandIcons: Record<
   ChannelIconId,
   { Icon: IconType; color: string; label: string }
 > = {
-  calendly: { Icon: SiCalendly, color: '#006BFF', label: 'Calendly' },
   whatsapp: { Icon: SiWhatsapp, color: '#25D366', label: 'WhatsApp' },
-  signal: { Icon: SiSignal, color: '#3A76F0', label: 'Signal' },
   email: { Icon: SiGmail, color: '#EA4335', label: 'Gmail' },
 };
 
-export type ChannelIconId = 'calendly' | 'whatsapp' | 'signal' | 'email';
+export type ChannelIconId = 'whatsapp' | 'email';
 
 export function ChannelIcon({
   id,

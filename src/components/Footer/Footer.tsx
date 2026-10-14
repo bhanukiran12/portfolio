@@ -7,12 +7,14 @@ function Footer() {
     <footer className="footer">
       <div className="footer-inner">
         <div>
-          <p className="footer-name">© 2026 BhanuBeyond Technologies</p>
-          <p className="footer-tagline">Websites · Custom Software · AI Automation</p>
+          <p className="footer-name">© 2026 BB Technologies</p>
+          <p className="footer-tagline">Websites · E-commerce · Software · AI</p>
         </div>
         <nav className="footer-nav" aria-label="Footer">
-          <Link to="/#projects">Capabilities</Link>
-          <Link to="/work-with-me">Start a project</Link>
+          <Link to="/#projects">Solutions</Link>
+          <Link to="/#pricing">Pricing</Link>
+          <Link to="/#previous-work">Previous work</Link>
+          <Link to="/" state={{ openProjectForm: true }}>Start a project</Link>
           <Link to="/privacy">Privacy</Link>
           <Link to="/terms">Terms</Link>
           <Link to="/" state={{ scrollTo: 'contact' }}>

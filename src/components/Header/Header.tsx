@@ -3,10 +3,9 @@ import { Link, useLocation } from 'react-router-dom'
 import './Header.css'
 
 const navLinks = [
-  { hash: '#services', label: 'Services' },
-  { hash: '#about', label: 'About' },
-  { hash: '#process', label: 'Process' },
-  { hash: '#projects', label: 'Capabilities' },
+  { hash: '#projects', label: 'Solutions' },
+  { hash: '#pricing', label: 'Pricing' },
+  { hash: '#previous-work', label: 'Previous work' },
 ]
 
 function Header() {
@@ -61,7 +60,7 @@ function Header() {
               {link.label}
             </a>
           ))}
-          <Link to="/work-with-me" className="nav-cta" onClick={closeMenu}>
+          <Link to="/" state={{ openProjectForm: true }} className="nav-cta" onClick={closeMenu}>
             Start a project
           </Link>
         </nav>

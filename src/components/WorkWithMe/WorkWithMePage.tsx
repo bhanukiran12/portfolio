@@ -8,11 +8,11 @@ function WorkWithMePage() {
       <main id="main-content" className="wwm-main">
         <header className="wwm-hero glass">
           <p className="section-label">Collaborate</p>
-          <h1 className="wwm-title section-title">Start a project with BhanuBeyond</h1>
+          <h1 className="wwm-title section-title">Start a project with BB Technologies</h1>
           <p className="wwm-lead">
-            We help professionals keep portfolios and blogs current, local businesses win enquiries,
-            and growing teams build useful software and practical AI automation. Our interns contribute
-            under guidance, gaining hands-on experience and a chance to show their skills.
+            BB Technologies is a newly launched company building websites and e-commerce
+            stores, full-stack products, AI chatbots, RAG systems, and workflow automation for businesses
+            and businesses of any size.
           </p>
         </header>
 
@@ -22,22 +22,19 @@ function WorkWithMePage() {
           </h2>
           <ul className="wwm-list">
             <li>
-              <strong>Professional portfolio &amp; blog support</strong> — keep work samples, case studies, and articles polished and up to date, with supervised intern contributions.
+              <strong>Websites &amp; e-commerce</strong> — customer-facing websites and online stores with clear journeys and practical handover.
             </li>
             <li>
-              <strong>Business websites</strong> — fast, clear, mobile-ready sites built to generate enquiries.
+              <strong>Full-stack products</strong> — dashboards, portals, internal tools, and MVPs built around your users and workflows.
             </li>
             <li>
               <strong>Custom software</strong> — React, Node.js, APIs, dashboards, portals, and deployments.
             </li>
             <li>
-              <strong>AI chatbots &amp; RAG</strong> — assistants grounded in your knowledge and workflows.
+              <strong>AI chatbots &amp; RAG</strong> — assistants grounded in your knowledge, with suitable human handoffs.
             </li>
             <li>
               <strong>Workflow automation</strong> — connect the tools your team already uses and remove repeat work.
-            </li>
-            <li>
-              <strong>Startups &amp; MVPs</strong> — focused first versions built with clear milestones.
             </li>
           </ul>
         </section>
@@ -72,7 +69,7 @@ function WorkWithMePage() {
           </h2>
           <ol className="wwm-steps">
             <li>
-              <strong>Intro</strong> — share your idea by call, WhatsApp, or email.
+              <strong>Intro</strong> — share your idea on WhatsApp, by email, or through the project form.
             </li>
             <li>
               <strong>Scope</strong> — agree goals, timeline, priorities, and budget range.
@@ -95,9 +92,9 @@ function WorkWithMePage() {
           </h2>
           <p>
             If this sounds like a fit, send a short message from the home page — name, email, and
-            what you are building. BhanuBeyond replies within 1–2 business days.
+            what you are building. BB Technologies replies within 1–2 business days.
           </p>
-          <Link to="/" state={{ scrollTo: 'contact' }} className="glass-btn glass-btn--primary">
+          <Link to="/" state={{ openProjectForm: true }} className="glass-btn glass-btn--primary">
             Go to contact form
           </Link>
         </section>

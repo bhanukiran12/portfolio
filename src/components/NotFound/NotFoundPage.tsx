@@ -14,7 +14,7 @@ function NotFoundPage() {
     const previous = robots.content
     robots.content = 'noindex, follow'
     return () => {
-      document.title = 'BhanuBeyond Technologies — Websites, Software & AI Automation'
+      document.title = 'BhanuBeyond Technologies — Websites, E-commerce, Software & AI'
       robots!.content = previous || 'index, follow, max-image-preview:large'
     }
   }, [])

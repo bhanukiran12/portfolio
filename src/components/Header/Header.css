@@ -2,7 +2,7 @@
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: rgba(255, 255, 255, 0.72);
+  background: rgba(246, 247, 255, 0.8);
   backdrop-filter: saturate(1.4) blur(8px);
   -webkit-backdrop-filter: saturate(1.4) blur(8px);
   border-bottom: 1px solid transparent;
@@ -10,7 +10,7 @@
 }
 
 .header--scrolled {
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(246, 247, 255, 0.95);
   border-bottom-color: var(--border);
   box-shadow: 0 1px 0 rgba(20, 20, 15, 0.03), 0 8px 24px -16px rgba(20, 20, 15, 0.2);
 }
@@ -52,15 +52,35 @@
 }
 
 .nav a {
+  position: relative;
   font-weight: 500;
   font-size: 0.88rem;
   color: var(--text-secondary);
   transition: color 0.2s ease;
 }
 
+.nav a:not(.nav-cta)::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: -7px;
+  left: 0;
+  height: 2px;
+  border-radius: 999px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.2s ease;
+}
+
 .nav a:hover,
 .nav a:focus-visible {
   color: var(--text-primary);
+}
+
+.nav a:not(.nav-cta):hover::after,
+.nav a:not(.nav-cta):focus-visible::after {
+  transform: scaleX(1);
 }
 
 .nav-cta {
@@ -72,7 +92,7 @@
 }
 
 .nav-cta:hover {
-  background: #000000 !important;
+  background: #263d9f !important;
   color: var(--bg) !important;
 }
 

@@ -48,7 +48,7 @@ function ContactForm() {
     return (
       <div className="contact-form-success glass" role="status">
         <p className="contact-form-success-title">Message sent</p>
-        <p>Thanks for reaching out. BhanuBeyond will reply within 1–2 business days.</p>
+        <p>Thanks for reaching out. BB Technologies will reply within 1–2 business days.</p>
         <button
           type="button"
           className="glass-btn glass-btn--secondary"
@@ -78,7 +78,7 @@ function ContactForm() {
           required
           maxLength={254}
           className="contact-form-input"
-          placeholder="you@company.com"
+          placeholder="you@example.com"
           autoComplete="email"
         />
       </label>

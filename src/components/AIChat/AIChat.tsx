@@ -36,7 +36,7 @@ const SUGGESTIONS = [
 ]
 
 const GREETING =
-  "Hi — I'm the BhanuBeyond assistant. Ask about websites, custom software, AI chatbots, RAG, automation, or how a project would work."
+  "Hi — I'm the BB Technologies assistant. Ask about websites, custom software, AI chatbots, RAG, automation, or how a project would work."
 
 function loadThread(): ChatMessage[] {
   try {
@@ -162,12 +162,12 @@ function AIChat() {
   return (
     <div className={`ai-chat ${open ? 'ai-chat--open' : ''}`}>
       {open && (
-        <section className="ai-panel glass" role="dialog" aria-label="Chat with BhanuBeyond's AI assistant">
+        <section className="ai-panel glass" role="dialog" aria-label="Chat with BB Technologies' AI assistant">
           <header className="ai-panel-head">
             <div className="ai-panel-id">
               <span className="ai-panel-dot" aria-hidden="true" />
               <div>
-                <p className="ai-panel-title">BhanuBeyond AI assistant</p>
+                <p className="ai-panel-title">BB Technologies AI assistant</p>
                 <p className="ai-panel-sub">Services · fit · next steps</p>
               </div>
             </div>
@@ -212,8 +212,8 @@ function AIChat() {
                 <p>{error}</p>
                 <p className="ai-error-fallback">
                   You can also{' '}
-                  <a href={contactConfig.calendlyUrl} target="_blank" rel="noopener noreferrer">
-                    book a call
+                  <a href={`https://wa.me/${contactConfig.whatsappNumber.replace(/\D/g, '')}`} target="_blank" rel="noopener noreferrer">
+                    message us on WhatsApp
                   </a>{' '}
                   or{' '}
                   <a href={`mailto:${contactConfig.email}`}>email directly</a>.
@@ -254,7 +254,7 @@ function AIChat() {
           </form>
 
           <p className="ai-disclaimer">
-            AI answers can be imperfect — anything binding is confirmed with BhanuBeyond directly.
+            AI answers can be imperfect — anything binding is confirmed with BB Technologies directly.
             Messages may be stored so our team can follow up.
           </p>
         </section>

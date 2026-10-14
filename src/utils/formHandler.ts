@@ -23,14 +23,14 @@ export const submitContactForm = async (
         message: formData.message,
         _gotcha: formData._gotcha ?? '',
         _replyto: formData.email,
-        _subject: `BhanuBeyond enquiry from ${formData.name}`,
+        _subject: `BB Technologies enquiry from ${formData.name}`,
       }),
     });
 
     if (response.ok) {
       return {
         success: true,
-        message: 'Message sent. BhanuBeyond will get back to you within 1–2 business days.',
+        message: 'Message sent. BB Technologies will get back to you within 1–2 business days.',
       };
     }
 

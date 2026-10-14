@@ -19,7 +19,7 @@ function loadClarity() {
   window.clarity('consentv2', { ad_Storage: 'denied', analytics_Storage: 'granted' })
   const script = document.createElement('script')
   script.async = true
-  script.src = 'https://www.clarity.ms/tag/wugcz6gdfe'
+  script.src = 'https://www.clarity.ms/tag/yxkm6bo1vp'
   script.dataset.clarity = 'bhanubeyond'
   document.head.append(script)
 }
