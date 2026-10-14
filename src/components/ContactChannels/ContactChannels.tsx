@@ -1,4 +1,5 @@
 import { contactConfig, getWhatsAppUrl } from '../../config/contact'
+import { reportWhatsAppConversion } from '../../utils/googleAds'
 import { ChannelIcon, type ChannelIconId } from './ChannelIcons'
 import './ContactChannels.css'
 
@@ -40,6 +41,7 @@ function ContactChannels({ compact = false }: ContactChannelsProps) {
             target={channel.id === 'email' ? undefined : '_blank'}
             rel={channel.id === 'email' ? undefined : 'noopener noreferrer'}
             aria-label={`${channel.label}: ${channel.description}`}
+            onClick={channel.id === 'whatsapp' ? reportWhatsAppConversion : undefined}
           >
             <span className="contact-channel-icon">
               <ChannelIcon id={channel.id} className="channel-logo" />

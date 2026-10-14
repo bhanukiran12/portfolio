@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState, type FormEvent, type KeyboardEvent as ReactKeyboardEvent } from 'react'
 import { contactConfig } from '../../config/contact'
+import { reportWhatsAppConversion } from '../../utils/googleAds'
 import { streamChat, type ChatMessage } from './streamChat'
 import Mascot from './Mascot'
 import './AIChat.css'
@@ -212,7 +213,7 @@ function AIChat() {
                 <p>{error}</p>
                 <p className="ai-error-fallback">
                   You can also{' '}
-                  <a href={`https://wa.me/${contactConfig.whatsappNumber.replace(/\D/g, '')}`} target="_blank" rel="noopener noreferrer">
+                  <a href={`https://wa.me/${contactConfig.whatsappNumber.replace(/\D/g, '')}`} target="_blank" rel="noopener noreferrer" onClick={reportWhatsAppConversion}>
                     message us on WhatsApp
                   </a>{' '}
                   or{' '}
