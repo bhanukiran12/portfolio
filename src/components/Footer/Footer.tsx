@@ -18,7 +18,7 @@ function Footer() {
           <a href="https://www.linkedin.com/in/bhanu-kiran-vemula/" target="_blank" rel="noopener noreferrer">
             LinkedIn
           </a>
-          <a href="mailto:hello@bhanubeyond.com">Email</a>
+          <a href="mailto:hello@bhanubeyound.com">Email</a>
         </nav>
       </div>
     </footer>

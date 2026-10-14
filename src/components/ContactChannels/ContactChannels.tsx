@@ -19,7 +19,7 @@ const channels: {
   {
     id: 'whatsapp',
     label: 'WhatsApp',
-    description: '+91 63094 99278',
+    description: 'Message us directly on WhatsApp',
     href: getWhatsAppUrl(),
   },
   {
