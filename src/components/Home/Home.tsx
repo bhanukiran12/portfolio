@@ -17,7 +17,7 @@ type Service = {
 }
 
 const services = [
-  { title: 'Portfolio Websites', description: 'Personal websites for students and professionals who want their work to be easy to find, understand, and trust.' },
+  { title: 'Professional Portfolio & Blog Support', description: 'Keep portfolios, case studies, and blogs current. Our interns contribute under guidance, building real experience while showing their skills.' },
   { title: 'Business Websites', description: 'Fast, mobile-ready websites for local businesses that make services clear and turn visitors into enquiries.' },
   { title: 'Custom Software', description: 'Dashboards, portals, internal tools, and full-stack products shaped around the way your team works.' },
   { title: 'AI & Automation', description: 'Website chatbots, RAG systems, custom AI workflows, and automations that remove repetitive work.' },
@@ -26,7 +26,7 @@ const services = [
 const capabilities: Service[] = [
   {
     title: 'Websites that earn attention',
-    description: 'Portfolio sites, business websites, landing pages, and service pages designed to be clear, fast, and useful on every device.',
+    description: 'Ongoing portfolio and blog support for professionals, alongside business websites and service pages that stay clear, fast, and useful on every device.',
     highlights: ['Clear positioning and calls to action', 'Responsive design and basic SEO foundations', 'Simple handover so your team can keep moving'],
     tech: ['React', 'TypeScript', 'SEO', 'Responsive design'], bento: 'featured',
   },
@@ -56,7 +56,7 @@ function Home() {
               <p className="hero-label"><span className="hero-label-dot" aria-hidden="true" />Websites · Custom Software · AI Automation</p>
               <h1 id="hero-heading" className="hero-name">Bhanu<span className="hero-surname text-gradient">Beyond</span></h1>
               <p className="hero-role">Build beyond the expected.</p>
-              <p className="hero-intro">We build <strong>websites, custom software, and practical AI automation</strong> for students, local businesses, startups, and growing teams. Start simple, scale when it matters.</p>
+              <p className="hero-intro">We help professionals keep portfolios and blogs current, help local businesses win enquiries, and build <strong>custom software and practical AI automation</strong> for growing teams.</p>
               <div className="hero-stats">
                 <div className="stat-box glass"><span className="stat-value">Web</span><span className="stat-label">portfolio &amp; business sites</span></div>
                 <div className="stat-box glass"><span className="stat-value">Build</span><span className="stat-label">custom software &amp; MVPs</span></div>
@@ -74,7 +74,7 @@ function Home() {
 
         <section id="services" className="section" aria-labelledby="services-heading">
           <div className="avail-card glass">
-            <div className="avail-head"><p className="avail-status"><span className="avail-dot avail-dot--on" aria-hidden="true" />Currently taking on new projects</p><h2 id="services-heading" className="avail-title">The right build for where you are now</h2><p className="avail-lead">From a first portfolio to a connected AI workflow, BhanuBeyond matches the scope to the problem — then builds something you can actually use. {contactConfig.responseTime} · Remote, India.</p></div>
+            <div className="avail-head"><p className="avail-status"><span className="avail-dot avail-dot--on" aria-hidden="true" />Currently taking on new projects</p><h2 id="services-heading" className="avail-title">The right support for where you are now</h2><p className="avail-lead">From keeping a professional portfolio or blog current to building full-stack products and connected AI workflows, BhanuBeyond matches the scope to the problem — then delivers something useful. {contactConfig.responseTime} · Remote, India.</p></div>
             <div className="avail-services">{services.map((service) => <div key={service.title} className="avail-service lift"><h3 className="avail-service-title">{service.title}</h3><p className="avail-service-desc">{service.description}</p></div>)}</div>
             <div className="avail-actions"><a href="#contact" className="glass-btn glass-btn--primary">Tell us what you need</a><a href={getWhatsAppUrl()} target="_blank" rel="noopener noreferrer" className="glass-btn glass-btn--ghost">WhatsApp</a><a href={`mailto:${contactConfig.email}`} className="glass-btn glass-btn--ghost">Email us</a><Link to="/work-with-me" className="avail-link">How we work →</Link></div>
           </div>

@@ -10,8 +10,9 @@ function WorkWithMePage() {
           <p className="section-label">Collaborate</p>
           <h1 className="wwm-title section-title">Start a project with BhanuBeyond</h1>
           <p className="wwm-lead">
-            We help individuals, local businesses, and growing teams turn ideas into useful digital
-            products — from portfolio websites to full-stack software and practical AI automation.
+            We help professionals keep portfolios and blogs current, local businesses win enquiries,
+            and growing teams build useful software and practical AI automation. Our interns contribute
+            under guidance, gaining hands-on experience and a chance to show their skills.
           </p>
         </header>
 
@@ -21,7 +22,7 @@ function WorkWithMePage() {
           </h2>
           <ul className="wwm-list">
             <li>
-              <strong>Portfolio websites</strong> — polished personal sites for students and professionals.
+              <strong>Professional portfolio &amp; blog support</strong> — keep work samples, case studies, and articles polished and up to date, with supervised intern contributions.
             </li>
             <li>
               <strong>Business websites</strong> — fast, clear, mobile-ready sites built to generate enquiries.
