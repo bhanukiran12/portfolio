@@ -6,9 +6,9 @@
 /* Hero */
 .hero {
   position: relative;
-  max-width: 1200px;
+  width: min(100%, 1800px);
   margin: 0 auto;
-  padding: clamp(80px, 12vh, 140px) 24px var(--section-pad);
+  padding: clamp(64px, 9vh, 110px) clamp(24px, 4vw, 72px) var(--section-pad);
   overflow: hidden;
 }
 
@@ -36,8 +36,8 @@
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 56px;
+  grid-template-columns: minmax(0, 1.15fr) minmax(360px, 0.85fr);
+  gap: clamp(40px, 8vw, 140px);
   align-items: center;
 }
 
@@ -61,7 +61,7 @@
 }
 
 .hero-name {
-  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-size: clamp(3.25rem, 7.5vw, 7rem);
   font-weight: 600;
   line-height: 1.05;
   letter-spacing: -0.03em;
@@ -83,7 +83,7 @@
   margin-top: 20px;
   font-size: 1.05rem;
   color: var(--text-secondary);
-  max-width: 48ch;
+  max-width: 58ch;
   line-height: 1.7;
 }
 
@@ -126,41 +126,68 @@
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 14px;
+  align-items: center;
+  gap: 24px;
   margin-top: 36px;
 }
 
-.hero-photo-wrap {
-  display: flex;
-  justify-content: center;
-  will-change: transform;
+.hero-text-link {
+  color: var(--text-secondary);
+  font-weight: 600;
+  border-bottom: 1px solid var(--border-strong);
+  padding: 8px 0;
 }
 
-.hero-photo-frame {
-  padding: 8px;
-  border-radius: var(--radius-lg);
+.hero-text-link:hover {
+  color: var(--accent);
+  border-color: var(--accent);
 }
 
-.hero-photo-glow {
-  display: none;
+.hero-summary {
+  padding: clamp(24px, 4vw, 48px);
+  background: linear-gradient(145deg, #f8f9ff, #ffffff 68%);
 }
 
-.hero-photo {
-  display: block;
-  width: 100%;
-  max-width: 380px;
-  height: auto;
-  border-radius: calc(var(--radius-lg) - 4px);
-  object-fit: cover;
-  object-position: top center;
-  aspect-ratio: 4 / 5;
+.hero-summary-label {
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: .76rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.hero-summary ul {
+  list-style: none;
+  margin-top: 24px;
+}
+
+.hero-summary li {
+  display: grid;
+  grid-template-columns: 38px minmax(0, 1fr);
+  gap: 12px;
+  align-items: baseline;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+}
+
+.hero-summary li span {
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: .75rem;
+}
+
+.hero-summary-note {
+  margin-top: 22px;
+  color: var(--text-secondary);
+  line-height: 1.6;
 }
 
 /* Sections */
 .section {
-  max-width: 1200px;
+  width: min(100%, 1800px);
   margin: 0 auto;
-  padding: var(--section-pad) 24px;
+  padding: var(--section-pad) clamp(24px, 4vw, 72px);
   scroll-margin-top: 88px;
 }
 
@@ -283,8 +310,44 @@
 /* About bento */
 .about-bento {
   display: grid;
-  grid-template-columns: 1.35fr 1fr;
-  gap: 20px;
+  grid-template-columns: minmax(260px, 0.72fr) minmax(0, 1.6fr);
+  gap: clamp(20px, 4vw, 48px);
+  align-items: stretch;
+}
+
+.about-portrait {
+  position: relative;
+  min-height: 360px;
+  padding: 8px;
+  overflow: hidden;
+  background: #e8ebf2;
+}
+
+.about-photo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 360px;
+  object-fit: cover;
+  object-position: center 30%;
+  border-radius: calc(var(--radius-lg) - 5px);
+}
+
+.about-photo-caption {
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+  padding: 8px 12px;
+  color: #fff;
+  background: rgba(20, 20, 15, .72);
+  border-radius: 999px;
+  font-size: .78rem;
+}
+
+.about-built {
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
 }
 
 .about-card,
@@ -764,6 +827,15 @@
   .hero {
     padding-top: 48px;
   }
+
+  .hero-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 36px;
+  }
+
+  .hero-summary {
+    max-width: none;
+  }
 }
 
 @media (max-width: 600px) {
@@ -778,5 +850,18 @@
   .bento-standard {
     grid-column: span 1;
     grid-row: span 1;
+  }
+
+  .about-bento {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .about-portrait,
+  .about-photo {
+    min-height: 0;
+  }
+
+  .about-photo {
+    aspect-ratio: 4 / 3;
   }
 }

@@ -13,11 +13,24 @@ function ContactForm() {
     setSubmitting(true)
 
     const form = event.currentTarget
+    if (!form.reportValidity()) {
+      setSubmitting(false)
+      return
+    }
     const formData = new FormData(form)
+    const name = String(formData.get('name') ?? '').trim()
+    const email = String(formData.get('email') ?? '').trim()
+    const message = String(formData.get('message') ?? '').trim()
+    if (name.length < 2 || message.length < 10) {
+      setSubmitting(false)
+      setError('Please enter your name and a message of at least 10 characters.')
+      return
+    }
     const result = await submitContactForm({
-      name: String(formData.get('name') ?? ''),
-      email: String(formData.get('email') ?? ''),
-      message: String(formData.get('message') ?? ''),
+      name,
+      email,
+      message,
+      _gotcha: String(formData.get('_gotcha') ?? ''),
     })
 
     setSubmitting(false)
@@ -49,9 +62,13 @@ function ContactForm() {
 
   return (
     <form className="contact-form" onSubmit={handleSubmit}>
+      <div className="contact-form-honeypot" aria-hidden="true">
+        <label htmlFor="contact-website">Leave this field empty</label>
+        <input id="contact-website" type="text" name="_gotcha" tabIndex={-1} autoComplete="off" />
+      </div>
       <label className="contact-form-label">
         Name <span className="contact-form-required">*</span>
-        <input type="text" name="name" required className="contact-form-input" placeholder="Your name" />
+        <input type="text" name="name" required minLength={2} maxLength={100} className="contact-form-input" placeholder="Your name" autoComplete="name" />
       </label>
       <label className="contact-form-label">
         Email <span className="contact-form-required">*</span>
@@ -59,8 +76,10 @@ function ContactForm() {
           type="email"
           name="email"
           required
+          maxLength={254}
           className="contact-form-input"
           placeholder="you@company.com"
+          autoComplete="email"
         />
       </label>
       <label className="contact-form-label">
@@ -68,6 +87,8 @@ function ContactForm() {
         <textarea
           name="message"
           required
+          minLength={10}
+          maxLength={5000}
           className="contact-form-input contact-form-textarea"
           rows={5}
           placeholder="Tell me about your project, timeline, or question…"

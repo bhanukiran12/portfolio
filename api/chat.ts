@@ -4,7 +4,7 @@
  *
  * Environment (Vercel → Settings → Environment Variables, and a local `.env` for `vercel dev`):
  *   OPENROUTER_API_KEY   (required)  sk-or-v1-...  — never ships to the client
- *   CHAT_LOG_WEBHOOK     (optional)  overrides LOG_WEBHOOK_DEFAULT below — any URL that
+ *   CHAT_LOG_WEBHOOK     (optional)  private logging endpoint — any URL that
  *                                    accepts a JSON POST (Apps Script / Zapier / Discord …)
  *
  * Every conversation is also written to the Vercel Runtime Logs via console.log.
@@ -12,7 +12,7 @@
  * Request:  POST /api/chat   { "messages": [{ "role", "content" }], "conversationId": "..." }
  * Response: text/event-stream — OpenAI-style `data: {...}` chunks, terminated by `data: [DONE]`.
  *
- * The webhook receives one POST per turn with { at, id, ip, location, ua, messages, reply };
+ * If configured, the webhook receives one POST per turn with { at, id, messages, reply };
  * `id` is stable for the whole conversation so the sink can upsert a single row.
  */
 
@@ -26,11 +26,6 @@ const SITE_URL = 'https://bhanubeyond.com'
 const SITE_NAME = 'BhanuBeyond Technologies'
 const MAX_TURNS = 12
 const MAX_CHARS = 4000
-
-// Google Apps Script web app that appends each conversation to a Sheet.
-// Override per-environment with CHAT_LOG_WEBHOOK if needed.
-const LOG_WEBHOOK_DEFAULT =
-  'https://script.google.com/macros/s/AKfycbydBcmFgCFf8p8Fe_sqYLwgtJPNAaDGN4e9H89wVB4j1UOSfkvtwA7CR3jgP5DVg60kTg/exec'
 
 const SYSTEM_PROMPT = `You are the AI assistant for BhanuBeyond Technologies.
 
@@ -65,32 +60,8 @@ function jsonResponse(data: unknown, status: number): Response {
   })
 }
 
-/** Visitor IP + coarse geo, from the headers Vercel injects at the edge. */
-function safeDecode(value: string): string {
-  try {
-    return decodeURIComponent(value)
-  } catch {
-    return value
-  }
-}
-
-function clientInfo(req: Request): { ip: string; location: string; ua: string } {
-  const h = req.headers
-  const forwarded = (h.get('x-forwarded-for') ?? '').split(',')[0].trim()
-  const ip = forwarded || h.get('x-real-ip') || h.get('cf-connecting-ip') || 'unknown'
-  const location =
-    [h.get('x-vercel-ip-city'), h.get('x-vercel-ip-country-region'), h.get('x-vercel-ip-country')]
-      .filter((s): s is string => !!s)
-      .map(safeDecode)
-      .join(', ') || 'unknown'
-  return { ip, location, ua: h.get('user-agent') ?? 'unknown' }
-}
-
 async function logConversation(record: {
   id: string
-  ip: string
-  location: string
-  ua: string
   messages: Message[]
   reply: string
 }): Promise<void> {
@@ -99,7 +70,7 @@ async function logConversation(record: {
   // Always: Vercel Runtime Logs (Deployments → project → Logs).
   console.log('[chat]', JSON.stringify(entry))
 
-  const webhook = process.env.CHAT_LOG_WEBHOOK ?? LOG_WEBHOOK_DEFAULT
+  const webhook = process.env.CHAT_LOG_WEBHOOK
   if (!webhook) return
   try {
     await fetch(webhook, {
@@ -119,7 +90,6 @@ async function logConversation(record: {
  * stays alive long enough to send the log.
  */
 function loggingPassThrough(
-  info: { ip: string; location: string; ua: string },
   messages: Message[],
   id: string
 ): TransformStream<Uint8Array, Uint8Array> {
@@ -148,7 +118,7 @@ function loggingPassThrough(
       }
     },
     async flush() {
-      await logConversation({ id, ...info, messages, reply })
+      await logConversation({ id, messages, reply })
     },
   })
 }
@@ -219,7 +189,7 @@ export default async function handler(req: Request): Promise<Response> {
   }
 
   const stream = upstream.body.pipeThrough(
-    loggingPassThrough(clientInfo(req), messages, conversationId)
+    loggingPassThrough(messages, conversationId)
   )
 
   return new Response(stream, {

@@ -1,8 +1,7 @@
 import { Link } from 'react-router-dom'
 import { useScrollToSection } from '../../hooks/useScrollToSection'
-import { useParallax } from '../../hooks/useParallax'
 import { useReveal } from '../../hooks/useReveal'
-import { contactConfig, getWhatsAppUrl } from '../../config/contact'
+import { contactConfig } from '../../config/contact'
 import ContactChannels from '../ContactChannels/ContactChannels'
 import ContactForm from '../ContactForm/ContactForm'
 import Footer from '../Footer/Footer'
@@ -44,30 +43,27 @@ const process = [
 function Home() {
   useScrollToSection()
   useReveal()
-  const heroParallax = useParallax<HTMLDivElement>(0.06)
-  const photoParallax = useParallax<HTMLDivElement>(-0.04)
 
   return (
     <div className="portfolio">
       <main id="main-content">
         <section id="hero" className="hero" aria-labelledby="hero-heading">
           <div className="hero-grid">
-            <div className="hero-copy" ref={heroParallax}>
+            <div className="hero-copy">
               <p className="hero-label"><span className="hero-label-dot" aria-hidden="true" />Websites · Custom Software · AI Automation</p>
               <h1 id="hero-heading" className="hero-name">Bhanu<span className="hero-surname text-gradient">Beyond</span></h1>
               <p className="hero-role">Build beyond the expected.</p>
               <p className="hero-intro">We help professionals keep portfolios and blogs current, help local businesses win enquiries, and build <strong>custom software and practical AI automation</strong> for growing teams.</p>
-              <div className="hero-stats">
-                <div className="stat-box glass"><span className="stat-value">Web</span><span className="stat-label">portfolio &amp; business sites</span></div>
-                <div className="stat-box glass"><span className="stat-value">Build</span><span className="stat-label">custom software &amp; MVPs</span></div>
-                <div className="stat-box glass"><span className="stat-value">AI</span><span className="stat-label">chatbots, RAG &amp; automation</span></div>
-              </div>
-              <div className="hero-actions"><a href="#contact" className="glass-btn glass-btn--primary">Start a project</a><a href="#services" className="glass-btn glass-btn--ghost">Explore services</a></div>
+              <div className="hero-actions"><a href="#contact" className="glass-btn glass-btn--primary">Start a project</a><a href="#services" className="hero-text-link">Explore services <span aria-hidden="true">→</span></a></div>
             </div>
-            <div className="hero-photo-wrap" ref={photoParallax}>
-              <div className="hero-photo-frame glass"><div className="hero-photo-glow" aria-hidden="true" />
-                <img src="https://res.cloudinary.com/df7wnybwg/image/upload/v1791969841/BhanuBeyond/5881509d-2e2a-4a64-b5ef-fb39ff2d2592.png" alt="Bhanu Kiran, founder of BhanuBeyond Technologies" className="hero-photo" width={420} height={525} loading="eager" fetchPriority="high" />
-              </div>
+            <div className="hero-summary glass" aria-label="BhanuBeyond services">
+              <p className="hero-summary-label">A practical partner for</p>
+              <ul>
+                <li><span>01</span><strong>Websites that win enquiries</strong></li>
+                <li><span>02</span><strong>Software built around your work</strong></li>
+                <li><span>03</span><strong>AI and automation with a purpose</strong></li>
+              </ul>
+              <p className="hero-summary-note">Start with one clear need. Grow the solution when it makes sense.</p>
             </div>
           </div>
         </section>
@@ -76,15 +72,15 @@ function Home() {
           <div className="avail-card glass">
             <div className="avail-head"><p className="avail-status"><span className="avail-dot avail-dot--on" aria-hidden="true" />Currently taking on new projects</p><h2 id="services-heading" className="avail-title">The right support for where you are now</h2><p className="avail-lead">From keeping a professional portfolio or blog current to building full-stack products and connected AI workflows, BhanuBeyond matches the scope to the problem — then delivers something useful. {contactConfig.responseTime} · Remote, India.</p></div>
             <div className="avail-services">{services.map((service) => <div key={service.title} className="avail-service lift"><h3 className="avail-service-title">{service.title}</h3><p className="avail-service-desc">{service.description}</p></div>)}</div>
-            <div className="avail-actions"><a href="#contact" className="glass-btn glass-btn--primary">Tell us what you need</a><a href={getWhatsAppUrl()} target="_blank" rel="noopener noreferrer" className="glass-btn glass-btn--ghost">WhatsApp</a><a href={`mailto:${contactConfig.email}`} className="glass-btn glass-btn--ghost">Email us</a><Link to="/work-with-me" className="avail-link">How we work →</Link></div>
+            <div className="avail-actions"><a href="#contact" className="avail-link">Discuss your project <span aria-hidden="true">→</span></a><Link to="/work-with-me" className="avail-link">How we work <span aria-hidden="true">→</span></Link></div>
           </div>
         </section>
 
         <section id="about" className="section" aria-labelledby="about-heading">
           <header className="section-head" data-reveal><span className="section-label">01 — About</span><h2 id="about-heading" className="section-title">A practical technology partner</h2><p className="section-subtitle">Clear communication, useful technology, and a delivery approach that fits the project.</p></header>
           <div className="about-bento">
-            <div className="about-card glass about-bento-main"><p><strong>BhanuBeyond Technologies</strong> is led by Bhanu Kiran Vemula, a full-stack engineer working across websites, product builds, AI systems, and automation.</p><p>We help people get online with confidence, help businesses improve the tools they depend on, and help teams use AI where it creates real value — not just more noise.</p><div className="about-badges"><span className="glass-tag">Websites</span><span className="glass-tag">Full stack</span><span className="glass-tag">AI systems</span><span className="glass-tag">Automation</span></div></div>
-            <aside className="skills-panel glass about-bento-side"><h3 className="panel-title">Built with</h3><div className="skills-grid">{['React', 'TypeScript', 'Node.js', 'Python', 'APIs', 'RAG', 'LLMs', 'n8n', 'Databases', 'SEO'].map((skill) => <span key={skill} className="glass-tag">{skill}</span>)}</div><div className="education-block"><h4 className="panel-title">Founder-led</h4><p className="edu-degree">Technical clarity from the first conversation</p><p className="edu-meta">Right-sized delivery for every project</p></div></aside>
+            <div className="about-portrait glass"><img src="https://res.cloudinary.com/df7wnybwg/image/upload/f_auto,q_auto,w_720/v1791969841/BhanuBeyond/5881509d-2e2a-4a64-b5ef-fb39ff2d2592.png" alt="Bhanu Kiran Vemula, founder of BhanuBeyond Technologies" className="about-photo" width={720} height={900} loading="lazy" decoding="async" /><span className="about-photo-caption">Bhanu Kiran Vemula · Founder</span></div>
+            <div className="about-card glass about-bento-main"><p><strong>BhanuBeyond Technologies</strong> is led by Bhanu Kiran Vemula, a full-stack engineer working across websites, product builds, AI systems, and automation.</p><p>We help professionals keep portfolios and blogs useful and current. Interns contribute under guidance, gaining practical experience and a place to demonstrate their talent. We also help businesses build better tools and apply AI where it creates real value.</p><div className="about-badges"><span className="glass-tag">Websites</span><span className="glass-tag">Full stack</span><span className="glass-tag">AI systems</span><span className="glass-tag">Automation</span></div><div className="about-built"><h3 className="panel-title">Built with</h3><div className="skills-grid">{['React', 'TypeScript', 'Node.js', 'Python', 'APIs', 'RAG', 'LLMs', 'n8n', 'Databases', 'SEO'].map((skill) => <span key={skill} className="glass-tag">{skill}</span>)}</div></div></div>
           </div>
         </section>
 

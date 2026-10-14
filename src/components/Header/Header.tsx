@@ -34,11 +34,11 @@ function Header() {
       <div className="header-inner">
         <Link to="/" className="brand" onClick={closeMenu}>
           <img
-            src="/images/bhanubeyond-logo.png"
+            src="/images/bhanubeyond-logo-optimized.png"
             alt="BhanuBeyond Technologies"
             className="brand-logo"
-            width={2172}
-            height={724}
+            width={900}
+            height={300}
           />
         </Link>
 

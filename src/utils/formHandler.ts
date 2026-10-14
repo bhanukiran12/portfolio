@@ -4,6 +4,7 @@ export interface ContactFormData {
   name: string;
   email: string;
   message: string;
+  _gotcha?: string;
 }
 
 export const submitContactForm = async (
@@ -20,6 +21,7 @@ export const submitContactForm = async (
         name: formData.name,
         email: formData.email,
         message: formData.message,
+        _gotcha: formData._gotcha ?? '',
         _replyto: formData.email,
         _subject: `BhanuBeyond enquiry from ${formData.name}`,
       }),

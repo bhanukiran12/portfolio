@@ -4,6 +4,14 @@
   gap: 20px;
 }
 
+.contact-form-honeypot {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
 .contact-form-label {
   display: flex;
   flex-direction: column;

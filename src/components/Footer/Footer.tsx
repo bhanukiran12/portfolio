@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { openCookiePreferences } from '../CookieConsent/cookiePreferences'
 import './Footer.css'
 
 function Footer() {
@@ -12,6 +13,8 @@ function Footer() {
         <nav className="footer-nav" aria-label="Footer">
           <Link to="/#projects">Capabilities</Link>
           <Link to="/work-with-me">Start a project</Link>
+          <Link to="/privacy">Privacy</Link>
+          <Link to="/terms">Terms</Link>
           <Link to="/" state={{ scrollTo: 'contact' }}>
             Contact
           </Link>
@@ -19,6 +22,7 @@ function Footer() {
             LinkedIn
           </a>
           <a href="mailto:hello@bhanubeyound.com">Email</a>
+          <button type="button" onClick={openCookiePreferences}>Cookie settings</button>
         </nav>
       </div>
     </footer>
