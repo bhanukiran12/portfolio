@@ -148,7 +148,7 @@ function Home() {
   useReveal()
 
   useEffect(() => {
-    document.title = 'BhanuBeyond Technologies — Websites, E-commerce, Software & AI'
+    document.title = 'BB Technologies — Websites, E-commerce, Software & AI'
   }, [])
 
   useEffect(() => {
@@ -192,13 +192,14 @@ function Home() {
           <div className="hero-grid">
             <div className="hero-copy">
               <p className="hero-label"><span className="hero-label-dot" aria-hidden="true" />For growing businesses · India & remote</p>
-              <h1 id="hero-heading" className="hero-name">Bhanu<span className="hero-surname text-gradient">Beyond</span></h1>
+              <h1 id="hero-heading" className="hero-name">BB <span className="text-gradient">Technologies</span></h1>
+              <p className="hero-brand-expansion">BhanuBeyond Technologies</p>
               <p className="hero-role">Digital systems that make the next move easier.</p>
               <p className="hero-intro">BB Technologies builds <strong>high-converting websites, useful custom software, and practical AI automation</strong> for businesses ready to improve how they sell, serve, and operate.</p>
-              <div className="hero-trust" aria-label="How BhanuBeyond works"><span>Clear scope</span><span>Practical handover</span><span>Reply in 1–2 business days</span></div>
+              <div className="hero-trust" aria-label="How BB Technologies works"><span>Clear scope</span><span>Practical handover</span><span>Reply in 1–2 business days</span></div>
               <div className="hero-actions"><a className="glass-btn glass-btn--primary" href={getWhatsAppUrl()} target="_blank" rel="noopener noreferrer" onClick={reportWhatsAppConversion}>Start on WhatsApp <span aria-hidden="true">↗</span></a><a href="#projects" className="hero-text-link">Explore solutions <span aria-hidden="true">→</span></a></div>
             </div>
-            <div className="hero-summary glass" aria-label="BhanuBeyond services">
+            <div className="hero-summary glass" aria-label="BB Technologies services">
               <div className="hero-summary-top"><span className="hero-summary-spark" aria-hidden="true">✦</span><p className="hero-summary-label">Built for momentum</p></div>
               <ul>
                 <li><span>01</span><div><strong>Web experiences</strong><small>Websites and stores that turn interest into action.</small></div></li>

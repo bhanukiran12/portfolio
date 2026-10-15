@@ -63,7 +63,7 @@ function ServicePage() {
 
   useEffect(() => {
     if (!detail) return
-    document.title = `${detail.eyebrow} | BhanuBeyond Technologies`
+    document.title = `${detail.eyebrow} | BB Technologies`
     window.scrollTo({ top: 0, behavior: 'instant' })
   }, [detail])
 

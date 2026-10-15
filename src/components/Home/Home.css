@@ -67,6 +67,16 @@
   letter-spacing: -0.03em;
 }
 
+.hero-brand-expansion {
+  margin-top: 10px;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: clamp(.68rem, 1vw, .82rem);
+  font-weight: 600;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+}
+
 .hero-surname {
   display: block;
   margin-top: 4px;

@@ -1,6 +1,6 @@
-# BhanuBeyond Technologies
+# BB Technologies
 
-> BhanuBeyond Technologies builds websites, e-commerce stores, custom software, AI assistants, RAG systems, and workflow automation for businesses.
+> BB Technologies (BhanuBeyond Technologies) builds websites, e-commerce stores, custom software, AI assistants, RAG systems, and workflow automation for businesses.
 
 ## About
 

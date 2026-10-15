@@ -4,7 +4,7 @@ import { insights } from '../../content/insights'
 import './Insights.css'
 
 function InsightsPage() {
-  useEffect(() => { document.title = 'Insights | BhanuBeyond Technologies' }, [])
+  useEffect(() => { document.title = 'Insights | BB Technologies' }, [])
   const [featured, ...latest] = insights
   return <main className="insights-page">
     <section className="insights-hero">

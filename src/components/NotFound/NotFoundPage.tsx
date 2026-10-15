@@ -4,7 +4,7 @@ import Footer from '../Footer/Footer'
 
 function NotFoundPage() {
   useEffect(() => {
-    document.title = 'Page not found | BhanuBeyond Technologies'
+    document.title = 'Page not found | BB Technologies'
     let robots = document.querySelector<HTMLMetaElement>('meta[name="robots"]')
     if (!robots) {
       robots = document.createElement('meta')
@@ -14,7 +14,7 @@ function NotFoundPage() {
     const previous = robots.content
     robots.content = 'noindex, follow'
     return () => {
-      document.title = 'BhanuBeyond Technologies — Websites, E-commerce, Software & AI'
+      document.title = 'BB Technologies — Websites, E-commerce, Software & AI'
       robots!.content = previous || 'index, follow, max-image-preview:large'
     }
   }, [])
