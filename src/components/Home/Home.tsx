@@ -192,7 +192,7 @@ function Home() {
           <div className="hero-grid">
             <div className="hero-copy">
               <p className="hero-label"><span className="hero-label-dot" aria-hidden="true" />For growing businesses · India & remote</p>
-              <h1 id="hero-heading" className="hero-name"><span className="hero-bb-mark" aria-hidden="true" /><span className="hero-technologies">Technologies</span><span className="sr-only">BB Technologies</span></h1>
+              <h1 id="hero-heading" className="hero-name"><img className="hero-bb-mark" src="/images/bb-mark-transparent.png" alt="" aria-hidden="true" /><span className="hero-technologies">Technologies</span><span className="sr-only">BB Technologies</span></h1>
               <p className="hero-brand-expansion">BhanuBeyond Technologies</p>
               <p className="hero-role">Digital systems that make the next move easier.</p>
               <p className="hero-intro">BB Technologies builds <strong>high-converting websites, useful custom software, and practical AI automation</strong> for businesses ready to improve how they sell, serve, and operate.</p>

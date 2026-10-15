@@ -71,8 +71,8 @@
 .hero-bb-mark {
   display: block;
   width: clamp(164px, 13.2vw, 198px);
-  height: clamp(100px, 8vw, 140px);
-  background: url('/images/bhanubeyond-logo-optimized.png') left center / auto 210px no-repeat;
+  height: auto;
+  object-fit: contain;
 }
 
 .hero-technologies {
