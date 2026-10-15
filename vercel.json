@@ -14,6 +14,9 @@
   ],
   "rewrites": [
     { "source": "/work-with-me", "destination": "/index.html" },
+    { "source": "/web-experiences", "destination": "/index.html" },
+    { "source": "/custom-software", "destination": "/index.html" },
+    { "source": "/ai-automation", "destination": "/index.html" },
     { "source": "/privacy", "destination": "/index.html" },
     { "source": "/terms", "destination": "/index.html" }
   ]
