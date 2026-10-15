@@ -17,6 +17,8 @@
     { "source": "/web-experiences", "destination": "/index.html" },
     { "source": "/custom-software", "destination": "/index.html" },
     { "source": "/ai-automation", "destination": "/index.html" },
+    { "source": "/insights", "destination": "/index.html" },
+    { "source": "/insights/(.*)", "destination": "/index.html" },
     { "source": "/privacy", "destination": "/index.html" },
     { "source": "/terms", "destination": "/index.html" }
   ]

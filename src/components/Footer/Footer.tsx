@@ -14,6 +14,7 @@ function Footer() {
           <Link to="/#projects">Solutions</Link>
           <Link to="/#pricing">Pricing</Link>
           <Link to="/#previous-work">Previous work</Link>
+          <Link to="/insights">Insights</Link>
           <Link to="/" state={{ openProjectForm: true }}>Start a project</Link>
           <Link to="/privacy">Privacy</Link>
           <Link to="/terms">Terms</Link>

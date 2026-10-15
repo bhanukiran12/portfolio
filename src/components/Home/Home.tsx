@@ -4,6 +4,7 @@ import { useScrollToSection } from '../../hooks/useScrollToSection'
 import { useReveal } from '../../hooks/useReveal'
 import { getWhatsAppUrl } from '../../config/contact'
 import { reportWhatsAppConversion } from '../../utils/googleAds'
+import { insights } from '../../content/insights'
 import ContactChannels from '../ContactChannels/ContactChannels'
 import ContactForm from '../ContactForm/ContactForm'
 import Footer from '../Footer/Footer'
@@ -147,6 +148,10 @@ function Home() {
   useReveal()
 
   useEffect(() => {
+    document.title = 'BhanuBeyond Technologies — Websites, E-commerce, Software & AI'
+  }, [])
+
+  useEffect(() => {
     let active = true
     fetch('/api/geo', { cache: 'no-store' })
       .then((response) => {
@@ -250,8 +255,14 @@ function Home() {
           </button>
         </section>
 
+        <section id="insights" className="section" aria-labelledby="insights-heading">
+          <header className="section-head" data-reveal><span className="section-label">06 — Insights</span><h2 id="insights-heading" className="section-title">Useful notes before you build.</h2><p className="section-subtitle">Clear answers to common questions about websites, custom software, AI, and automation.</p></header>
+          <div className="insights-preview">{insights.map((insight) => <article key={insight.slug} className="insight-preview-item" data-reveal><p>{insight.category} · {insight.readTime}</p><h3>{insight.title}</h3><Link to={`/insights/${insight.slug}`}>Read insight <span aria-hidden="true">→</span></Link></article>)}</div>
+          <Link className="insights-all-link" to="/insights">View all insights <span aria-hidden="true">→</span></Link>
+        </section>
+
         <section id="contact" className="section contact-section" aria-labelledby="contact-heading">
-          <header className="section-head" data-reveal><span className="section-label">06 — Contact</span><h2 id="contact-heading" className="section-title">Tell us what you want to build</h2><p className="section-subtitle">Share a little context and BB Technologies will help you identify the right next step.</p></header>
+          <header className="section-head" data-reveal><span className="section-label">07 — Contact</span><h2 id="contact-heading" className="section-title">Tell us what you want to build</h2><p className="section-subtitle">Share a little context and BB Technologies will help you identify the right next step.</p></header>
           <div className="contact-bento"><aside className="contact-aside glass"><h3 className="contact-aside-title">Quick connect</h3><ContactChannels /><p className="contact-form-prompt">Prefer a structured project brief?</p><button type="button" className="glass-btn glass-btn--primary" onClick={() => setContactOpen(true)}>Open project form</button></aside></div>
         </section>
         <dialog ref={contactDialogRef} className="project-dialog" aria-labelledby="project-dialog-title" onClose={closeContactForm} onCancel={closeContactForm} onClick={(event) => { if (event.target === event.currentTarget) closeContactForm() }}>

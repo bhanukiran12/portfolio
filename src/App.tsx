@@ -5,6 +5,8 @@ import WorkWithMePage from './components/WorkWithMe/WorkWithMePage'
 import LegalPage from './components/Legal/LegalPage'
 import NotFoundPage from './components/NotFound/NotFoundPage'
 import ServicePage from './components/Services/ServicePage'
+import InsightsPage from './components/Insights/InsightsPage'
+import InsightArticle from './components/Insights/InsightArticle'
 import './App.css'
 
 function App() {
@@ -16,6 +18,8 @@ function App() {
         <Route path="/web-experiences" element={<ServicePage />} />
         <Route path="/custom-software" element={<ServicePage />} />
         <Route path="/ai-automation" element={<ServicePage />} />
+        <Route path="/insights" element={<InsightsPage />} />
+        <Route path="/insights/:slug" element={<InsightArticle />} />
         <Route path="/privacy" element={<LegalPage type="privacy" />} />
         <Route path="/terms" element={<LegalPage type="terms" />} />
       </Route>

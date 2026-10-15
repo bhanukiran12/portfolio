@@ -31,6 +31,10 @@ Final pricing depends on the agreed scope, integrations, data volume, and delive
 
 - [Home](https://bhanubeyond.com/): overview, services, process, solutions, pricing, and contact.
 - [Work with me](https://bhanubeyond.com/work-with-me): how engagements work.
+- [Web experiences](https://bhanubeyond.com/web-experiences): websites and e-commerce services.
+- [Custom software](https://bhanubeyond.com/custom-software): dashboards, portals, internal tools, and MVPs.
+- [AI automation](https://bhanubeyond.com/ai-automation): workflow automation and AI/RAG pilots.
+- [Insights](https://bhanubeyond.com/insights): practical articles about websites, software, AI, and automation.
 - [Privacy policy](https://bhanubeyond.com/privacy)
 - [Terms](https://bhanubeyond.com/terms)
 

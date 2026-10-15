@@ -6,6 +6,7 @@ const navLinks = [
   { hash: '#projects', label: 'Solutions' },
   { hash: '#pricing', label: 'Pricing' },
   { hash: '#previous-work', label: 'Previous work' },
+  { hash: '/insights', label: 'Insights' },
 ]
 
 function Header() {
@@ -22,6 +23,7 @@ function Header() {
   }, [])
 
   const sectionLink = (hash: string) => {
+    if (hash.startsWith('/')) return hash
     if (location.pathname === '/') {
       return hash
     }
