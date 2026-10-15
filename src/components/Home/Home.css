@@ -87,6 +87,29 @@
   line-height: 1.7;
 }
 
+.hero-trust {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  margin-top: 24px;
+  color: var(--text-secondary);
+  font-size: 0.86rem;
+}
+
+.hero-trust span {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.hero-trust span::before {
+  content: '';
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent-2);
+}
+
 .hero-stats {
   display: flex;
   flex-wrap: wrap;
@@ -660,6 +683,19 @@
   text-transform: uppercase;
 }
 
+.solution-link {
+  display: inline-flex;
+  margin-top: 22px;
+  color: var(--accent);
+  font-size: .88rem;
+  font-weight: 600;
+  border-bottom: 1px solid transparent;
+}
+
+.solution-link:hover {
+  border-color: currentColor;
+}
+
 .technology-more {
   padding: 6px 10px;
   border: 1px dashed var(--border-strong);
@@ -869,6 +905,14 @@
   font-size: 0.92rem;
   line-height: 1.6;
   flex: 1;
+}
+
+.case-label {
+  margin-top: 4px;
+  color: var(--text-muted);
+  font: 600 .66rem var(--font-mono);
+  letter-spacing: .1em;
+  text-transform: uppercase;
 }
 
 .bento-tech {

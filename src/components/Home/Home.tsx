@@ -1,7 +1,9 @@
 import { useEffect, useRef, useState } from 'react'
-import { useLocation, useNavigate } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { useScrollToSection } from '../../hooks/useScrollToSection'
 import { useReveal } from '../../hooks/useReveal'
+import { getWhatsAppUrl } from '../../config/contact'
+import { reportWhatsAppConversion } from '../../utils/googleAds'
 import ContactChannels from '../ContactChannels/ContactChannels'
 import ContactForm from '../ContactForm/ContactForm'
 import Footer from '../Footer/Footer'
@@ -9,6 +11,7 @@ import './Home.css'
 
 type Service = {
   title: string
+  path: string
   description: string
   tech: string[]
   highlights?: string[]
@@ -18,41 +21,48 @@ type Service = {
 const capabilities: Service[] = [
   {
     title: 'Websites & e-commerce stores',
+    path: '/web-experiences',
     description: 'Marketing websites and online stores designed to present your offer clearly and make it easy for customers to take the next step.',
     highlights: ['Responsive pages and clear calls to action', 'Product catalogues and standard checkout flows', 'Basic SEO foundations and practical handover'],
     tech: ['React', 'TypeScript', 'Payments', 'SEO'], bento: 'featured',
   },
-  { title: 'Software built around your workflow', description: 'Custom dashboards, client portals, internal tools, and MVPs that bring your process into one dependable place.', tech: ['React', 'Node.js', 'APIs', 'Databases'], bento: 'wide' },
-  { title: 'AI assistants that do useful work', description: 'Knowledge-grounded chatbots, document Q&A, lead qualification, and AI workflows with the right human handoffs.', tech: ['RAG', 'LLMs', 'Vector databases', 'Function calling'], bento: 'wide' },
-  { title: 'Automation that keeps work moving', description: 'Connect your existing tools, remove copy-paste work, and make routine follow-up, routing, and reporting more reliable.', tech: ['n8n', 'Zapier', 'Webhooks', 'Integrations'], bento: 'wide' },
+  { title: 'Software built around your workflow', path: '/custom-software', description: 'Custom dashboards, client portals, internal tools, and MVPs that bring your process into one dependable place.', tech: ['React', 'Node.js', 'APIs', 'Databases'], bento: 'wide' },
+  { title: 'AI assistants that do useful work', path: '/ai-automation', description: 'Knowledge-grounded chatbots, document Q&A, lead qualification, and AI workflows with the right human handoffs.', tech: ['RAG', 'LLMs', 'Vector databases', 'Function calling'], bento: 'wide' },
+  { title: 'Automation that keeps work moving', path: '/ai-automation', description: 'Connect your existing tools, remove copy-paste work, and make routine follow-up, routing, and reporting more reliable.', tech: ['n8n', 'Zapier', 'Webhooks', 'Integrations'], bento: 'wide' },
 ]
 
 const process = [
-  { icon: '01', title: 'Tell us the goal', description: 'Share the problem, your users, your current tools, and what a useful outcome looks like.' },
-  { icon: '02', title: 'Get a clear plan', description: 'We define the right scope, deliverables, timeline, and communication rhythm before work begins.' },
-  { icon: '03', title: 'Build, review, launch', description: 'You see working progress in stages, give feedback early, and receive a clear handover at launch.' },
+  { icon: '01', title: 'Discover', description: 'We understand the business problem, users, current tools, and the outcome worth improving.' },
+  { icon: '02', title: 'Scope', description: 'You receive a plain-English scope, milestones, starting price, and a realistic timeline before work begins.' },
+  { icon: '03', title: 'Build', description: 'We build in focused stages, sharing progress early so feedback arrives when it is most useful.' },
+  { icon: '04', title: 'Review & launch', description: 'We test the important journeys together, resolve the final details, and put the work live.' },
+  { icon: '05', title: 'Handover', description: 'You receive the project access, code, documentation, and a clear next-step plan.' },
 ]
 
 const previousWork = [
   {
     title: 'Lead Conversion Platform',
-    description: 'A lead-conversion experience with dynamic forms designed to make campaign journeys and enquiry capture more direct.',
+    context: 'Campaign journeys needed a clearer route from interest to enquiry.',
+    delivered: 'A lead-conversion experience with dynamic forms and a simpler enquiry path.',
     tech: ['React', 'TypeScript', 'Dynamic forms'],
     link: 'https://ccbp.in/intensive',
   },
   {
     title: 'Pulse AI',
-    description: 'A WhatsApp AI platform that grounds answers in a knowledge base and gives teams a live view of conversations.',
+    context: 'Teams needed a better way to answer repeat questions without losing visibility.',
+    delivered: 'A WhatsApp AI platform grounded in a knowledge base, with a live conversation view.',
     tech: ['RAG', 'WhatsApp API', 'React', 'Node.js'],
   },
   {
     title: 'HoomanLabs Voice Agents',
-    description: 'Voice-agent setup and configuration, with conversational prompts and workflow choices shaped around the intended experience.',
+    context: 'The voice journey needed to sound useful and route people reliably.',
+    delivered: 'Voice-agent setup, conversational prompts, and workflow choices shaped around the intended experience.',
     tech: ['Voice agents', 'Prompting', 'Workflow design'],
   },
   {
     title: 'AI-Powered Communication System',
-    description: 'A communication helper that turns spreadsheet details into personalized WhatsApp messages using reusable templates.',
+    context: 'Manual follow-up from spreadsheet information took too much repetitive effort.',
+    delivered: 'A communication helper that turns spreadsheet details into reusable, personalised WhatsApp messages.',
     tech: ['WhatsApp', 'Google Sheets API', 'React'],
   },
 ]
@@ -176,11 +186,12 @@ function Home() {
         <section id="hero" className="hero" aria-labelledby="hero-heading">
           <div className="hero-grid">
             <div className="hero-copy">
-              <p className="hero-label"><span className="hero-label-dot" aria-hidden="true" />Websites · E-commerce · Full-stack · AI</p>
+              <p className="hero-label"><span className="hero-label-dot" aria-hidden="true" />For growing businesses · India & remote</p>
               <h1 id="hero-heading" className="hero-name">Bhanu<span className="hero-surname text-gradient">Beyond</span></h1>
-              <p className="hero-role">Build beyond the expected.</p>
-              <p className="hero-intro">BB Technologies builds <strong>websites and e-commerce stores, full-stack products, and practical AI systems</strong>—including chatbots, RAG, and workflow automation—for businesses ready to improve a product, customer experience, or workflow.</p>
-              <div className="hero-actions"><button type="button" className="glass-btn glass-btn--primary" onClick={() => setContactOpen(true)}>Start a project</button><a href="#projects" className="hero-text-link">Explore solutions <span aria-hidden="true">→</span></a></div>
+              <p className="hero-role">Digital systems that make the next move easier.</p>
+              <p className="hero-intro">BB Technologies builds <strong>high-converting websites, useful custom software, and practical AI automation</strong> for businesses ready to improve how they sell, serve, and operate.</p>
+              <div className="hero-trust" aria-label="How BhanuBeyond works"><span>Clear scope</span><span>Practical handover</span><span>Reply in 1–2 business days</span></div>
+              <div className="hero-actions"><a className="glass-btn glass-btn--primary" href={getWhatsAppUrl()} target="_blank" rel="noopener noreferrer" onClick={reportWhatsAppConversion}>Start on WhatsApp <span aria-hidden="true">↗</span></a><a href="#projects" className="hero-text-link">Explore solutions <span aria-hidden="true">→</span></a></div>
             </div>
             <div className="hero-summary glass" aria-label="BhanuBeyond services">
               <div className="hero-summary-top"><span className="hero-summary-spark" aria-hidden="true">✦</span><p className="hero-summary-label">Built for momentum</p></div>
@@ -203,7 +214,7 @@ function Home() {
         </section>
 
         <section id="process" className="section" aria-labelledby="process-heading">
-          <header className="section-head" data-reveal><span className="section-label">02 — Process</span><h2 id="process-heading" className="section-title">Simple from first message to launch</h2><p className="section-subtitle">No technical vocabulary required. We make the next step clear.</p></header>
+          <header className="section-head" data-reveal><span className="section-label">02 — Process</span><h2 id="process-heading" className="section-title">A clear path from problem to handover</h2><p className="section-subtitle">You see the scope, progress, launch plan, and ownership details before surprises can grow.</p></header>
           <div className="timeline">{process.map((step) => <article key={step.icon} className="timeline-card" data-reveal><div className="timeline-icon">{step.icon}</div><div className="timeline-body"><div className="timeline-top"><h3>{step.title}</h3></div><p className="timeline-desc">{step.description}</p></div></article>)}</div>
         </section>
 
@@ -213,7 +224,7 @@ function Home() {
             const isExpanded = expandedSolutionTech === index
             const visibleTech = isExpanded ? capability.tech : capability.tech.slice(0, 2)
             const remainingCount = capability.tech.length - 2
-            return <article key={capability.title} data-reveal className="solution-item"><span className="solution-index">0{index + 1}</span><div><h3 className="bento-title">{capability.title}</h3><p className="bento-desc">{capability.description}</p>{capability.highlights && <ul className="bento-highlights">{capability.highlights.map((point) => <li key={point}>{point}</li>)}</ul>}<div className="solution-tech"><p className="solution-tech-label">Technologies</p><div className="bento-tech">{visibleTech.map((tech) => <span key={tech} className="glass-tag">{tech}</span>)}{remainingCount > 0 && <button type="button" className="technology-more" onClick={() => setExpandedSolutionTech(isExpanded ? null : index)} aria-expanded={isExpanded}>{isExpanded ? '− Show less' : `+ ${remainingCount} more`}</button>}</div></div></div></article>
+            return <article key={`${capability.title}-${index}`} data-reveal className="solution-item"><span className="solution-index">0{index + 1}</span><div><h3 className="bento-title">{capability.title}</h3><p className="bento-desc">{capability.description}</p>{capability.highlights && <ul className="bento-highlights">{capability.highlights.map((point) => <li key={point}>{point}</li>)}</ul>}<div className="solution-tech"><p className="solution-tech-label">Technologies</p><div className="bento-tech">{visibleTech.map((tech) => <span key={tech} className="glass-tag">{tech}</span>)}{remainingCount > 0 && <button type="button" className="technology-more" onClick={() => setExpandedSolutionTech(isExpanded ? null : index)} aria-expanded={isExpanded}>{isExpanded ? '− Show less' : `+ ${remainingCount} more`}</button>}</div></div><Link className="solution-link" to={capability.path}>See service details <span aria-hidden="true">→</span></Link></div></article>
           })}</div>
         </section>
 
@@ -227,12 +238,12 @@ function Home() {
         </section>
 
         <section id="previous-work" className="section" aria-labelledby="previous-work-heading">
-          <header className="section-head" data-reveal><span className="section-label">05 — Previous Work</span><h2 id="previous-work-heading" className="section-title">Selected work from before BB Technologies</h2><p className="section-subtitle">These examples reflect Bhanu’s earlier work and experience. They are not presented as projects commissioned by BB Technologies.</p></header>
+          <header className="section-head" data-reveal><span className="section-label">05 — Build experience</span><h2 id="previous-work-heading" className="section-title">Selected problems turned into useful systems</h2><p className="section-subtitle">Examples from Bhanu’s earlier work. They show the kinds of business problems and delivery work that inform BB Technologies today.</p></header>
           <div className="bento-grid previous-work-grid">{previousWork.slice(0, 3).map((project, index) => <article key={project.title} className="bento-card glass lift previous-work-card">
-            <span className="bento-index">0{index + 1}</span><h3 className="bento-title">{project.title}</h3><p className="bento-desc">{project.description}</p><div className="bento-tech">{project.tech.map((tech) => <span key={tech} className="glass-tag">{tech}</span>)}</div>{project.link && <a className="glass-btn glass-btn--primary previous-work-link" href={project.link} target="_blank" rel="noopener noreferrer">View project <span aria-hidden="true">↗</span></a>}
+            <span className="bento-index">0{index + 1}</span><h3 className="bento-title">{project.title}</h3><p className="case-label">Context</p><p className="bento-desc">{project.context}</p><p className="case-label">Delivered</p><p className="bento-desc">{project.delivered}</p><div className="bento-tech">{project.tech.map((tech) => <span key={tech} className="glass-tag">{tech}</span>)}</div>{project.link && <a className="glass-btn glass-btn--primary previous-work-link" href={project.link} target="_blank" rel="noopener noreferrer">View project <span aria-hidden="true">↗</span></a>}
           </article>)}</div>
           <div id="previous-work-more" className="bento-grid previous-work-grid previous-work-more" hidden={!showAllWork}><article className="bento-card glass lift previous-work-card">
-            <span className="bento-index">04</span><h3 className="bento-title">{previousWork[3].title}</h3><p className="bento-desc">{previousWork[3].description}</p><div className="bento-tech">{previousWork[3].tech.map((tech) => <span key={tech} className="glass-tag">{tech}</span>)}</div>
+            <span className="bento-index">04</span><h3 className="bento-title">{previousWork[3].title}</h3><p className="case-label">Context</p><p className="bento-desc">{previousWork[3].context}</p><p className="case-label">Delivered</p><p className="bento-desc">{previousWork[3].delivered}</p><div className="bento-tech">{previousWork[3].tech.map((tech) => <span key={tech} className="glass-tag">{tech}</span>)}</div>
           </article></div>
           <button type="button" className="more-work-button" onClick={() => setShowAllWork((visible) => !visible)} aria-expanded={showAllWork} aria-controls="previous-work-more">
             {showAllWork ? '− Show less' : <>+ More work <span className="more-work-count">1</span></>}
