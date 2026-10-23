@@ -18,8 +18,8 @@
   inset: -20% -10% auto -10%;
   height: 620px;
   background:
-    radial-gradient(420px 320px at 18% 22%, rgba(49, 91, 232, 0.2), transparent 70%),
-    radial-gradient(460px 340px at 82% 8%, rgba(221, 90, 67, 0.16), transparent 72%);
+    radial-gradient(420px 320px at 18% 22%, rgba(255, 154, 87, 0.2), transparent 70%),
+    radial-gradient(460px 340px at 82% 8%, rgba(255, 192, 120, 0.16), transparent 72%);
   filter: blur(8px);
   pointer-events: none;
   z-index: 0;
@@ -69,6 +69,7 @@
 }
 
 .hero-bb-mark {
+  filter: brightness(0) saturate(100%) invert(73%) sepia(39%) saturate(1260%) hue-rotate(326deg);
   display: block;
   width: clamp(164px, 13.2vw, 198px);
   height: auto;
@@ -208,9 +209,9 @@
 .hero-summary {
   position: relative;
   padding: clamp(22px, 3vw, 36px);
-  background: linear-gradient(145deg, #e9efff, #ffffff 68%);
-  border-color: #b9c8fb;
-  box-shadow: 0 24px 56px -26px rgba(49, 91, 232, 0.38), 0 8px 22px -14px rgba(17, 26, 58, 0.18);
+  background: var(--panel-gradient);
+  border-color: var(--border-strong);
+  box-shadow: 0 24px 56px -26px rgba(255, 154, 87, 0.38), 0 8px 22px -14px rgba(0, 0, 0, 0.18);
   overflow: hidden;
 }
 
@@ -222,7 +223,7 @@
   right: -86px;
   top: -86px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(221, 90, 67, 0.22), rgba(221, 90, 67, 0));
+  background: radial-gradient(circle, rgba(255, 192, 120, 0.22), rgba(255, 192, 120, 0));
   pointer-events: none;
 }
 
@@ -241,7 +242,7 @@
   place-items: center;
   border-radius: 8px;
   background: var(--accent);
-  color: #fff;
+  color: var(--on-accent);
   font-size: 0.85rem;
   box-shadow: 0 8px 16px -9px var(--accent);
 }
@@ -437,7 +438,7 @@
   min-height: 360px;
   padding: 8px;
   overflow: hidden;
-  background: #e8ebf2;
+  background: var(--bg-alt);
 }
 
 .about-photo {
@@ -686,7 +687,7 @@
 }
 
 .solution-item:hover {
-  background: rgba(255, 255, 255, 0.6);
+  background: rgba(36, 29, 25, 0.75);
 }
 
 .solution-index {
@@ -1213,7 +1214,7 @@
 }
 
 .project-dialog::backdrop {
-  background: rgba(15, 18, 30, 0.56);
+  background: rgba(14, 10, 8, 0.78);
   backdrop-filter: blur(5px);
 }
 

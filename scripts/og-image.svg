@@ -1,32 +1,32 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <rect width="1200" height="630" fill="#ffffff" />
-  <rect x="0" y="0" width="1200" height="8" fill="#2f5dff" />
+  <rect width="1200" height="630" fill="#141110" />
+  <rect x="0" y="0" width="1200" height="8" fill="#ff9a57" />
   <g font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif">
-    <text x="80" y="150" font-size="22" font-weight="600" letter-spacing="3" fill="#2f5dff">
+    <text x="80" y="150" font-size="22" font-weight="600" letter-spacing="3" fill="#ff9a57">
       WEBSITES · SOFTWARE · AI AUTOMATION
     </text>
-    <text x="80" y="250" font-size="76" font-weight="700" letter-spacing="-2" fill="#14140f">
+    <text x="80" y="250" font-size="76" font-weight="700" letter-spacing="-2" fill="#fff3e6">
       BhanuBeyond
     </text>
-    <text x="80" y="330" font-size="40" font-weight="500" fill="#55554e">
+    <text x="80" y="330" font-size="40" font-weight="500" fill="#d0b9a8">
       Build beyond the expected.
     </text>
-    <text x="80" y="410" font-size="27" font-weight="400" fill="#55554e">
+    <text x="80" y="410" font-size="27" font-weight="400" fill="#d0b9a8">
       Portfolio sites · Business websites · Custom software · AI systems
     </text>
     <g transform="translate(80, 470)">
-      <rect x="0" y="0" width="290" height="58" rx="29" fill="#f7f7f5" stroke="#e6e6e3" />
+      <rect x="0" y="0" width="290" height="58" rx="29" fill="#241d19" stroke="#40312a" />
       <circle cx="34" cy="29" r="6" fill="#1fa971" />
-      <text x="54" y="37" font-size="20" font-weight="500" fill="#14140f">Taking on new projects</text>
+      <text x="54" y="37" font-size="20" font-weight="500" fill="#fff3e6">Taking on new projects</text>
     </g>
-    <text x="80" y="580" font-size="20" font-weight="400" fill="#8a8a80">
+    <text x="80" y="580" font-size="20" font-weight="400" fill="#af9583">
       BhanuBeyond Technologies · Replies within 1–2 business days
     </text>
   </g>
   <g transform="translate(980, 210)">
-    <rect x="0" y="0" width="140" height="140" rx="32" fill="#2f5dff" />
+    <rect x="0" y="0" width="140" height="140" rx="32" fill="#ff9a57" />
     <text x="70" y="70" text-anchor="middle" dominant-baseline="central"
       font-family="Inter, system-ui, sans-serif" font-size="64" font-weight="700"
-      letter-spacing="-3" fill="#ffffff">BB</text>
+      letter-spacing="-3" fill="#23150e">BB</text>
   </g>
 </svg>
