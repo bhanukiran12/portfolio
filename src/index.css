@@ -1,24 +1,24 @@
-/* Ember · Charcoal surfaces · Copper and amber light */
+/* Ember · Warm ivory surfaces · Copper and amber accents */
 
 :root {
-  color-scheme: dark;
-  --accent-hover: #ffb47f;
-  --on-accent: #23150e;
-  --error-bg: #391e1b;
-  --error-border: #8c4940;
-  --error-text: #ffb4a8;
-  --panel-gradient: linear-gradient(145deg, #38251b, var(--surface) 70%);
-  --bg: #141110;
-  --bg-alt: #201a17;
-  --surface: #241d19;
-  --border: #40312a;
-  --border-strong: #79513b;
-  --text-primary: #fff3e6;
-  --text-secondary: #d0b9a8;
-  --text-muted: #af9583;
-  --accent: #ff9a57;
-  --accent-2: #ffc078;
-  --accent-soft: #38251b;
+  color-scheme: light;
+  --accent-hover: #85360f;
+  --on-accent: #ffffff;
+  --error-bg: #fff0ed;
+  --error-border: #c56b5d;
+  --error-text: #a12d20;
+  --panel-gradient: linear-gradient(145deg, #fff0e3, var(--surface) 70%);
+  --bg: #fffcf8;
+  --bg-alt: #f6efe7;
+  --surface: #ffffff;
+  --border: #e5d8cc;
+  --border-strong: #b8957b;
+  --text-primary: #2c211b;
+  --text-secondary: #625044;
+  --text-muted: #786455;
+  --accent: #a34416;
+  --accent-2: #956018;
+  --accent-soft: #fcebdc;
   --accent-gradient: linear-gradient(100deg, var(--accent), var(--accent-2));
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
   --shadow-hover: 0 14px 34px -10px rgba(214, 101, 44, 0.18), 0 3px 10px rgba(0, 0, 0, 0.06);

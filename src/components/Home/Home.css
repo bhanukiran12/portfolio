@@ -687,7 +687,7 @@
 }
 
 .solution-item:hover {
-  background: rgba(36, 29, 25, 0.75);
+  background: var(--bg-alt);
 }
 
 .solution-index {

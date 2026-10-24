@@ -2,7 +2,7 @@
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: rgba(20, 17, 16, 0.8);
+  background: rgba(255, 252, 248, 0.8);
   backdrop-filter: saturate(1.4) blur(8px);
   -webkit-backdrop-filter: saturate(1.4) blur(8px);
   border-bottom: 1px solid transparent;
@@ -10,7 +10,7 @@
 }
 
 .header--scrolled {
-  background: rgba(20, 17, 16, 0.95);
+  background: rgba(255, 252, 248, 0.95);
   border-bottom-color: var(--border);
   box-shadow: 0 1px 0 rgba(20, 20, 15, 0.03), 0 8px 24px -16px rgba(20, 20, 15, 0.2);
 }
@@ -34,7 +34,7 @@
 }
 
 .brand-logo {
-  filter: brightness(0) invert(94%) sepia(15%) saturate(480%) hue-rotate(330deg);
+  filter: brightness(0) saturate(100%) invert(12%) sepia(15%) saturate(1180%) hue-rotate(338deg);
   display: block;
   width: 190px;
   height: auto;
