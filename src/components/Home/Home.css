@@ -19,7 +19,7 @@
   height: 620px;
   background:
     radial-gradient(420px 320px at 18% 22%, rgba(255, 154, 87, 0.2), transparent 70%),
-    radial-gradient(460px 340px at 82% 8%, rgba(255, 192, 120, 0.16), transparent 72%);
+    radial-gradient(460px 340px at 82% 8%, rgba(49, 91, 124, 0.12), transparent 72%);
   filter: blur(8px);
   pointer-events: none;
   z-index: 0;
@@ -69,7 +69,6 @@
 }
 
 .hero-bb-mark {
-  filter: brightness(0) saturate(100%) invert(73%) sepia(39%) saturate(1260%) hue-rotate(326deg);
   display: block;
   width: clamp(164px, 13.2vw, 198px);
   height: auto;
@@ -223,7 +222,7 @@
   right: -86px;
   top: -86px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 192, 120, 0.22), rgba(255, 192, 120, 0));
+  background: radial-gradient(circle, rgba(49, 91, 124, 0.14), rgba(49, 91, 124, 0));
   pointer-events: none;
 }
 

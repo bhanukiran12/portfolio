@@ -35,7 +35,7 @@ function Header() {
       <div className="header-inner">
         <Link to="/" className="brand" onClick={closeMenu}>
           <img
-            src="/images/bhanubeyond-logo-optimized.png"
+            src="/images/bhanubeyond-logo.svg"
             alt="BhanuBeyond Technologies"
             className="brand-logo"
             width={900}

@@ -1,4 +1,4 @@
-/* Ember · Warm ivory surfaces · Copper and amber accents */
+/* Warm ivory surfaces with ember and muted steel blue branding */
 
 :root {
   color-scheme: light;
@@ -7,7 +7,7 @@
   --error-bg: #fff0ed;
   --error-border: #c56b5d;
   --error-text: #a12d20;
-  --panel-gradient: linear-gradient(145deg, #fff0e3, var(--surface) 70%);
+  --panel-gradient: linear-gradient(145deg, #fff0e3, var(--surface) 50%, #edf3f7);
   --bg: #fffcf8;
   --bg-alt: #f6efe7;
   --surface: #ffffff;
@@ -17,7 +17,9 @@
   --text-secondary: #625044;
   --text-muted: #786455;
   --accent: #a34416;
-  --accent-2: #956018;
+  --accent-2: #315b7c;
+  --accent-2-hover: #24445e;
+  --accent-2-soft: #edf3f7;
   --accent-soft: #fcebdc;
   --accent-gradient: linear-gradient(100deg, var(--accent), var(--accent-2));
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
@@ -163,9 +165,15 @@ select:focus-visible {
 }
 
 .glass-btn--secondary {
-  background: var(--accent-soft);
-  border-color: var(--accent-soft);
-  color: var(--accent);
+  background: var(--accent-2-soft);
+  border-color: var(--accent-2);
+  color: var(--accent-2);
+}
+
+.glass-btn--secondary:hover {
+  background: var(--accent-2-soft);
+  border-color: var(--accent-2-hover);
+  color: var(--accent-2-hover);
 }
 
 .glass-tag {
