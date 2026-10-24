@@ -1,17 +1,17 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <rect width="1200" height="630" fill="#fffcf8" />
-  <rect x="0" y="0" width="1200" height="8" fill="#ff7e00" />
+  <rect x="0" y="0" width="1200" height="8" fill="#e87300" />
   <g font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif">
-    <text x="80" y="150" font-size="22" font-weight="600" letter-spacing="3" fill="#ff7e00">
+    <text x="80" y="150" font-size="22" font-weight="600" letter-spacing="3" fill="#e87300">
       WEBSITES · SOFTWARE · AI AUTOMATION
     </text>
     <text x="80" y="250" font-size="76" font-weight="700" letter-spacing="-2" fill="#2c211b">
-      <tspan fill="#ff7e00">Bhanu</tspan><tspan fill="#4b9dff">Beyond</tspan>
+      <tspan fill="#e87300">Bhanu</tspan><tspan fill="#3586df">Beyond</tspan>
     </text>
-    <text x="80" y="330" font-size="40" font-weight="500" fill="#4b9dff">
+    <text x="80" y="330" font-size="40" font-weight="500" fill="#3586df">
       Build beyond the expected.
     </text>
-    <text x="80" y="410" font-size="27" font-weight="400" fill="#4b9dff">
+    <text x="80" y="410" font-size="27" font-weight="400" fill="#3586df">
       Portfolio sites · Business websites · Custom software · AI systems
     </text>
     <g transform="translate(80, 470)">
@@ -24,7 +24,7 @@
     </text>
   </g>
   <g transform="translate(980, 210)">
-    <rect x="0" y="0" width="140" height="140" rx="32" fill="#ff7e00" />
+    <rect x="0" y="0" width="140" height="140" rx="32" fill="#e87300" />
     <text x="70" y="70" text-anchor="middle" dominant-baseline="central"
       font-family="Inter, system-ui, sans-serif" font-size="64" font-weight="700"
       letter-spacing="-3" fill="#23150e">BB</text>
