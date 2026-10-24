@@ -137,7 +137,7 @@
 }
 
 .ai-error-fallback a {
-  color: var(--accent);
+  color: var(--accent-text);
   border-bottom: 1px solid var(--accent);
 }
 

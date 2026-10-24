@@ -1,4 +1,4 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
   <rect width="64" height="64" rx="16" fill="#fffcf8"/>
-  <text x="9" y="43" font-family="Arial, Helvetica, sans-serif" font-size="31" font-weight="800" letter-spacing="-3"><tspan fill="#a34416">B</tspan><tspan fill="#315b7c">B</tspan></text>
+  <text x="9" y="43" font-family="Arial, Helvetica, sans-serif" font-size="31" font-weight="800" letter-spacing="-3"><tspan fill="#ff7e00">B</tspan><tspan fill="#4b9dff">B</tspan></text>
 </svg>

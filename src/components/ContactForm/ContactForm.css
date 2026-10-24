@@ -22,7 +22,7 @@
 }
 
 .contact-form-required {
-  color: var(--accent);
+  color: var(--accent-text);
 }
 
 .contact-form-input {

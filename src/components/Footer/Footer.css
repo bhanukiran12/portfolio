@@ -51,9 +51,9 @@
 }
 
 .footer-nav button:hover {
-  color: var(--accent);
+  color: var(--accent-text);
 }
 
 .footer-nav a:hover {
-  color: var(--accent);
+  color: var(--accent-text);
 }

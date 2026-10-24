@@ -80,7 +80,7 @@
 .wwm-card-inner h3 {
   font-size: 0.9rem;
   font-weight: 600;
-  color: var(--accent);
+  color: var(--accent-text);
   margin-bottom: 8px;
 }
 

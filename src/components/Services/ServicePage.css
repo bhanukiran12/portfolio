@@ -4,18 +4,18 @@
 .service-intro { max-width: 64ch; margin-top: 24px; color: var(--text-secondary); font-size: clamp(1.05rem, 1.8vw, 1.25rem); line-height: 1.75; }
 .service-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 22px; margin-top: 30px; }
 .service-back { color: var(--text-secondary); font-weight: 600; border-bottom: 1px solid var(--border-strong); padding: 7px 0; }
-.service-back:hover { color: var(--accent); border-color: var(--accent); }
-.service-price { display: inline-block; margin-top: 30px; padding: 9px 13px; border: 1px solid var(--border); border-radius: 999px; background: var(--accent-soft); color: var(--accent); font: 600 .78rem var(--font-mono); letter-spacing: .03em; }
+.service-back:hover { color: var(--accent-text); border-color: var(--accent); }
+.service-price { display: inline-block; margin-top: 30px; padding: 9px 13px; border: 1px solid var(--border); border-radius: 999px; background: var(--accent-soft); color: var(--accent-text); font: 600 .78rem var(--font-mono); letter-spacing: .03em; }
 .service-section { margin-top: clamp(64px, 9vw, 110px); }
 .service-section h2, .service-cta h2 { font-size: clamp(1.7rem, 3.4vw, 2.7rem); }
 .service-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 28px; }
 .service-card { min-height: 190px; padding: 24px; }
-.service-card span { color: var(--accent); font: 600 .72rem var(--font-mono); letter-spacing: .08em; }
+.service-card span { color: var(--accent-text); font: 600 .72rem var(--font-mono); letter-spacing: .08em; }
 .service-card p { margin-top: 32px; color: var(--text-secondary); line-height: 1.65; }
 .service-includes { padding: clamp(28px, 5vw, 52px); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
 .service-includes ul { display: grid; gap: 14px; margin-top: 26px; list-style: none; }
 .service-includes li { position: relative; padding-left: 24px; color: var(--text-secondary); line-height: 1.6; }
-.service-includes li::before { content: '✓'; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
+.service-includes li::before { content: '✓'; position: absolute; left: 0; color: var(--accent-text); font-weight: 700; }
 .service-faqs { margin-top: 26px; border-top: 1px solid var(--border); }
 .service-faqs details { padding: 20px 0; border-bottom: 1px solid var(--border); }
 .service-faqs summary { cursor: pointer; color: var(--text-primary); font-weight: 600; }
