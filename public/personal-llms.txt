@@ -1,8 +1,14 @@
-# Bhanu Kiran Vemula
+# Vemula Bhanu Kiran
 
 Professional portfolio: https://www.bhanubeyond.com/
-Focus: full-stack development, applied AI, frontend engineering, and technical mentoring.
-Selected projects: Conversion Platform, Pulse AI, AI-Powered Communication System, and Schedora.
+Location: Madhapur, Hyderabad, Telangana, India.
+Focus: full-stack development, backend systems, and AI application engineering.
+Selected projects: Schedora (https://schedora.in/), WhatsApp AI Support Chatbot (OpenAI API, RAG, Supabase PostgreSQL, pgvector, Gallabox), and Lead Management and CRM Automation.
+Current role: Team Lead Manager, NxtWave, April 2025–Present.
+Previous roles: Associate Mentor, NIAT, December 2024–April 2025; Frontend Development Intern, Mentorify, January–May 2024.
+Training: MERN Stack Trainee, NxtWave, January–December 2024.
+Education: B.Tech in Computer Science and Engineering, VIT-AP University, 2020–2024; CGPA 8.09/10.
+Phone: +91 6309499278
 Contact: bhanukiran750@gmail.com
 GitHub: https://github.com/bhanukiran12
 LinkedIn: https://www.linkedin.com/in/bhanu-kiran-vemula/

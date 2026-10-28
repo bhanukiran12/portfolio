@@ -24,4 +24,4 @@ The domain uses external GoDaddy nameservers. Add a `CNAME` record named `bbtech
 
 ## Content
 
-Personal project, skill, experience, and contact details are in `src/professional/ProfessionalPortfolio.tsx`. Initial content was recovered from earlier portfolio commits and the current project content. The team-lead start date is retained without assuming the role is still current. Update this information as your experience changes.
+Personal project, skill, experience, education, training, and contact details are in `src/professional/ProfessionalPortfolio.tsx`. Content is aligned with the resume supplied by Vemula Bhanu Kiran on 28 October 2026. The original supplied portrait is served from `public/images/vemula-bhanu-kiran.jpg`. Update this information as your experience changes.
