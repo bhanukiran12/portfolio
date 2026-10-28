@@ -1,31 +1,111 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "headers": [
+  "routes": [
     {
-      "source": "/(.*)",
-      "headers": [
-        { "key": "Strict-Transport-Security", "value": "max-age=63072000" },
-        { "key": "X-Content-Type-Options", "value": "nosniff" },
-        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
-        { "key": "X-Frame-Options", "value": "DENY" },
-        { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=()" }
+      "src": "/(.*)",
+      "headers": {
+        "Strict-Transport-Security": "max-age=63072000",
+        "X-Content-Type-Options": "nosniff",
+        "Referrer-Policy": "strict-origin-when-cross-origin",
+        "X-Frame-Options": "DENY",
+        "Permissions-Policy": "camera=(), microphone=(), geolocation=()"
+      },
+      "continue": true
+    },
+    {
+      "src": "/robots.txt",
+      "dest": "/personal-robots.txt",
+      "has": [
+        {
+          "type": "host",
+          "value": "(www\\.)?bhanubeyond\\.com|bhanukiran\\.vercel\\.app"
+        }
       ]
+    },
+    {
+      "src": "/sitemap.xml",
+      "dest": "/personal-sitemap.xml",
+      "has": [
+        {
+          "type": "host",
+          "value": "(www\\.)?bhanubeyond\\.com|bhanukiran\\.vercel\\.app"
+        }
+      ]
+    },
+    {
+      "src": "/llms.txt",
+      "dest": "/personal-llms.txt",
+      "has": [
+        {
+          "type": "host",
+          "value": "(www\\.)?bhanubeyond\\.com|bhanukiran\\.vercel\\.app"
+        }
+      ]
+    },
+    {
+      "src": "/favicon.svg",
+      "dest": "/personal-favicon.svg",
+      "has": [
+        {
+          "type": "host",
+          "value": "(www\\.)?bhanubeyond\\.com|bhanukiran\\.vercel\\.app"
+        }
+      ]
+    },
+    {
+      "src": "/((?!api/|assets/|images/|personal-|professional\\.html).*)",
+      "dest": "/professional.html",
+      "has": [
+        {
+          "type": "host",
+          "value": "(www\\.)?bhanubeyond\\.com|bhanukiran\\.vercel\\.app"
+        }
+      ]
+    },
+    {
+      "src": "/professional.html",
+      "dest": "/index.html",
+      "has": [
+        {
+          "type": "host",
+          "value": "bbtech\\.bhanubeyond\\.com"
+        }
+      ]
+    },
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "/work-with-me",
+      "dest": "/index.html"
+    },
+    {
+      "src": "/web-experiences",
+      "dest": "/index.html"
+    },
+    {
+      "src": "/custom-software",
+      "dest": "/index.html"
+    },
+    {
+      "src": "/ai-automation",
+      "dest": "/index.html"
+    },
+    {
+      "src": "/insights",
+      "dest": "/index.html"
+    },
+    {
+      "src": "/insights/(.*)",
+      "dest": "/index.html"
+    },
+    {
+      "src": "/privacy",
+      "dest": "/index.html"
+    },
+    {
+      "src": "/terms",
+      "dest": "/index.html"
     }
-  ],
-  "rewrites": [
-    { "source": "/robots.txt", "has": [{ "type": "host", "value": "(www\\.)?bhanubeyond\\.com|bhanukiran\\.vercel\\.app" }], "destination": "/personal-robots.txt" },
-    { "source": "/sitemap.xml", "has": [{ "type": "host", "value": "(www\\.)?bhanubeyond\\.com|bhanukiran\\.vercel\\.app" }], "destination": "/personal-sitemap.xml" },
-    { "source": "/llms.txt", "has": [{ "type": "host", "value": "(www\\.)?bhanubeyond\\.com|bhanukiran\\.vercel\\.app" }], "destination": "/personal-llms.txt" },
-    { "source": "/favicon.svg", "has": [{ "type": "host", "value": "(www\\.)?bhanubeyond\\.com|bhanukiran\\.vercel\\.app" }], "destination": "/personal-favicon.svg" },
-    { "source": "/((?!api/|assets/|images/|personal-|professional\\.html).*)", "has": [{ "type": "host", "value": "(www\\.)?bhanubeyond\\.com|bhanukiran\\.vercel\\.app" }], "destination": "/professional.html" },
-    { "source": "/professional.html", "has": [{ "type": "host", "value": "bbtech\\.bhanubeyond\\.com" }], "destination": "/index.html" },
-    { "source": "/work-with-me", "destination": "/index.html" },
-    { "source": "/web-experiences", "destination": "/index.html" },
-    { "source": "/custom-software", "destination": "/index.html" },
-    { "source": "/ai-automation", "destination": "/index.html" },
-    { "source": "/insights", "destination": "/index.html" },
-    { "source": "/insights/(.*)", "destination": "/index.html" },
-    { "source": "/privacy", "destination": "/index.html" },
-    { "source": "/terms", "destination": "/index.html" }
   ]
 }
