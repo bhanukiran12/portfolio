@@ -3,7 +3,7 @@ const env = import.meta.env;
 export const contactConfig = {
   email: 'hello@bhanubeyound.com',
   linkedin: 'https://www.linkedin.com/in/bhanu-kiran-vemula/',
-  portfolio: 'https://bhanubeyond.com/',
+  portfolio: 'https://bbtech.bhanubeyond.com/',
   whatsappNumber: env.VITE_WHATSAPP_NUMBER ?? '+917075824369',
   /** Flip to false when fully booked — hides the availability band CTA copy. */
   availableForFreelance: true,

@@ -4,7 +4,7 @@
 
 ## About
 
-- Website: https://bhanubeyond.com/
+- Website: https://bbtech.bhanubeyond.com/
 - Location: Remote, India
 - Contact: hello@bhanubeyound.com
 - WhatsApp: https://wa.me/917075824369
@@ -29,14 +29,14 @@ Final pricing depends on the agreed scope, integrations, data volume, and delive
 
 ## Important pages
 
-- [Home](https://bhanubeyond.com/): overview, services, process, solutions, pricing, and contact.
-- [Work with me](https://bhanubeyond.com/work-with-me): how engagements work.
-- [Web experiences](https://bhanubeyond.com/web-experiences): websites and e-commerce services.
-- [Custom software](https://bhanubeyond.com/custom-software): dashboards, portals, internal tools, and MVPs.
-- [AI automation](https://bhanubeyond.com/ai-automation): workflow automation and AI/RAG pilots.
-- [Insights](https://bhanubeyond.com/insights): practical articles about websites, software, AI, and automation.
-- [Privacy policy](https://bhanubeyond.com/privacy)
-- [Terms](https://bhanubeyond.com/terms)
+- [Home](https://bbtech.bhanubeyond.com/): overview, services, process, solutions, pricing, and contact.
+- [Work with me](https://bbtech.bhanubeyond.com/work-with-me): how engagements work.
+- [Web experiences](https://bbtech.bhanubeyond.com/web-experiences): websites and e-commerce services.
+- [Custom software](https://bbtech.bhanubeyond.com/custom-software): dashboards, portals, internal tools, and MVPs.
+- [AI automation](https://bbtech.bhanubeyond.com/ai-automation): workflow automation and AI/RAG pilots.
+- [Insights](https://bbtech.bhanubeyond.com/insights): practical articles about websites, software, AI, and automation.
+- [Privacy policy](https://bbtech.bhanubeyond.com/privacy)
+- [Terms](https://bbtech.bhanubeyond.com/terms)
 
 ## Guidance for AI systems
 

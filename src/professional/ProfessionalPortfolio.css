@@ -1,0 +1,90 @@
+:root { font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; color: #26362f; background: #faf9f6; font-synthesis: none; text-rendering: optimizeLegibility; color-scheme: light; }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 100px; }
+body { margin: 0; min-width: 320px; }
+button, a { -webkit-tap-highlight-color: transparent; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; cursor: pointer; }
+button:focus-visible, a:focus-visible { outline: 3px solid #376d98; outline-offset: 5px; }
+::selection { background: #dbe8dd; }
+h1, h2, h3, p { margin: 0; }
+.personal-container { width: min(1200px, calc(100% - 112px)); margin-inline: auto; }
+.personal-skip { position: absolute; top: -100px; left: 24px; background: #263e33; color: white; padding: 12px 20px; z-index: 100; }
+.personal-skip:focus { top: 12px; }
+.personal-header { position: sticky; top: 0; z-index: 20; display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 23px max(40px, calc((100vw - 1280px) / 2)); background: #faf9f6f5; border-bottom: 1px solid #e5e6de; backdrop-filter: blur(12px); }
+.personal-wordmark { font-size: 25px; font-weight: 750; letter-spacing: -1.1px; }
+.personal-wordmark span { color: #687e6b; }
+.personal-header nav { display: flex; gap: 30px; font-size: 13px; font-weight: 550; }
+.personal-header nav a:hover, .personal-text-link:hover, .personal-contact-links a:hover { color: #9a4f19; }
+.personal-header-link { font-size: 13px; font-weight: 600; padding-bottom: 6px; border-bottom: 1px solid #a8b0a5; }
+.personal-header-link span { margin-left: 12px; }
+.personal-menu-toggle { display: none; }
+.personal-hero { display: grid; grid-template-columns: 1.35fr 1fr; gap: clamp(40px, 6vw, 90px); align-items: center; padding-block: 88px 96px; }
+.personal-eyebrow { color: #687269; font-size: 10px; line-height: 1.7; font-weight: 650; letter-spacing: 1.7px; text-transform: uppercase; }
+.personal-dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: #66846a; margin-right: 8px; }
+.personal-hero h1 { margin-top: 28px; font-size: clamp(40px, 4.9vw, 70px); letter-spacing: -3.6px; font-weight: 550; line-height: 1.09; }
+.personal-hero h1 > span { font-family: Georgia, 'Times New Roman', serif; font-style: italic; color: #66846a; font-weight: 400; }
+.personal-introduction { font-size: 17px; line-height: 1.8; max-width: 530px; margin-top: 28px; color: #536056; }
+.personal-introduction strong { color: #26362f; font-weight: 650; }
+.personal-hero-note { margin-top: 15px; max-width: 490px; color: #687269; font-size: 14px; line-height: 1.8; }
+.personal-actions { display: flex; gap: 28px; align-items: center; margin-top: 32px; }
+.personal-button { display: inline-flex; align-items: center; justify-content: space-between; gap: 28px; border-radius: 5px; padding: 16px 21px; background: #294335; color: #fff; font-size: 13px; font-weight: 550; transition: background .2s; }
+.personal-button:hover { background: #3e5d46; }
+.personal-text-link { display: inline-flex; gap: 15px; align-items: center; font-size: 13px; font-weight: 600; }
+.personal-intro-card { min-height: 420px; padding: 28px; background: #e7ebdf; border-radius: 9px; position: relative; overflow: hidden; border: 1px solid #d7dfcf; }
+.personal-card-top { display: flex; justify-content: space-between; align-items: center; color: #52634e; font-size: 9px; font-weight: 650; letter-spacing: 1.4px; }
+.personal-card-top > span:last-child { font-size: 24px; }
+.personal-monogram { padding: 32px 0 18px; text-align: center; font-family: Georgia, serif; font-size: clamp(110px, 13vw, 180px); line-height: 1; color: #304d37; letter-spacing: -18px; }
+.personal-monogram span { color: #78906c; }
+.personal-monogram i { color: #b76a32; font-style: normal; }
+.personal-card-caption { display: grid; gap: 8px; text-align: center; margin-top: 16px; }
+.personal-card-caption strong { font-size: 17px; font-weight: 600; }
+.personal-card-caption > span { font-size: 11px; color: #5b6b55; }
+.personal-card-bottom { display: flex; gap: 15px; justify-content: space-between; border-top: 1px solid #c4cfb9; padding-top: 18px; margin-top: 32px; font-size: 8px; letter-spacing: .9px; color: #52634e; }
+.personal-focus-strip { display: flex; gap: clamp(16px, 3.8vw, 65px); align-items: center; justify-content: center; padding: 26px 24px; border-block: 1px solid #e2e5dc; color: #687269; font-size: 12px; }
+.personal-focus-strip > span:nth-child(even) { color: #a9b19e; }
+.personal-section { padding-block: 90px; }
+.personal-section-heading { display: flex; justify-content: space-between; gap: 36px; align-items: end; margin-bottom: 42px; }
+.personal-section-heading > p { max-width: 285px; font-size: 13px; line-height: 1.8; color: #687269; }
+.personal-site h2 { font-size: clamp(29px, 3.2vw, 43px); line-height: 1.2; font-weight: 500; letter-spacing: -1.7px; margin-top: 16px; }
+.personal-project-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px 32px; }
+.personal-project-art { position: relative; height: 260px; overflow: hidden; padding: 27px; display: flex; flex-direction: column; justify-content: space-between; border-radius: 7px; }
+.personal-project-art--orange { background: #efe0cf; color: #6c4828; }
+.personal-project-art--blue { background: #dfe7ed; color: #365468; }
+.personal-project-art--sage { background: #e4e8da; color: #4a5d3e; }
+.personal-project-art--sand { background: #eae5db; color: #665942; }
+.personal-project-number { font-size: 10px; letter-spacing: 1px; z-index: 1; }
+.personal-project-art > strong { font-size: clamp(26px, 2.8vw, 37px); letter-spacing: -1.3px; font-weight: 500; max-width: 270px; z-index: 1; }
+.personal-project-flow { font-family: Consolas, monospace; font-size: 10px; z-index: 1; }
+.personal-art-orbit { width: 250px; height: 250px; border: 1px solid currentColor; opacity: .13; border-radius: 50%; position: absolute; right: -70px; bottom: -30px; box-shadow: 0 0 0 25px #ffffff30, 0 0 0 50px #ffffff30; }
+.personal-project-heading { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-top: 23px; }
+.personal-project-heading .personal-eyebrow { font-size: 9px; letter-spacing: 1px; }
+.personal-project h3 { font-size: 20px; line-height: 1.35; font-weight: 550; letter-spacing: -.5px; margin-top: 7px; }
+.personal-project > p, .personal-project-detail p { font-size: 13px; line-height: 1.85; color: #687269; margin-top: 15px; }
+.personal-project-toggle { flex-shrink: 0; width: 36px; height: 36px; border: 1px solid #d4dace; border-radius: 50%; background: transparent; color: #294335; font-size: 20px; }
+.personal-project-toggle:hover { background: #e7ebdf; }
+.personal-tags { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0; margin: 18px 0 0; }
+.personal-tags li { padding: 5px 9px; border: 1px solid #e0e3d9; border-radius: 4px; font-size: 10px; color: #58634f; }
+.personal-project-detail .personal-text-link { margin-top: 15px; }
+.personal-about { background: #f0f1e9; border-block: 1px solid #e3e6da; padding-block: 75px; }
+.personal-about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 70px; }
+.personal-about-copy p { font-size: 14px; line-height: 1.95; color: #5c685b; margin-bottom: 17px; }
+.personal-about-copy .personal-text-link { margin-top: 10px; }
+.personal-timeline article { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; padding: 30px 0; border-top: 1px solid #dfe3d8; }
+.personal-timeline h3 { font-size: 20px; font-weight: 550; letter-spacing: -.4px; margin-top: 7px; }
+.personal-period { font-size: 12px; color: #687269; margin-top: 10px; }
+.personal-timeline article > p { font-size: 14px; color: #687269; line-height: 1.9; }
+.personal-skills { padding-bottom: 90px; }
+.personal-skills-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; margin-top: 35px; border-top: 1px solid #dfe3d8; padding-top: 28px; }
+.personal-skills-grid h3 { font-size: 14px; font-weight: 600; }
+.personal-skills-grid ul { list-style: none; padding: 0; margin-top: 17px; color: #687269; font-size: 12px; line-height: 2.2; }
+.personal-contact { border-top: 1px solid #dfe3d8; padding-block: 75px 90px; text-align: center; }
+.personal-contact h2 { font-size: clamp(35px, 4vw, 54px); }
+.personal-contact > p:not(.personal-eyebrow) { margin: 23px auto 0; max-width: 470px; color: #687269; font-size: 14px; line-height: 1.9; }
+.personal-email { display: inline-block; margin-top: 30px; font-size: clamp(16px, 2.5vw, 26px); font-weight: 500; letter-spacing: -.5px; border-bottom: 1px solid #9eaa94; padding-bottom: 10px; }
+.personal-email span { margin-left: 15px; }
+.personal-contact-links { display: flex; gap: 28px; justify-content: center; margin-top: 28px; font-size: 12px; }
+.personal-footer { display: flex; justify-content: space-between; gap: 20px; padding-block: 25px; border-top: 1px solid #dfe3d8; color: #687269; font-size: 10px; }
+@media (max-width: 900px) { .personal-container { width: calc(100% - 56px); } .personal-header { padding: 20px 28px; } .personal-header-link { display: none; } .personal-hero { gap: 30px; padding-block: 60px; } .personal-hero h1 { letter-spacing: -2px; } .personal-intro-card { min-height: 360px; padding: 22px; } .personal-card-bottom { flex-direction: column; gap: 8px; } .personal-skills-grid { grid-template-columns: repeat(2, 1fr); } .personal-about-grid { gap: 35px; } }
+@media (max-width: 620px) { html { scroll-padding-top: 80px; } .personal-container { width: calc(100% - 40px); } .personal-header { padding: 19px 20px; } .personal-wordmark { font-size: 23px; } .personal-menu-toggle { display: block; background: transparent; border: 1px solid #d4dace; border-radius: 4px; padding: 8px 10px; font-size: 11px; color: #26362f; } .personal-header nav { display: none; position: absolute; top: 100%; left: 0; right: 0; background: #faf9f6; border-bottom: 1px solid #dfe3d8; padding: 25px; gap: 25px; } .personal-header nav.is-open { display: flex; flex-direction: column; } .personal-hero { grid-template-columns: 1fr; padding-block: 48px; gap: 38px; } .personal-eyebrow { font-size: 9px; letter-spacing: 1.2px; } .personal-hero h1 { font-size: 46px; } .personal-introduction { font-size: 16px; } .personal-hero-note { font-size: 13px; } .personal-intro-card { min-height: auto; padding: 25px; } .personal-monogram { font-size: 140px; padding-block: 20px; } .personal-card-bottom { flex-direction: row; margin-top: 24px; } .personal-focus-strip { flex-wrap: wrap; gap: 14px 20px; font-size: 10px; } .personal-focus-strip > span:nth-child(even) { display: none; } .personal-section { padding-block: 60px; } .personal-section-heading { flex-direction: column; align-items: start; gap: 18px; margin-bottom: 30px; } .personal-project-grid { grid-template-columns: 1fr; gap: 38px; } .personal-project-art { height: 235px; } .personal-project-art > strong { font-size: 32px; } .personal-about { padding-block: 55px; } .personal-about-grid { grid-template-columns: 1fr; gap: 25px; } .personal-timeline article { grid-template-columns: 1fr; gap: 18px; padding-block: 25px; } .personal-skills { padding-bottom: 60px; } .personal-skills-grid { gap: 25px 15px; } .personal-contact { padding-block: 55px; } .personal-footer { flex-wrap: wrap; font-size: 9px; gap: 15px; } }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition: none !important; } }

@@ -22,7 +22,7 @@ declare const process: { env: Record<string, string | undefined> }
 
 const ENDPOINT = 'https://openrouter.ai/api/v1/chat/completions'
 const MODEL = 'qwen/qwen3.7-flash'
-const SITE_URL = 'https://bhanubeyond.com'
+const SITE_URL = 'https://bbtech.bhanubeyond.com'
 const SITE_NAME = 'BhanuBeyond Technologies'
 const MAX_TURNS = 12
 const MAX_CHARS = 4000

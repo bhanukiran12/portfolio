@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://bhanubeyond.com/sitemap.xml
+Sitemap: https://bbtech.bhanubeyond.com/sitemap.xml

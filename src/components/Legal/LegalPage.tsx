@@ -22,11 +22,11 @@ function LegalPage({ type }: LegalPageProps) {
     }
     meta.content = description
     const canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]')
-    if (canonical) canonical.href = `https://bhanubeyond.com${privacy ? '/privacy' : '/terms'}`
+    if (canonical) canonical.href = `https://bbtech.bhanubeyond.com${privacy ? '/privacy' : '/terms'}`
     return () => {
       document.title = 'BhanuBeyond Technologies — Websites, E-commerce, Software & AI'
       meta!.content = 'BhanuBeyond Technologies builds websites and e-commerce stores, full-stack products, AI chatbots, RAG systems, and workflow automation for businesses.'
-      if (canonical) canonical.href = 'https://bhanubeyond.com/'
+      if (canonical) canonical.href = 'https://bbtech.bhanubeyond.com/'
     }
   }, [privacy])
 
@@ -41,7 +41,7 @@ function LegalPage({ type }: LegalPageProps) {
 
         {privacy ? (
           <div className="legal-copy">
-            <p>This policy explains how BhanuBeyond Technologies (“BhanuBeyond”, “we”, “us”) handles information when you visit <a href="https://bhanubeyond.com">bhanubeyond.com</a>, contact us, or use the website’s AI assistant.</p>
+            <p>This policy explains how BhanuBeyond Technologies (“BhanuBeyond”, “we”, “us”) handles information when you visit <a href="https://bbtech.bhanubeyond.com">bbtech.bhanubeyond.com</a>, contact us, or use the website’s AI assistant.</p>
             <h2>Information you provide</h2>
             <p>If you use the contact form, we receive the name, email address, and message you submit. The form is processed by Formspree, which may filter spam before forwarding a valid enquiry to us. If you email or message us on WhatsApp, the relevant details are handled by that service and by us to respond.</p>
             <h2>AI assistant and technical data</h2>

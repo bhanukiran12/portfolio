@@ -13,6 +13,12 @@
     }
   ],
   "rewrites": [
+    { "source": "/robots.txt", "has": [{ "type": "host", "value": "(www\\.)?bhanubeyond\\.com|bhanukiran\\.vercel\\.app" }], "destination": "/personal-robots.txt" },
+    { "source": "/sitemap.xml", "has": [{ "type": "host", "value": "(www\\.)?bhanubeyond\\.com|bhanukiran\\.vercel\\.app" }], "destination": "/personal-sitemap.xml" },
+    { "source": "/llms.txt", "has": [{ "type": "host", "value": "(www\\.)?bhanubeyond\\.com|bhanukiran\\.vercel\\.app" }], "destination": "/personal-llms.txt" },
+    { "source": "/favicon.svg", "has": [{ "type": "host", "value": "(www\\.)?bhanubeyond\\.com|bhanukiran\\.vercel\\.app" }], "destination": "/personal-favicon.svg" },
+    { "source": "/((?!api/|assets/|images/|personal-|professional\\.html).*)", "has": [{ "type": "host", "value": "(www\\.)?bhanubeyond\\.com|bhanukiran\\.vercel\\.app" }], "destination": "/professional.html" },
+    { "source": "/professional.html", "has": [{ "type": "host", "value": "bbtech\\.bhanubeyond\\.com" }], "destination": "/index.html" },
     { "source": "/work-with-me", "destination": "/index.html" },
     { "source": "/web-experiences", "destination": "/index.html" },
     { "source": "/custom-software", "destination": "/index.html" },
